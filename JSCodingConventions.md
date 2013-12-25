@@ -212,9 +212,9 @@ From Google's style guide:
 > "Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided."
 
 ### Maximum Parameters
-Functions should have no more than 4 parameters.  If more than 4 are needed you can create an object that contains the parameters and pass that object to the function. 
+Functions should have no more than 4 parameters.  If more than 4 are needed you can create an object that contains the parameters and pass that object to the function.
 
-The one exception right now is AMD module dependencies.  
+The one exception right now is AMD module dependencies.
 
 Examples:
 ```javascript
@@ -229,8 +229,8 @@ function bakeCupcakes( ingredients ) {
 }
 
 // exception: AMD
-define( 'bakecupcakes', 
-    ['sugar', 'eggs', 'milk', 'icing', 'flour'],  
+define( 'bakecupcakes',
+    ['sugar', 'eggs', 'milk', 'icing', 'flour'],
     function( sugar, eggs, milk, icing, flour ) {
  // ...
 })
@@ -239,7 +239,7 @@ define( 'bakecupcakes',
 
 ## Style Rules
 
-Style rules help us write easy to read, well documented, and consistant code.
+Style rules help us write easy to read, well documented, and consistent code.
 
 ### White Space Guidelines
 
@@ -361,7 +361,7 @@ var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c +
 	' is ' + (a + b + c);
 ```
 
-Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line. If a definition takes up more than one line, declare the variable first and assign its value later. 
+Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line. If a definition takes up more than one line, declare the variable first and assign its value later.
 
 ```js
 var foo, baz;
@@ -375,19 +375,19 @@ baz = firstCondition( foo ) && secondCondition( bar ) ?
 	doOtherStuff( foo, bar );
 ```
 
-When a conditional is too long to fit on one line, start a new line for the conditions and wrap them as desired. Don't start a new line with an operator. 
+When a conditional is too long to fit on one line, start a new line for the conditions and wrap them as desired. Don't start a new line with an operator.
 
 ```js
 // bad
-if ( fistCondition() && secondCondition() 
+if ( firstCondition() && secondCondition()
     && thirdCondition() ) {
     doStuff();
 }
 
 // good
-if ( 
-    fistCondition() && secondCondition() &&
-    thirdCondition() 
+if (
+    firstCondition() && secondCondition() &&
+    thirdCondition()
 ) {
     doStuff();
 }
@@ -431,13 +431,13 @@ function makeCookies( flavor ) {
 
 We use JSDoc style comments above function declarations and at the top of files because they make code clear and easy to read, and we'd like to be able to generate JavaScript documentation at some point.
 
-#### Required JSDoc Anotations (when applicable)
+#### Required JSDoc Annotations (when applicable)
 
 * @desc
 * @param
 * @return
 
-#### Recommended JSDoc Anotations
+#### Recommended JSDoc Annotations
 
 * @author (at the top of a file)
 * @see (for links to documentation)
@@ -463,7 +463,7 @@ var foo,
 var foo = 'kyle',
 	bar = 'wears',
 	falcor = 'shorts';
-	
+
 var foo, bar,
 	falcor = 'hairy';
 
@@ -497,16 +497,16 @@ var $div = $( 'div' );
 
 #### Storing Context in a Local Variable
 
-If you want to store the context of a function in a variable that can be passed to a function called in a different context, call the variable `self`. 
+If you want to store the context of a function in a variable that can be passed to a function called in a different context, call the variable `self`.
 
-Example: 
+Example:
 ```javascript
 function example() {
 	var self = this;
 
 	$myObj.on( 'click', function() {
 		// some code...
-		
+
 		self.doSomething();
 	} );
 }
@@ -514,7 +514,7 @@ function example() {
 
 #### AMD Modules
 
-AMD modules should be all lowercase. If the code is exension-specific, namespace with the extension.
+AMD modules should be all lowercase. If the code is extension-specific, namespace with the extension.
 
 ```javascript
 define( 'myextension.mypage' ... )
