@@ -7,9 +7,8 @@ This styleguide defines the SCSS coding conventions at Wikia. While it is manage
 As a developer I want a clear and well documented guide dealing with coding conventions, patterns and best practices for coding SCSS style sheets at Wikia along with tools to help me in making my code compliant.
 
 ## TOC
-* [Naming Conventions](#naming-conventions)
-
-## Tools
+* [Rules](#rules)
+ * [Naming Conventions](#naming-conventions)
 
 ## Rules
 
