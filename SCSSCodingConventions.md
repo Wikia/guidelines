@@ -19,7 +19,7 @@ Here are a few simple rules on naming conventions in SCSS:
 * IDs should be lowerCameCase
 * Do not prefix ID and class names with 'wikia' unless you are specifically building products to be used as third party software. 
 
-Examples: 
+Example: 
 ```html
 <div class="item-wrapper" id="MyItem">...</div>
 ```
