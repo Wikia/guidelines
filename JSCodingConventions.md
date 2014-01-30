@@ -565,7 +565,8 @@ Wrap all immediately invoked function expressions with parentheses
 ```javascript
 
 // good
-var a = (function(){ return 1; })();
+var a = ( function() { return 1; } )(),
+	b = ( function() { return 2; }() );
 
 // bad
 var a = function(){ return 1; }();
