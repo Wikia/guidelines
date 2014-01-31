@@ -35,6 +35,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [Folders](#folders)
      * [AMD Modules](#amd-modules)
      * [JS Files](#js-files)
+  * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
 * [Resources](#resources)
 * [To Do](#to-do)
 
@@ -556,6 +557,20 @@ All library files should go inside 'lib' folders. This will make it easier for J
 #### Files
 
 All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names.
+
+### Immediately Invoked Function Expressions (IIFE)
+
+Wrap all immediately invoked function expressions with parentheses
+
+```javascript
+
+// good
+var a = ( function() { return 1; } )(),
+	b = ( function() { return 2; }() );
+
+// bad
+var a = function(){ return 1; }();
+```
 
 ## Resources
 
