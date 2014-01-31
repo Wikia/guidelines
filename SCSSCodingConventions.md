@@ -8,9 +8,33 @@ As a developer I want a clear and well documented guide dealing with coding conv
 
 ## TOC
 * [Rules](#rules)
+ * [Whitespace and Structure](#whitespace-and-structure) 
  * [Naming Conventions](#naming-conventions)
 
 ## Rules
+
+### Whitespace and Structure
+
+* Use tabs, not spaces, for indentation.
+* Nested selectors should be indented by one tab. 
+* Style declarations (properties) should be indented by one tab under their selectors. 
+* Place one space after the selector and before the open curly bracket.
+* Alphabatize style declarations.
+* Place all style declarations for a given selector before any nested selectors.
+* Place any @extend or @include statements above all style declarations.
+
+Example:
+```scss
+.item-wrapper {
+  @extend .other-item;
+  @include some-mixin;
+  border: 1px solid purple;
+  
+  .item {
+    display: inline;
+  }
+}
+```
 
 ### Naming Conventions
 Here are a few simple rules on naming conventions in SCSS:
