@@ -16,6 +16,8 @@ As a developer I want a clear and well documented guide dealing with coding conv
 ### Whitespace and Structure
 
 * Use tabs, not spaces, for indentation.
+* Only one rule per line. 
+* One line break before each selector. 
 * Nested selectors should be indented by one tab. 
 * Style declarations (properties) should be indented by one tab under their selectors. 
 * Place one space after the selector and before the open curly bracket.
@@ -33,6 +35,10 @@ Example:
   .item {
     display: inline;
   }
+}
+
+.more-selectors {
+  ...
 }
 ```
 
