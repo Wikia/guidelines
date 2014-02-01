@@ -10,6 +10,7 @@ As a developer I want a clear and well documented guide dealing with coding conv
 * [Rules](#rules)
  * [Whitespace and Structure](#whitespace-and-structure)
  * [Variables](#variables)
+ * [Specificity and Nesting](#specificity-and-nesting)
  * [Class and ID Naming Conventions](#class-and-id-naming-conventions)
 
 ## Rules
@@ -18,13 +19,13 @@ As a developer I want a clear and well documented guide dealing with coding conv
 
 * Use tabs, not spaces, for indentation.
 * Only one rule per line. 
-* One line break before each selector. 
 * Nested selectors should be indented by one tab. 
 * Style declarations (properties) should be indented by one tab under their selectors. 
 * Place one space after the selector and before the open curly bracket.
 * Alphabatize style declarations.
 * Place all style declarations for a given selector before any nested selectors.
 * Place any @extend or @include statements above all style declarations.
+* **QUESTION: line breaks before selectors?**
 
 Example:
 ```scss
@@ -60,6 +61,44 @@ $vertical-padding: 20px;
 }
 .similar-module {
   padding-left: $vertical-padding;
+}
+```
+
+### Specificity and Nesting
+
+* Don't nest more than 3 levels. SCSS nesting should not blindly match HTML structure.
+* Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
+
+Example:
+```scss
+// good
+.some-module {
+  a {
+    text-decoration: none;
+  }
+  li {
+    float: left;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+// bad
+ul.some-module {
+  li {
+    a {
+      text-decoration: underline;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
 }
 ```
 
