@@ -70,15 +70,14 @@ $vertical-padding: 20px;
 * Don't nest more than 3 levels. SCSS nesting should not blindly match HTML structure.
 * Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
 * Don't use child selectors when you don't need them.  
-* In general, do not use ```!important```. The only exceptions are overriding 3rd party code and some utitlity classes. If you do use it, add a comment as to why. 
+* In general, do not use ```!important```. The only exceptions are overriding 3rd party code and some utitlity classes. If you do use it, add a comment as to why.
+* Never use IDs as selectors. Wikia allows users to customize their wikias with css and we want to make it feasible for them to override existing styles.  
 
-Example:
-
-For the given HTML: 
+Example (for the given HTML):
 ```html
-<div class="some-module">
+<div class="some-module" id="BestModuleEver">
   <a>Foo</a>
-  <ul>
+  <ul class="link-list">
     <li>
       <a><span>Bar</span></a>
     </li>
@@ -101,8 +100,8 @@ For the given HTML:
 }
 
 // bad
-div.some-module {
-  ul > li {
+#BestModuleEver {
+  ul.link-list > li {
     a {
       text-decoration: underline !important; 
 
