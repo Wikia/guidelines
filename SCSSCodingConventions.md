@@ -8,8 +8,9 @@ As a developer I want a clear and well documented guide dealing with coding conv
 
 ## TOC
 * [Rules](#rules)
- * [Whitespace and Structure](#whitespace-and-structure) 
- * [Naming Conventions](#naming-conventions)
+ * [Whitespace and Structure](#whitespace-and-structure)
+ * [Variables](#variables)
+ * [Class and ID Naming Conventions](#class-and-id-naming-conventions)
 
 ## Rules
 
@@ -31,9 +32,11 @@ Example:
   @extend .other-item;
   @include some-mixin;
   border: 1px solid purple;
+  max-width: 200px;
   
   .item {
     display: inline;
+    z-index: 2;
   }
 }
 
@@ -42,7 +45,25 @@ Example:
 }
 ```
 
-### Naming Conventions
+### Variables
+
+* SCSS variables should be declared at the top of each file. 
+* Variables should be lower-dash-case
+* If a variable is to be used in more than one extension, you can prefix it with a descriptor, like "color". Otherwise, use more generic variable names.
+* If there's a value that is used in more than one selector, like a left/right padding value, create a variable so it can be updated in one place. 
+
+```scss
+$vertical-padding: 20px;
+
+.my-module {
+  padding-left: $vertical-padding;
+}
+.similar-module {
+  padding-left: $vertical-padding;
+}
+```
+
+### Class and ID Naming Conventions
 Here are a few simple rules on naming conventions in SCSS:
 * Class names should be lower-case-dash
 * IDs should be lowerCameCase
