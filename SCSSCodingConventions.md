@@ -51,7 +51,7 @@ Example:
 * SCSS variables should be declared at the top of each file. 
 * Variables should be lower-dash-case
 * If a variable is to be used in more than one extension, you can prefix it with a descriptor, like "color". Otherwise, use more generic variable names.
-* If there's a value that is used in more than one selector, like a left/right padding value, create a variable so it can be updated in one place. 
+* If there's a value that is used in more than one selector, like a left/right padding value, create a variable so it can be updated in one place.
 
 ```scss
 $vertical-padding: 20px;
@@ -69,6 +69,7 @@ $vertical-padding: 20px;
 * Don't nest more than 3 levels. SCSS nesting should not blindly match HTML structure.
 * Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
 * Don't use child selectors when you don't need them.  
+* In general, do not use ```!important```. The only exceptions are overriding 3rd party code and some utitlity classes. If you do use it, add a comment as to why. 
 
 Example:
 
@@ -102,7 +103,7 @@ For the given HTML:
 div.some-module {
   ul > li {
     a {
-      text-decoration: underline;
+      text-decoration: underline !important; 
 
       span {
         font-weight: bold;
