@@ -68,14 +68,24 @@ $vertical-padding: 20px;
 
 * Don't nest more than 3 levels. SCSS nesting should not blindly match HTML structure.
 * Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
+* Don't use child selectors when you don't need them.  
 
 Example:
+
+For the given HTML: 
+```html
+<div class="some-module">
+  <a>Foo</a>
+  <ul>
+    <li>
+      <a><span>Bar</span></a>
+    </li>
+  </ul>
+</ul>
+```
 ```scss
 // good
 .some-module {
-  a {
-    text-decoration: none;
-  }
   li {
     float: left;
 
@@ -89,8 +99,8 @@ Example:
 }
 
 // bad
-ul.some-module {
-  li {
+div.some-module {
+  ul > li {
     a {
       text-decoration: underline;
 
