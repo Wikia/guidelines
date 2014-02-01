@@ -12,6 +12,7 @@ As a developer I want a clear and well documented guide dealing with coding conv
  * [Variables](#variables)
  * [Specificity and Nesting](#specificity-and-nesting)
  * [Class and ID Naming Conventions](#class-and-id-naming-conventions)
+* [Legacy Code](#legacy-code)
 
 ## Rules
 
@@ -123,6 +124,7 @@ Example:
 ```html
 <div class="item-wrapper" id="MyItem">...</div>
 ```
-A note on legacy code:
+### Legacy code
 
-We used to have a concept of "major and minor elements". This was good for encouraging modular widgets and css scoping, however we believe that we can still acheive these goals with the more consistant naming conventions described above. 
+Some notes on legacy code: 
+* We used to have a concept of "major and minor elements". This was good for encouraging modular widgets and css scoping, however we believe that we can still acheive these goals with the more consistant naming conventions described above. 
