@@ -25,8 +25,9 @@ public WikiArticleEditMode clickEditButton() {
 	PageObjectLogging.log("clickEditButton", "edit button clicked", true, driver);
 	return new WikiArticleEditMode(driver);
 }
+```
 
-### open  prefix 
+### open prefix 
 
 For each method that opens a new page, use "open" prefix .
 
@@ -35,3 +36,15 @@ public SpecialWikiActivityPageObject openSpecialWikiActivity(String wikiURL) {
 	getUrl(wikiURL + URLsContent.specialWikiActivity);
 	return new SpecialWikiActivityPageObject(driver);
 }
+```
+
+### type prefix 
+
+For each method that types some content into the page, use "type" prefix .
+
+```java
+private void typeCategoryName(String category) {
+	waitForElementByElement(addCategoryInput);
+	addCategoryInput.sendKeys(category);
+}
+```
