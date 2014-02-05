@@ -13,16 +13,25 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 Language rules have an impact on code quality understanding. They were chosen based on QA Automation Team expirience. 
 
-### click method
+### click prefix 
 
 For each method that performs a click on page, use "click" prefix .
 
 ```java
-// not best practice
 public WikiArticleEditMode clickEditButton() {
 	waitForElementByElement(editButton);
 	waitForElementClickableByElement(editButton);
 	scrollAndClick(editButton);
 	PageObjectLogging.log("clickEditButton", "edit button clicked", true, driver);
 	return new WikiArticleEditMode(driver);
+}
+
+### open  prefix 
+
+For each method that opens a new page, use "open" prefix .
+
+```java
+public SpecialWikiActivityPageObject openSpecialWikiActivity(String wikiURL) {
+	getUrl(wikiURL + URLsContent.specialWikiActivity);
+	return new SpecialWikiActivityPageObject(driver);
 }
