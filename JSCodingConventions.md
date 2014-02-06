@@ -159,7 +159,7 @@ When using `switch` statements:
 
 ```javascript
 // bad
-switch( foo ) {
+switch ( foo ) {
     default:
         z();
     case 'bar':
@@ -171,7 +171,7 @@ switch( foo ) {
 }
 
 // good
-switch( foo ) {
+switch ( foo ) {
     case 'bar':
     case 'foobar':
         x();
