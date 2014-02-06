@@ -22,7 +22,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
   * [White Space Guidelines](#white-space-guidelines)
      * [Bad Examples](#bad-examples)
      * [Good Examples](#good-examples)
-     * [Objects](#objects)
+     * [Objmects](#objects)
      * [Arrays](#arrays)
      * [Function Calls](#function-calls)
      * [Multi-line Statements](#multi-line-statements)
@@ -361,9 +361,7 @@ var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c
 var html = '<p>The sum of ' + a + ' and ' + b + ' plus ' + c +
 	' is ' + (a + b + c);
 ```
-
 Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line. If a definition takes up more than one line, declare the variable first and assign its value later.
-
 ```js
 var foo, baz;
 
@@ -392,6 +390,18 @@ if (
 ) {
     doStuff();
 }
+```
+
+Break up long strings of text with the plus operator.
+```js
+// good
+var x = "multi" +
+        "line";
+var y = "single line";
+
+// bad
+var x = "multi \
+        line";
 ```
 
 #### Chained Method Calls
