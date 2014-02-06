@@ -22,7 +22,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
   * [White Space Guidelines](#white-space-guidelines)
      * [Bad Examples](#bad-examples)
      * [Good Examples](#good-examples)
-     * [Objmects](#objects)
+     * [Objects](#objects)
      * [Arrays](#arrays)
      * [Function Calls](#function-calls)
      * [Multi-line Statements](#multi-line-statements)
@@ -397,7 +397,6 @@ Break up long strings of text with the plus operator.
 // good
 var x = "multi" +
         "line";
-var y = "single line";
 
 // bad
 var x = "multi \
