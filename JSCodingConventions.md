@@ -563,7 +563,7 @@ For clarity and future-proofness, all javascript files should go into a 'scripts
 
 All library files should go inside 'lib' folders. This will make it easier for JSHint to ignore library code.
 
-#### Files
+#### JS Files
 
 All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names.
 
