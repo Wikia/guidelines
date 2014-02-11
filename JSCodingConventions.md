@@ -524,10 +524,10 @@ function example() {
 
 #### AMD Modules
 
-AMD modules should be all lowercase. If the code is extension-specific, namespace with the extension.
+AMD module IDs should be all lazyCamelCase. This is in line with the AMD specification for IDs ([Source](https://github.com/amdjs/amdjs-api/wiki/AMD#id-))
 
 ```javascript
-define( 'myextension.mypage' ... )
+define( 'myextension.myPage' ... )
 ```
 If there is a folder structure within the extension's scripts directory, the module's namespace should match the folder structure.
 
@@ -553,7 +553,7 @@ define( 'search.models.results' ... );
 If the code is meant to be used site wide or by multiple different extensions, namespace with 'wikia'.
 
 ```javascript
-define( 'wikia.mymodule' )
+define( 'wikia.myModule' )
 ```
 
 Hint: If it's in the modules folder, it should be namespace with 'wikia'.
@@ -566,7 +566,7 @@ All library files should go inside 'lib' folders. This will make it easier for J
 
 #### JS Files
 
-All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names. The one exception is that file names should be lower camel case, whereas module names should be all lower case.
+All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names. File and module ID's should all be in lazyCamelCase ([Source:](https://github.com/amdjs/amdjs-api/wiki/AMD#id-) as per AMD specification )
 
 ### Immediately Invoked Function Expressions (IIFE)
 
