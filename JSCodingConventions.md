@@ -539,7 +539,8 @@ For example, if the tree looks like this:
     | | | |-- suggestions.js
     | | | |-- form.js
     | | |-- models
-    | | | |-- results.js
+    | | | |-- primaryResults.js
+    | | | |-- secondaryResults.js
 
 The module names for these files would be:
 
@@ -565,7 +566,7 @@ All library files should go inside 'lib' folders. This will make it easier for J
 
 #### JS Files
 
-All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names.
+All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names. The one exception is that file names should be lower camel case, whereas module names should be all lower case.
 
 ### Immediately Invoked Function Expressions (IIFE)
 
