@@ -11,7 +11,7 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 ## Methods naming
 
-Language rules have an impact on code quality understanding. They were chosen based on QA Automation Team expirience. 
+The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team expirience. 
 
 ### click prefix 
 
@@ -47,4 +47,20 @@ private void typeCategoryName(String category) {
 	waitForElementByElement(addCategoryInput);
 	addCategoryInput.sendKeys(category);
 }
+```
+
+## Automated Clicktracking Tests
+
+The following rules apply when writing Automated Clicktracking Tests
+
+### add Clicktracking Groups
+
+For each clicktracking test add 'ClickTracking' group, and use 'ClickTracking' as prefix for the main and test-specific groups 
+
+```java
+@Test(groups = {
+			"ClickTracking",
+			"ClickTrackingSomeAreaTests",
+			"ClickTrackingSomeAreaTests_001"
+	})
 ```
