@@ -4,13 +4,13 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 ## TOC
 
-* [Methods naming](#Methods-naming)
+* [Methods naming](#methods-naming)
   * [click prefix](#click-prefix)
   * [open prefix](#open-prefix)
   * [type prefix](#type-prefix)
-* [Automated Clicktracking Tests](#Automated Clicktracking Tests)
-  * [add Clicktracking groups](#add Clicktracking groups)
-  * [add tracker installation method](#add tracker installation method)
+* [Automated Clicktracking tests](#automated-clicktracking-tests)
+  * [add Clicktracking groups](#add-clicktracking-groups)
+  * [add tracker installation](#add-tracker-installation)
 
 ## Methods naming
 
@@ -22,6 +22,7 @@ For each method that performs a click on page, use "click" prefix .
 
 ```java
 public WikiArticleEditMode clickEditButton() {
+
 	waitForElementByElement(editButton);
 	waitForElementClickableByElement(editButton);
 	scrollAndClick(editButton);
@@ -52,12 +53,12 @@ private void typeCategoryName(String category) {
 }
 ```
 
-## Automated Clicktracking Tests
+## Automated clicktracking tests
 
 The following rules apply to writing Automated Clicktracking Tests.
-Explanantion of clicktracking can be found on QA internal page about Automated Clicktracking Tests: https://internal.wikia-inc.com/wiki/Automated_Clicktracking_Tests
+Explanantion of clicktracking can be found on QA internal page](https://internal.wikia-inc.com/wiki/Automated_Clicktracking_Tests) about Automated Clicktracking Tests. [
 
-### add Clicktracking groups
+### add clicktracking groups
 
 For each clicktracking test add 'ClickTracking' group, and use 'ClickTracking' as prefix for the main and test-specific groups 
 
@@ -69,7 +70,7 @@ For each clicktracking test add 'ClickTracking' group, and use 'ClickTracking' a
 	})
 ```
 
-### add tracker installation method
+### add tracker installation
 
 For each clicktracking test add trackerInstallation method. 
 
@@ -82,7 +83,7 @@ You can do that using .executeScript(ClickTrackingScriptsProvider.trackerInstall
 ```java
 public void ClicktrackingSomeAreaTest_001_verifySomething() {
 		...
-		visualEditMode.executeScript(ClickTrackingScriptsProvider.trackerInstallation);
+		somePageObject.executeScript(ClickTrackingScriptsProvider.trackerInstallation);
 		...
 }		
 ```	
