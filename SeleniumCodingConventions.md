@@ -8,6 +8,9 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [click prefix](#click-prefix)
   * [open prefix](#open-prefix)
   * [type prefix](#type-prefix)
+* [Automated Clicktracking Tests](#Automated Clicktracking Tests)
+  * [add Clicktracking groups](#add Clicktracking groups)
+  * [add tracker installation method](#add tracker installation method)
 
 ## Methods naming
 
@@ -53,7 +56,7 @@ private void typeCategoryName(String category) {
 
 The following rules apply when writing Automated Clicktracking Tests
 
-### add Clicktracking Groups
+### add Clicktracking groups
 
 For each clicktracking test add 'ClickTracking' group, and use 'ClickTracking' as prefix for the main and test-specific groups 
 
@@ -63,4 +66,23 @@ For each clicktracking test add 'ClickTracking' group, and use 'ClickTracking' a
 			"ClickTrackingSomeAreaTests",
 			"ClickTrackingSomeAreaTests_001"
 	})
+```
+
+### add tracker installation method
+
+For each clicktracking test add trackerInstallation method. 
+
+Remmember to do it after the wiki page you want to test is ready.
+This means you shouldn't do it at the very beginning of the test.
+This means you shouldn't do it before you are sure that the page is loaded.
+
+You can do that using .executeScript(ClickTrackingScriptsProvider.trackerInstallation) method. This method is available in every PageObject, because it comes from BasePageObject class.
+
+```java
+public void ClicktrackingSomeAreaTest_001_verifySomething() {
+		...
+		visualEditMode.executeScript(ClickTrackingScriptsProvider.trackerInstallation);
+		...
+}		
+```	
 ```
