@@ -54,7 +54,8 @@ private void typeCategoryName(String category) {
 
 ## Automated Clicktracking Tests
 
-The following rules apply when writing Automated Clicktracking Tests
+The following rules apply to writing Automated Clicktracking Tests.
+Explanantion of clicktracking can be found on QA internal page about Automated Clicktracking Tests: https://internal.wikia-inc.com/wiki/Automated_Clicktracking_Tests
 
 ### add Clicktracking groups
 
