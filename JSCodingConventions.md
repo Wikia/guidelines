@@ -336,7 +336,7 @@ someArray[1];
 
 #### Functions
 
-The function keyword should always be followed by one space, as should the calling parentheses. 
+The function keyword and calling parentheses should always be followed by one space. 
 
 ```js
 function foo (arg1, arg2) {
