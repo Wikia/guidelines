@@ -70,7 +70,7 @@ Avoid early returns, they make the flow of the code harder to follow.
 ```javascript
 // not best practice
 function() {
-    if ( someBool ) {
+    if (someBool) {
         return true;
     }
     return false;
@@ -79,7 +79,7 @@ function() {
 // better
 function() {
     var myBool = false;
-    if ( someBool ) {
+    if (someBool) {
         myBool = true;
     }
     return myBool;
@@ -109,14 +109,14 @@ Do not declare functions within blocks such as loops and conditionals. This will
 
 ```javascript
 // bad:
-if ( someBool ) {
+if (someBool) {
     function myFunc() {
         // code
     }
 }
 
 // also bad:
-while ( condition ) {
+while (condition) {
     function myFunc() {
         // code
     }
@@ -129,7 +129,7 @@ Avoid using try/catch blocks in performance critical functions and inside loops.
 
 ```javascript
 // bad
-for ( var i = 0; i < 10; i++ ) {
+for (var i = 0; i < 10; i++) {
     try {
         // some process
     } catch () {
@@ -144,7 +144,7 @@ try {
     // some exception handing
 }
 
-for ( var i = 0; i < 10; i++ ) {
+for (var i = 0; i < 10; i++) {
     // do something based on results of try/catch above
 }
 ```
@@ -159,7 +159,7 @@ When using `switch` statements:
 
 ```javascript
 // bad
-switch ( foo ) {
+switch (foo) {
     default:
         z();
     case 'bar':
@@ -171,7 +171,7 @@ switch ( foo ) {
 }
 
 // good
-switch ( foo ) {
+switch (foo) {
     case 'bar':
     case 'foobar':
         x();
@@ -220,19 +220,19 @@ The one exception right now is AMD module dependencies.
 Examples:
 ```javascript
 // bad
-function bakeCupcakes( sugar, eggs, milk, icing, flour ) {
+function bakeCupcakes(sugar, eggs, milk, icing, flour) {
     //...
 }
 
 // good
-function bakeCupcakes( ingredients ) {
+function bakeCupcakes(ingredients) {
     // do something with ingredients.sugar, etc.
 }
 
 // exception: AMD
-define( 'bakecupcakes',
+define('bakecupcakes',
     ['sugar', 'eggs', 'milk', 'icing', 'flour'],
-    function( sugar, eggs, milk, icing, flour ) {
+    function(sugar, eggs, milk, icing, flour) {
  // ...
 })
 
@@ -244,7 +244,7 @@ Style rules help us write easy to read, well documented, and consistent code.
 
 ### White Space Guidelines
 
-Our whitespace guidelines are based on the [jQuery Style Guide](http://contribute.jquery.org/style-guide/js/). We have copied them below so we can make changes to them as we see fit. In general, the jQuery style guide encourages liberal spacing for improved human readability. The minification process creates a file that is optimized for browsers to read and process.
+Our whitespace guidelines are based JSLint. There are also some rules listed below that are in addition to the onces JSLint prescribes. 
 
 - Indentation with tabs.
 - No whitespace at the end of line or on blank lines.
@@ -253,7 +253,7 @@ Our whitespace guidelines are based on the [jQuery Style Guide](http://contribut
 - Unary special-character operators (e.g., `!`, `++`) must not have space next to their operand.
 - Any `,` and `;` must not have preceding space.
 - Any `;` used as a statement terminator must be at the end of the line.
-- Any `:` after a property name in an object definition must not have preceding space.
+- Any `:` after a property name in an object definition must not have preceding space, and should be followed by one space.
 - The `?` and `:` in a ternary conditional must have space on both sides.
 - No filler spaces in empty constructs (e.g., `{}`, `[]`, `fn()`)
 - New line at the end of each file.
@@ -274,25 +274,25 @@ for(var i=0;i<100;i++) object[array[i]] = someFn(i);
 ```js
 var i;
 
-if ( condition ) {
+if (condition) {
 	doSomething();
-} else if ( otherCondition ) {
+} else if (otherCondition) {
 	somethingElse();
 } else {
 	otherThing();
 }
 
-while ( !condition ) {
+while (!condition) {
 	iterating++;
 }
 
-for ( i = 0; i < 100; i++ ) {
-	object[array[i]] = someFn( i );
+for (i = 0; i < 100; i++) {
+	object[array[i]] = someFn(i);
 }
 
 try {
 	// Expressions
-} catch ( e ) {
+} catch (e) {
 	// Expressions
 }
 ```
@@ -319,7 +319,7 @@ var map = {
 
 #### Arrays
 
-We follow MediaWiki's rules when it comes to defining and accessing arrays: no whitespace before the first value or after the last value in an array, unless it spans multiple lines.
+No whitespace before the first value or after the last value in an array, unless it spans multiple lines.
 
 ```js
 // both are fine
@@ -334,18 +334,16 @@ anotherArray = [
 someArray[1];
 ```
 
-#### Function Calls
+#### Functions
 
-Include extra spaces around elements and arguments:
+The function keyword should always be followed by one space, as should the calling parentheses. 
 
 ```js
-foo( arg );
+function foo (arg1, arg2) {
+	...
+}
 
-foo( 'string', object );
-
-foo( options, object[property] );
-
-foo( node, 'property', 2 );
+foo(1, 2);
 ```
 
 #### Multi-line Statements
@@ -369,17 +367,17 @@ foo = function() {
 	someCode();
 };
 
-baz = firstCondition( foo ) && secondCondition( bar ) ?
-	doStuff( foo, bar ) :
-	doOtherStuff( foo, bar );
+baz = firstCondition(foo) && secondCondition(bar) ?
+	doStuff(foo, bar) :
+	doOtherStuff(foo, bar);
 ```
 
 When a conditional is too long to fit on one line, start a new line for the conditions and wrap them as desired. Don't start a new line with an operator.
 
 ```js
 // bad
-if ( firstCondition() && secondCondition()
-    && thirdCondition() ) {
+if (firstCondition() && secondCondition()
+    && thirdCondition()) {
     doStuff();
 }
 
@@ -409,11 +407,11 @@ When a chain of method calls is too long to fit on one line, there must be one c
 
 ```js
 elements
-	.addClass( 'foo' )
+	.addClass('foo')
 	.children()
-		.html( 'hello' )
+		.html('hello')
 	.end()
-	.appendTo( 'body' );
+	.appendTo('body');
 ```
 
 ### Comments
@@ -426,7 +424,7 @@ Comment early and often! For comments inside functions, use inline comments. For
  * @param {string} flavor The flavor of the cookie
  * @return {object} cookie The delicious cookie
  */
-function makeCookies( flavor ) {
+function makeCookies(flavor) {
     // create the cookie
     var cookie = {
         type: flavor,
@@ -502,7 +500,7 @@ All variables referencing jQuery Objects, should be prefixed with a `$`.
 
 ```javascript
 // $div is a jQuery object
-var $div = $( 'div' );
+var $div = $('div');
 ```
 
 #### Storing Context in a Local Variable
@@ -514,11 +512,11 @@ Example:
 function example() {
 	var self = this;
 
-	$myObj.on( 'click', function() {
+	$myObj.on('click', function() {
 		// some code...
 
 		self.doSomething();
-	} );
+	});
 }
 ```
 
@@ -527,7 +525,7 @@ function example() {
 AMD module IDs should be all lazyCamelCase. This is in line with the AMD specification for IDs ([Source](https://github.com/amdjs/amdjs-api/wiki/AMD#id-))
 
 ```javascript
-define( 'myextension.myPage' ... )
+define('myextension.myPage' ...)
 ```
 If there is a folder structure within the extension's scripts directory, the module's namespace should match the folder structure.
 
@@ -545,15 +543,15 @@ For example, if the tree looks like this:
 The module names for these files would be:
 
 ```javascript
-define( 'search.views.suggestions' ... );
-define( 'search.views.form' ... );
-define( 'search.models.results' ... );
+define('search.views.suggestions' ...);
+define('search.views.form' ...);
+define('search.models.results' ...);
 ```
 
 If the code is meant to be used site wide or by multiple different extensions, namespace with 'wikia'.
 
 ```javascript
-define( 'wikia.myModule' )
+define('wikia.myModule')
 ```
 
 Hint: If it's in the modules folder, it should be namespace with 'wikia'.
@@ -566,7 +564,7 @@ All library files should go inside 'lib' folders. This will make it easier for J
 
 #### JS Files
 
-All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names. File and module ID's should all be in lazyCamelCase ([Source:](https://github.com/amdjs/amdjs-api/wiki/AMD#id-) as per AMD specification )
+All re-usable JavaScript should be written as AMD modules. See the [above section](#amd-modules) for matching file names to module names. File and module ID's should all be in lazyCamelCase ([Source:](https://github.com/amdjs/amdjs-api/wiki/AMD#id-) as per AMD specification)
 
 ### Immediately Invoked Function Expressions (IIFE)
 
@@ -575,11 +573,11 @@ Wrap all immediately invoked function expressions with parentheses
 ```javascript
 
 // good
-var a = ( function() { return 1; } )(),
-	b = ( function() { return 2; }() );
+var a = (function () { return 1; })(),
+	b = (function () { return 2; }());
 
 // bad
-var a = function(){ return 1; }();
+var a = function (){ return 1; }();
 ```
 
 ## Resources
