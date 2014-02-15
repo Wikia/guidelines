@@ -8,7 +8,6 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
 
 ## TOC
 
-* [Tools](#tools)
 * [Language Rules](#language-rules)
   * [Early Returns](#early-returns)
   * [Semi-colons](#semi-colons)
@@ -36,28 +35,9 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [AMD Modules](#amd-modules)
      * [JS Files](#js-files)
   * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
+* [Tools](#tools)
 * [Resources](#resources)
 * [To Do](#to-do)
-
-## Tools
-
-Here at Wikia, we employ a few tools to make compliance with our coding conventions easier. These tools are detailed below.
-
-### [JSHint](http://jshint.com)
-
-Wikia uses JSHint to detect errors, prevent potential problems and enforce some of our coding conventions. Our rules are enforced globally in the root level [.jshintrc](https://github.com/Wikia/app/blob/dev/.jshintrc) file. Keep in mind that some extensions have JSHint guidelines of their own.
-
-#### How to Use JSHint
-
-Running JSHint can be [performed in a variety of ways](http://jshint.com/install/) though we currently recommend using an editor plugin, if available, but it's also easy to run straight from the command line.
-
-### [EditorConfig](http://editorconfig.org/)
-
-Wikia uses EditorConfig to help enforce whitespace consistency across our repository. Our rules are enforced globally in the root level [.editorconfig](https://github.com/Wikia/app/blob/dev/.editorconfig) file.
-
-#### How to Use EditorConfig
-
-Simply [download a plugin](http://editorconfig.org/#download) for your editor of choice. If your editor is not listed, you will need to configure your editor manually to conform to any of our guidelines. If this is the case, please consider opening an issue (https://github.com/editorconfig/editorconfig/issues) or contributing a plugin (http://editorconfig.org/#contributing) to the EditorConfig project. Don't forget to update when changes to the guidelines get rolled out.
 
 ## Language Rules
 
@@ -579,6 +559,28 @@ var a = (function () { return 1; })(),
 // bad
 var a = function (){ return 1; }();
 ```
+
+## Tools
+
+Here at Wikia, we employ a few tools to make compliance with our coding conventions easier. These tools are detailed below.
+
+### [JSHint](http://jshint.com)
+
+JSHint detects errors, prevents potential problems and enforces some of our coding conventions. Our rules are enforced globally in the root level [.jshintrc](https://github.com/Wikia/app/blob/dev/.jshintrc) file. Keep in mind that some extensions have JSHint guidelines of their own.
+
+Run JSHint on the command line or through an editor plugin. More information can be found [here](http://jshint.com/install).
+
+### [JSCS](https://www.npmjs.org/package/jscs)
+JSCS is a JavaScript code sniffer that will check for whitespace and style error. The config file, .jscs.json, is located in the root application directory. 
+
+### [JS-Beautify](https://www.npmjs.org/package/js-beautify)
+JS-Beautify will fix whitespace and style errors in JavaScript files.  It can be run on the command line. More information [here](https://www.npmjs.org/package/js-beautify). 
+
+### [EditorConfig](http://editorconfig.org/)
+
+EditorConfig helps enforce whitespace consistency across our repository. Our rules are enforced globally in the root level [.editorconfig](https://github.com/Wikia/app/blob/dev/.editorconfig) file.
+
+Simply [download a plugin](http://editorconfig.org/#download) for your editor of choice. If your editor is not listed, you will need to configure your editor manually to conform to any of our guidelines. If this is the case, please consider opening an issue (https://github.com/editorconfig/editorconfig/issues) or contributing a plugin (http://editorconfig.org/#contributing) to the EditorConfig project. Don't forget to update when changes to the guidelines get rolled out.
 
 ## Resources
 
