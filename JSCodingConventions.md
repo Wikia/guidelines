@@ -244,7 +244,7 @@ Style rules help us write easy to read, well documented, and consistent code.
 
 ### White Space Guidelines
 
-Our whitespace guidelines are based JSLint. There are also some rules listed below that are in addition to the onces JSLint prescribes. 
+Our whitespace guidelines are based JSLint. There are also some rules listed below that are in addition JSLint. 
 
 - Indentation with tabs.
 - No whitespace at the end of line or on blank lines.
