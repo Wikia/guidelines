@@ -37,7 +37,6 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
   * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
 * [Tools](#tools)
 * [Resources](#resources)
-* [To Do](#to-do)
 
 ## Language Rules
 
@@ -589,9 +588,5 @@ Simply [download a plugin](http://editorconfig.org/#download) for your editor of
 * [Douglas Crockford's Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html)
 * [AirBnb's JS Style Guide](https://github.com/airbnb/javascript)
 * [JSLint](http://www.jslint.com/)
-
-## TODO
-
-* Add more pics!
 
 ![Wikia](http://i.imgur.com/tVxkjhG.gif)
