@@ -10,7 +10,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
 
 * [Language Rules](#language-rules)
   * [Early Returns](#early-returns)
-  * [Semi-colons](#semi-colons)
+  * [Semicolons](#semicolons)
   * [Function-declarations Within Blocks](#function-declarations-within-blocks)
   * [Try/Catch Blocks](#trycatch-blocks)
   * [Switch Statements](#switch-statements)
