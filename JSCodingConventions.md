@@ -23,7 +23,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [Good Examples](#good-examples)
      * [Objects](#objects)
      * [Arrays](#arrays)
-     * [Function Calls](#function-calls)
+     * [Functions](#functions)
      * [Multi-line Statements](#multi-line-statements)
      * [Chained Method Calls](#chained-method-calls)
   * [Prefixing jQuery Objects](#prefixing-jquery-objects)
@@ -323,6 +323,10 @@ function foo (arg1, arg2) {
 }
 
 foo(1, 2);
+
+var foo = function () {
+	...
+}
 ```
 
 #### Multi-line Statements
