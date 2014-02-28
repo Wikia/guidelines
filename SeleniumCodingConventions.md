@@ -1,6 +1,6 @@
 # Wikia Selenium Coding Conventions
 
-This styleguide defines the Selenium coding conventions at Wikia. While it is managed by the Quality Assurance Team, it is here to serve the entire Selenium developer community at Wikia. 
+This styleguide defines the Selenium coding conventions at Wikia. While it is managed by the Quality Assurance Team, it is here to serve the entire Selenium developer community at Wikia.
 
 ## TOC
 
@@ -11,11 +11,11 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 ## Methods naming
 
-Language rules have an impact on code quality understanding. They were chosen based on QA Automation Team expirience. 
+Language rules have an impact on code quality understanding. They were chosen based on QA Automation Team experience.
 
-### click prefix 
+### click prefix
 
-For each method that performs a click on page, use "click" prefix .
+For each method that performs a click on page, use "click" prefix.
 
 ```java
 public WikiArticleEditMode clickEditButton() {
@@ -27,9 +27,9 @@ public WikiArticleEditMode clickEditButton() {
 }
 ```
 
-### open prefix 
+### open prefix
 
-For each method that opens a new page, use "open" prefix .
+For each method that opens a new page, use "open" prefix.
 
 ```java
 public SpecialWikiActivityPageObject openSpecialWikiActivity(String wikiURL) {
@@ -38,9 +38,9 @@ public SpecialWikiActivityPageObject openSpecialWikiActivity(String wikiURL) {
 }
 ```
 
-### type prefix 
+### type prefix
 
-For each method that types some content into the page, use "type" prefix .
+For each method that types some content into the page, use "type" prefix.
 
 ```java
 private void typeCategoryName(String category) {
