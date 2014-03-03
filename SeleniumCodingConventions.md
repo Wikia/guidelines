@@ -11,6 +11,7 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 * [Automated Clicktracking tests](#automated-clicktracking-tests)
   * [add Clicktracking groups](#add-clicktracking-groups)
   * [add tracker installation](#add-tracker-installation)
+  * [store events by areas](#store-events-by-areas)
 
 ## Methods naming
 
@@ -87,4 +88,21 @@ public void ClicktrackingSomeAreaTest_001_verifySomething() {
 		...
 }		
 ```	
+
+### store events by areas
+
+Take time to sensibly separate events into areas  
+
+You should create appropriate classes in package: com.wikia.webdriver.Common.Clicktracking.Events;  For example for events that are appropriate for Add Photo Modal, you should create the following class:
+
+```java
+public class EventsModalAddPhoto {
+
+	public static String eventFlickrLinkClick = "photo-tool-find-flickr";
+	public static String eventThisWikiLinkClick = "photo-tool-find-this-wiki";
+	public static String eventFindButtonClick = "photo-tool-button-find";
+	public static String eventUploadButtonClick = "photo-tool-button-upload";
+	public static String eventAddRecentPhotoClick = "photo-tool-add-recent-photo";
+
+}		
 ```
