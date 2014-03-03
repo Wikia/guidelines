@@ -44,24 +44,26 @@ Language rules have an impact on functionality. They were chosen based on perfor
 
 ### Early Returns
 
-Avoid early returns, they make the flow of the code harder to follow.
+If a function has multiple return points, make sure that the type of return value is consistant. It's best to add a JSDoc comment specifying the type of the return value. 
 
 ```javascript
-// not best practice
+// bad - sometimes returns undefined and sometimes returns string
 function() {
     if (someBool) {
-        return true;
+        return;
     }
-    return false;
+    return "This is a string";
 }
 
-// better
+// good
+/**
+ * @returns {string}
+ */
 function() {
-    var myBool = false;
     if (someBool) {
-        myBool = true;
+        return "";
     }
-    return myBool;
+    return "Both are strings!";
 }
 ```
 
