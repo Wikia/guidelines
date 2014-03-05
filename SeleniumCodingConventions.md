@@ -8,13 +8,13 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [click prefix](#click-prefix)
   * [open prefix](#open-prefix)
   * [type prefix](#type-prefix)
-* [Automated Clicktracking Tests](#Automated Clicktracking Tests)
-  * [add Clicktracking groups](#add Clicktracking groups)
-  * [add tracker installation method](#add tracker installation method)
+* [Automated Clicktracking Tests](#Automated-Clicktracking-Tests)
+  * [add Clicktracking groups](#add-Clicktracking-groups)
+  * [add tracker installation method](#add-tracker-installation-method)
 
 ## Methods naming
 
-The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team expirience. 
+The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team experience. 
 
 ### click prefix
 
