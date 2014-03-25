@@ -52,7 +52,7 @@ function() {
     if (someBool) {
         return;
     }
-    return "This is a string";
+    return 'This is a string';
 }
 
 // good
@@ -61,9 +61,9 @@ function() {
  */
 function() {
     if (someBool) {
-        return "";
+        return '';
     }
-    return "Both are strings!";
+    return 'Both are strings!';
 }
 ```
 
@@ -378,12 +378,12 @@ if (
 Break up long strings of text with the plus operator.
 ```js
 // good
-var x = "multi" +
-        "line";
+var x = 'multi' +
+        'line'
 
 // bad
-var x = "multi \
-        line";
+var x = 'multi \
+        line';
 ```
 
 #### Chained Method Calls
