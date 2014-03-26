@@ -469,7 +469,16 @@ function MyConstructor() { ... }
 
 ##### Constants
 
-Constants do not exist in JavaScript so do not use all caps to denote constants.
+Constants do not exist in JavaScript so do not use all caps to denote constants. It's okay to treat variables as constants, just keep them in camelCase. 
+
+```javascript
+// bad
+var MY_CONST = 2;
+
+// good
+var myConst = 2;
+
+```
 
 ##### Acronyms
 
