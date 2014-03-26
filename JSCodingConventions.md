@@ -477,7 +477,6 @@ var MY_CONST = 2;
 
 // good
 var myConst = 2;
-
 ```
 
 ##### Acronyms
