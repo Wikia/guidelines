@@ -91,7 +91,7 @@ $vertical-padding: 20px;
 ## Specificity and Nesting
 
 * Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
-* Don't use child selectors (>) when you don't need them.
+* Don't use child selectors `>` when you don't need them.
 * In general, do not use ```!important```. The only exceptions are overriding 3rd party code and some utitlity classes. If you do use it, add a comment as to why.
 * Never use IDs as selectors. Wikia allows users to customize their wikias with css and we want to make it feasible for them to override existing styles.
 
