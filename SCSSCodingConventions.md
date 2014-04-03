@@ -7,257 +7,46 @@ This styleguide defines the SCSS coding conventions at Wikia. While it is manage
 As a developer I want a clear and well documented guide dealing with coding conventions, patterns and best practices for coding SCSS style sheets at Wikia along with tools to help me in making my code compliant.
 
 ## TOC
-* [Rules](#rules)
- * [Whitespace and Structure](#whitespace-and-structure)
- * [Variables](#variables)
- * [Specificity and Nesting](#specificity-and-nesting)
- * [Class and ID Naming Conventions](#class-and-id-naming-conventions)
+* [Rules from SCSS-Lint Config](#rules-from-scss-lint-config)
+ * [BorderZero](#borderzero)
+ * [ColorKeyword](#colorkeyword)
+ * [Comment](#comment)
+ * [Compass Linters](#compass-linters)
+ * [DebugStatement](#debugstatement)
+ * [DeclarationOrder](#declarationorder)
+ * [DuplicateProperty](#duplicateproperty)
+ * [EmptyLineBetweenBlocks](#emptylinebetweenblocks)
+ * [EmptyRule](#emptyrule)
+ * [HexFormat](#hexformat)
+ * [IdWithExtraneousSelector](#idwithextraneousselector)
+ * [Indentation](#indentation)
+ * [LeadingZero](#leadingzero)
+ * [NameFormat](#nameformat)
+ * [PlaceholderInExtend](#placeholderinextend)
+ * [PropertySortOrder](#propertysortorder)
+ * [PropertySpelling](#propertyspelling)
+ * [SelectorDepth](#selectordepth)
+ * [Shorthand](#shorthand)
+ * [SingleLinePerSelector](#singlelineperselector)
+ * [SpaceAfterComma](#spaceaftercomma)
+ * [SpaceAfterPropertyColon](#spaceafterpropertycolon)
+ * [SpaceAfterPropertyName](#spaceafterpropertyname)
+ * [SpaceBeforeBrace](#spacebeforebrace)
+ * [SpaceBetweenParens](#spacebetweenparens)
+ * [StringQuotes](#stringquotes)
+ * [TrailingSemicolonAfterPropertyValue](#trailingsemicolonafterpropertyvalue)
+ * [UrlQuotes](#urlquotes)
+ * [ZeroUnit](#urlquotes)
 * [Legacy Code](#legacy-code)
 
-## Rules
+# Rules from SCSS-Lint Config
 
-### Whitespace and Structure
+Below is a list of linters supported by `scss-lint`, ordered alphabetically. It is derived from causes.com's [scss-linter](https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md).
 
-* Use tabs, not spaces, for indentation.
-* Only one rule per line.
-* Nested selectors should be indented by one tab.
-* Style declarations (properties) should be indented by one tab under their selectors.
-* Place one space after the selector and before the open curly bracket.
-* Alphabetize style declarations.
-* Place all style declarations for a given selector before any nested selectors.
-* Place any @extend or @include statements above all style declarations.
-* **QUESTION: line breaks before selectors?**
-
-Example:
-```scss
-.item-wrapper {
-  @extend .other-item;
-  @include some-mixin;
-  border: 1px solid purple;
-  max-width: 200px;
-
-  .item {
-    display: inline;
-    z-index: 2;
-  }
-}
-
-.more-selectors {
-  ...
-}
-```
-
-### Variables
-
-* SCSS variables should be declared at the top of each file.
-* Variables should be lower-dash-case
-* If a variable is to be used in more than one extension, you can prefix it with a descriptor, like "color". Otherwise, use more generic variable names.
-* If there's a value that is used in more than one selector, like a left/right padding value, create a variable so it can be updated in one place.
-
-```scss
-$vertical-padding: 20px;
-
-.my-module {
-  padding-left: $vertical-padding;
-}
-.similar-module {
-  padding-left: $vertical-padding;
-}
-```
-
-### Specificity and Nesting
-
-* Don't nest more than 3 levels. SCSS nesting should not blindly match HTML structure.
-* Try to avoid prefixing class selectors with their element selector. If you have two elements that have the same class but have different style rules based on their tag, there's probably something wrong.
-* Don't use child selectors when you don't need them.
-* In general, do not use ```!important```. The only exceptions are overriding 3rd party code and some utitlity classes. If you do use it, add a comment as to why.
-* Never use IDs as selectors. Wikia allows users to customize their wikias with css and we want to make it feasible for them to override existing styles.
-
-Example (for the given HTML):
-```html
-<div class="some-module" id="BestModuleEver">
-  <a>Foo</a>
-  <ul class="link-list">
-    <li>
-      <a><span>Bar</span></a>
-    </li>
-  </ul>
-</ul>
-```
-```scss
-// good
-.some-module {
-  li {
-    float: left;
-
-    a {
-      text-decoration: underline;
-    }
-  }
-  span {
-    font-weight: bold;
-  }
-}
-
-// bad
-#BestModuleEver {
-  ul.link-list > li {
-    a {
-      text-decoration: underline !important;
-
-      span {
-        font-weight: bold;
-      }
-    }
-  }
-}
-```
-
-### Class and ID Naming Conventions
-Here are a few simple rules on naming conventions in SCSS:
-* Class names should be lower-case-dash
-* IDs should be lowerCameCase
-* Do not prefix ID and class names with 'wikia' unless you are specifically building products to be used as third party software.
-
-Example:
-```html
-<div class="item-wrapper" id="MyItem">...</div>
-```
-### Legacy code
-
-Some notes on legacy code:
-* We used to have a concept of "major and minor elements". This was good for encouraging modular widgets and css scoping, however we believe that we can still acheive these goals with the more consistant naming conventions described above.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Linters
-
-Below is a list of linters supported by `scss-lint`, ordered alphabetically.
-
-* [BorderZero](#borderzero)
-* [CapitalizationInSelector](#capitalizationinselector)
-* [ColorKeyword](#colorkeyword)
-* [Comment](#comment)
-* [Compass Linters](#compass-linters)
-* [DebugStatement](#debugstatement)
-* [DeclarationOrder](#declarationorder)
-* [DuplicateProperty](#duplicateproperty)
-* [EmptyLineBetweenBlocks](#emptylinebetweenblocks)
-* [EmptyRule](#emptyrule)
-* [HexFormat](#hexformat)
-* [IdWithExtraneousSelector](#idwithextraneousselector)
-* [Indentation](#indentation)
-* [LeadingZero](#leadingzero)
-* [NameFormat](#nameformat)
-* [PlaceholderInExtend](#placeholderinextend)
-* [PropertySortOrder](#propertysortorder)
-* [PropertySpelling](#propertyspelling)
-* [SelectorDepth](#selectordepth)
-* [Shorthand](#shorthand)
-* [SingleLinePerSelector](#singlelineperselector)
-* [SpaceAfterComma](#spaceaftercomma)
-* [SpaceAfterPropertyColon](#spaceafterpropertycolon)
-* [SpaceAfterPropertyName](#spaceafterpropertyname)
-* [SpaceBeforeBrace](#spacebeforebrace)
-* [SpaceBetweenParens](#spacebetweenparens)
-* [StringQuotes](#stringquotes)
-* [TrailingSemicolonAfterPropertyValue](#trailingsemicolonafterpropertyvalue)
-* [UrlQuotes](#urlquotes)
-* [ZeroUnit](#urlquotes)
 
 ## BorderZero
 
 Prefer `border: 0` over `border: none`.
-
-## CapitalizationInSelector
-
-IDs, classes, types, placeholders, and pseudo-selectors should be all lowercase.
-
-**Bad: capitalized class name**
-```scss
-.Button {
-  ...
-}
-```
-
-**Good: all lowercase**
-```scss
-.button {
-  ...
-}
-```
-
-## ColorKeyword
-
-Prefer hexadecimal color codes over color keywords.
-
-**Bad: color keyword**
-```scss
-color: green;
-```
-
-**Good: hexadecimal color**
-```scss
-color: #0f0;
-```
-
-Defining colors directly in properties is usually a smell. When you color your
-body text in a number of places, if you ever want to change the color of the
-text you'll have to update the explicitly defined color in a number of places,
-and finding all those places can be difficult if you use the same color for
-other elements (i.e. a simple find/replace may not always work).
-
-A better approach is to use global variables like `$color-text-body` and refer
-to this variable everywhere you want to use it. This makes it easy to update
-the color, as you only need change it in one place. It is also more
-intention-revealing, as seeing the name `$color-text-body` is more descriptive
-than `#333` or `black`. Using color keywords can obfuscate this, as they look
-like variables.
-
-## Comment
-
-Prefer `//` comments over `/* ... */`.
-
-**Bad**
-```scss
-/* This is a comment that gets rendered */
-```
-
-**Good**
-```scss
-// This comment never gets rendered
-```
-
-`//` comments should be preferred as they don't get rendered in the final
-generated CSS, whereas `/* ... */` comments do.
-
-Furthermore, comments should be concise, and using `/* ... */`
-encourages multi-line comments which tend to not be concise.
-
-## Compass Linters
-
-`scss-lint` includes a set of linters for codebases which use the
-[Compass](http://compass-style.org/) framework.
-
-###[» Compass Linters Documentation](./compass/README.md)
 
 ## DebugStatement
 
@@ -383,7 +172,7 @@ color: #f2e;
 
 ## IdWithExtraneousSelector
 
-Don't combine additional selectors with an ID selector.
+Don't combine additional selectors with an ID selector. In fact, [never use ID's](http://screwlewse.com/2010/07/dont-use-id-selectors-in-css) as selectors. We reserve ID selectors for user css. Note: scss-lint will only lint for extaneous ID selectors, not ID's as selectors.
 
 **Bad: `.button` class is unnecessary**
 ```scss
@@ -408,32 +197,6 @@ Another possible pattern is to modify the style of an element with a given
 ID based on the class it has. This is also a smell, as the purpose of a CSS
 class is to be reusable and composable, and thus redefining it for a specific
 ID is a violation of those principles.
-
-Even better would be to
-[never use IDs](http://screwlewse.com/2010/07/dont-use-id-selectors-in-css/)
-in the first place.
-
-## Indentation
-
-Use two spaces per indentation level. No hard tabs.
-
-**Bad: four spaces**
-```scss
-p {
-    color: #f00;
-}
-```
-
-**Good: two spaces**
-```scss
-p {
-  color: #f00;
-}
-```
-
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`width`              | Number of spaces per indentation level (default **2**)
 
 ## LeadingZero
 
@@ -545,10 +308,6 @@ If you are specifying an explicit order for properties, note that
 vendor-prefixed properties will still be ordered based on the example above
 (i.e. you only need to specify normal properties in your list).
 
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`order`              | Array of properties (default is `nil`, resulting in alphabetical ordering)
-
 ## PropertySpelling
 
 Reports when you use an unknown CSS property (ignoring vendor-prefixed
@@ -581,7 +340,7 @@ Configuration Option | Description
 ---------------------|---------------------------------------------------------
 `extra_properties`   | List of extra properties to allow
 
-## SelectorDepth
+## SelectorDepth - TODO: Finalize this
 
 Don't write selectors with a depth of applicability greater than 3.
 
@@ -618,10 +377,6 @@ Deep selectors also come with a performance penalty, which can affect rendering
 times, especially on mobile devices. While the default limit is 3, ideally it
 is better to use less than 3 whenever possible.
 
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`max_depth`          | Maximum depth before reporting errors (default **3**)
-
 ## Shorthand
 
 Prefer the shortest shorthand form possible for properties that support it.
@@ -634,25 +389,6 @@ margin: 1px 1px 1px 1px;
 **Good: equivalent to specifying 1px for all sides**
 ```scss
 margin: 1px;
-```
-
-## SingleLinePerSelector
-
-Split selectors onto separate lines after each comma.
-
-**Bad: comma-separated selectors not on their own lines**
-```scss
-.error p, p.explanation {
-  ...
-}
-```
-
-**Good: each selector sequence is on its own line**
-```scss
-.error p,
-p.explanation {
-  ...
-}
 ```
 
 ## SpaceAfterComma
@@ -746,10 +482,6 @@ color: rgba( 0, 0, 0, .1 );
 color: rgba(0, 0, 0, .1);
 ```
 
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`spaces`             | Spaces to require between parentheses (default **0**)
-
 ## StringQuotes
 
 String literals should be written with single quotes unless using double quotes
@@ -772,10 +504,6 @@ content: "'hello'";
 
 Single quotes are easier to type by virtue of not requiring the `Shift` key on
 most popular keyboard layouts.
-
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`style`              | `single_quotes` or `double_quotes` (default `single_quotes`)
 
 ## TrailingSemicolonAfterPropertyValue
 
