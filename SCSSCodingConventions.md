@@ -444,10 +444,6 @@ If you're sure the property in question is valid,
 to add it to the
 [default whitelist](data/properties.txt).
 
-Configuration Option | Description
----------------------|---------------------------------------------------------
-`extra_properties`   | List of extra properties to allow
-
 ## SelectorDepth - TODO: Finalize this
 
 Don't write selectors with a depth of applicability greater than 3.
