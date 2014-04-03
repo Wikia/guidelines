@@ -144,7 +144,7 @@ Here are a few simple rules on naming conventions in SCSS:
 
 Example:
 ```html
-<div class="item-wrapper" id="MyItem">...</div>
+<div class="item-wrapper" id="myItem">...</div>
 ```
 
 # Rules from SCSS-Lint Config
