@@ -442,16 +442,17 @@ to add it to the
 
 ## SelectorDepth
 
-Don't write selectors with a depth of applicability greater than 3.
+Don't write selectors with a depth of applicability greater than 4. 
+Note that best practice is actually to limit selector depth to 3, but given the current state of our code base, 4 is a good start. We plan to move down to 3 at a later date. 
 
-**Bad: selectors with depths of 4**
+**Bad: selectors with depths of 5**
 ```scss
-.one .two .three > .four {
+.one .two .three > .four .five {
   ...
 }
 
 .one .two {
-  .three > .four {
+  .three > .four .five {
     ...
   }
 }
@@ -459,12 +460,12 @@ Don't write selectors with a depth of applicability greater than 3.
 
 **Good**
 ```scss
-.one .two .three {
+.one .two .three .four {
   ...
 }
 
 .one .two {
-  .three {
+  .three .four {
     ...
   }
 }
@@ -474,8 +475,7 @@ Selectors with a large [depth of applicability](http://smacss.com/book/applicabi
 lead to CSS tightly-coupled to your HTML structure, making it brittle to change.
 
 Deep selectors also come with a performance penalty, which can affect rendering
-times, especially on mobile devices. While the default limit is 3, ideally it
-is better to use less than 3 whenever possible.
+times, especially on mobile devices.
 
 ## Shorthand
 
