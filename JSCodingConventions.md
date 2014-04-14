@@ -227,7 +227,7 @@ Examples:
 ```javascript
 // bad
 function getStats(storage, service, callback) {
-	getDBStats(getRedisStats,
+	storage.getStats(key,
 		function(stats) {
 			service.processStats(stats,
 				function(result) {
@@ -258,7 +258,7 @@ function getStats(storage, service, callback) {
 		logger.fatal("Whoopsie!");
 	}
 		
-	getDBStats(getRedisStats, onStatsFetched, onError);
+	storage.getStats(key, onStatsFetched, onError);
 }
 
 ```
