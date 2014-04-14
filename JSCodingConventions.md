@@ -17,6 +17,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
   * [Delete Operator](#delete-operator)
   * [Modifying Prototypes of Built-in Objects](#modifying-prototypes-of-built-in-objects)
   * [Maximum Parameters](#maximum-parameters)
+  * [Nested Closures](#nested-closures)
 * [Style Rules](#style-rules)
   * [White Space Guidelines](#white-space-guidelines)
      * [Bad Examples](#bad-examples)
@@ -216,6 +217,49 @@ define('bakecupcakes',
     function(sugar, eggs, milk, icing, flour) {
  // ...
 })
+
+```
+
+### Nested Closures
+Nesting callbacks functions too deeply makes the code messy, complicated and hard to follow. Try to break up nested functions into separate functions. Aviod nesting closures too deeply. This applies mostly to NodeJS code.
+
+Examples:
+```javascript
+// bad
+function getStats(storage, service, callback) {
+	getDBStats(getRedisStats,
+		function(stats) {
+			service.processStats(stats,
+				function(result) {
+					callback(result);
+				},
+				function() {
+					logger.fatal("Whoopsie!");
+				}
+			);
+		},
+		function() {
+			logger.fatal("Whoopsie!");
+		}
+	);
+}
+
+// good
+function getStats(storage, service, callback) {
+	function onStatsFetched(stats) {
+		service.processStats(stats, onStatsProcessed, onError);
+	}
+	
+	function onStatsProcessed(stats) {
+		callback(stats);
+	}
+	
+	function onError() {
+		logger.fatal("Whoopsie!");
+	}
+		
+	getDBStats(getRedisStats, onStatsFetched, onError);
+}
 
 ```
 
