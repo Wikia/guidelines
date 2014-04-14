@@ -221,7 +221,7 @@ define('bakecupcakes',
 ```
 
 ### Nested Closures
-Nesting callbacks functions too deeply makes the code messy, complicated and hard to follow. Try to break up nested functions into separate functions. Aviod nesting closures too deeply. This applies mostly to NodeJS code.
+Nesting callback functions too deeply makes the code messy, complicated and hard to follow. Try to break up nested functions into separate functions. Aviod nesting closures too deeply. This applies mostly to NodeJS code.
 
 Examples:
 ```javascript
