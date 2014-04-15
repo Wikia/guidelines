@@ -4,7 +4,7 @@ This document defines the best practices for contributing to Python projects at 
 of this document is to keep our code stable and consistent. We firmly believe that well written code
 looks like it was written by one person. Please read this whole document before writing Python code
 for a Wikia project. Let's start off with an excerpt from the [Google Python Style Guide] that does
-a good job of articulating our desire for consistency:
+a good job of articulating our desire for consistency (emphasis added):
 
 > BE CONSISTENT.
 >
@@ -13,8 +13,8 @@ a good job of articulating our desire for consistency:
 > little boxes of hash marks around them, make your comments have little boxes of hash marks around
 > them too.
 >
-> The point of having style guidelines is to have a common vocabulary of coding so people can
-> concentrate on what you're saying rather than on how you're saying it. We present global style
+> **The point of having style guidelines is to have a common vocabulary of coding so people can
+> concentrate on what you're saying rather than on how you're saying it.** We present global style
 > rules here so people know the vocabulary, but local style is also important. If code you add to a
 > file looks drastically different from the existing code around it, it throws readers out of their
 > rhythm when they go to read it. Avoid this.
@@ -46,6 +46,9 @@ _(This list contains differences, additions, and clarifications to the above doc
   quotes are OK for something like `"don't"`.
 
 ## How to Check Your Code With `pep8` and `pylint`
+
+_NOTE: In the future, we will likely improve the process for checking your code with `pep8` and
+`pylint` to make it easier. For now, the instructions below are the recommended procedure._
 
 The [pep8] command-line tool is a code style checker that you can use to check your code against
 the [PEP 8] document. Here's how to use it:
@@ -91,23 +94,23 @@ code. It also does a little bit of style checking. Here's how to use it:
 
 Some notes about Pylint:
 
-* There should generally be **ZERO** Pylint messages in the _fatal_, _error_, and _convention_
-  categories. There will almost always be no good reason for these. Don't ignore these.
 * Pylint doesn't always know best. However, you should always have a good, defendable reason for
   ignoring a Pylint message. It might be a good idea to add a `# TODO: ...` comment in the code with
   your plans to fix it in the future.
+* There should generally be **ZERO** Pylint messages in the _fatal_, _error_, and _convention_
+  categories. There will almost always be no good reason for these. Don't ignore these.
 * Don't disable Pylint messages by using `# pylint: disable=...` comments. It's best to be
   constantly aware of the messages than to risk forgetting about them.
 
-## Code Quality Metrics
+## Recommended Code Quality Metrics
 
 * Pylint global evaluation rating: Use the `--reports=y` option to `pylint` to get this value
   from the report it generates. _(Recommeded threshold: > 9.50)_
 * Percentage of comments: Divide the number of lines of Python comments by the number of lines
   of Python code (as measured by the [cloc] command-line tool) to get a percentage.
   _(Recommeded threshold: > 20%)_
-* Test code coverage: Run the tests through the [coverage] module. Look at the documentation for
-  the coverage module for more details. _(Recommeded threshold: > 80%)_.
+* Test code coverage: If your code has unit tests, run the tests through the [coverage] module. Look
+  at the documentation for the coverage module for more details. _(Recommeded threshold: > 80%)_.
 
 ## Further Reading
 
