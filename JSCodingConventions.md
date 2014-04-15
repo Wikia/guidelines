@@ -35,6 +35,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [AMD Modules](#amd-modules)
      * [JS Files](#js-files)
   * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
+  * [Wrapping Conditionals](#wrapping-conditionals)
 * [Tools](#tools)
 * [Resources](#resources)
 
@@ -571,6 +572,17 @@ var a = (function () { return 1; })(),
 
 // bad
 var a = function (){ return 1; }();
+```
+### Wrapping Conditionals
+
+Wrap all conditionals with parentheses. 
+
+```javascript
+// good
+var willShed = (falkor === 'hairy');
+
+// bad
+var wontSmell = falkor === 'bathed';
 ```
 
 ## Tools
