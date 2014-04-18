@@ -93,8 +93,8 @@ code. It also does a little bit of style checking. Here's how to use it:
    pip install pylint
    ```
 
-1. Copy our [base pylintrc file] into root directory of your project. This file contains all our
-   recommended pylint settings for Wikia Python projects.
+1. Copy our **[base pylintrc file]** into the root directory of your project. This file contains all
+   our recommended pylint settings for Wikia Python projects.
 1. Run it with the following command (replace `your_module` with the actual name of your module):
 
    ```
