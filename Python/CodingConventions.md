@@ -42,8 +42,17 @@ _(This list contains differences, additions, and clarifications to the above doc
   with three or more words, or where it’s hard to parse the split between two words, use
   lowercase_with_underscores (e.g., `note_explicit_target`, `explicit_target`). If in doubt, use
   underscores.
+* Single letter variable names are allowed under the "we're all consenting adults" philosophy.
+  **Don't overuse them.** Single letter names are great for things like iteration, comprehensions,
+  lambdas, etc. There are some situations where you might be tempted to use a single letter name
+  when a two letter name would be significantly more readable. For example:
+    * For exceptions, `ex` is better than `e`.
+    * For file objects (pointers), `fp` is better than `f`.
+    * For function objects (like inside a decorator), `fn` is better than `f`.
 * Use `'single quotes'` for string literals, and `"""triple double quotes"""` for docstrings. Double
   quotes are OK for something like `"don't"`.
+* If you want to document your function parameters in their docstrings, we recommend using
+  [Sphinx style docstrings] instead of the Google style.
 
 ## How to Check Your Code With `pep8` and `pylint`
 
@@ -124,6 +133,7 @@ Some notes about Pylint:
 [PEP 20]: http://www.python.org/dev/peps/pep-0020/
 [PEP 257]: http://www.python.org/dev/peps/pep-0257/
 [Guido van Rossum]: http://en.wikipedia.org/wiki/Guido_van_Rossum
+[Sphinx style docstrings]: https://pythonhosted.org/an_example_pypi_project/sphinx.html#full-code-example
 [pep8]: https://github.com/jcrocholl/pep8
 [pylint]: http://www.pylint.org/
 [base pylintrc file]: https://github.com/Wikia/python-wikiautils/blob/master/pylintrc
