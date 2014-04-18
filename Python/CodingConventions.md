@@ -21,7 +21,7 @@ a good job of articulating our desire for consistency (emphasis added):
 
 ## Documents With Which You Should Be Intimately Familiar
 
-* [PEP 20] (a.k.a. The Zen of Python): These are the oft-quoted guiding principles of Python's
+* [PEP 20] a.k.a. The Zen of Python: These are the oft-quoted guiding principles of Python's
   design. Memorize them, seriously.
 * [PEP 8]: This is the de-facto code style guide for Python. It was adapted from
   [Guido van Rossum]'s original Python Style Guide essay. Pretty much everyone in the Python
