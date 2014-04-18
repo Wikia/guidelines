@@ -21,7 +21,7 @@ a good job of articulating our desire for consistency (emphasis added):
 
 ## Documents With Which You Should Be Intimately Familiar
 
-* [PEP 20] (a.k.a. The Zen of Python): These are the oft-quoted guiding priciples of Python's
+* [PEP 20] (a.k.a. The Zen of Python): These are the oft-quoted guiding principles of Python's
   design. Memorize them, seriously.
 * [PEP 8]: This is the de-facto code style guide for Python. It was adapted from
   [Guido van Rossum]'s original Python Style Guide essay. Pretty much everyone in the Python
@@ -114,12 +114,12 @@ Some notes about Pylint:
 ## Recommended Code Quality Metrics
 
 * Pylint global evaluation rating: Use the `--reports=y` option to `pylint` to get this value
-  from the report it generates. _(Recommeded threshold: > 9.50)_
+  from the report it generates. _(Recommended threshold: > 9.50)_
 * Percentage of comments: Divide the number of lines of Python comments by the number of lines
   of Python code (as measured by the [cloc] command-line tool) to get a percentage.
-  _(Recommeded threshold: > 20%)_
+  _(Recommended threshold: > 20%)_
 * Test code coverage: If your code has unit tests, run the tests through the [coverage] module. Look
-  at the documentation for the coverage module for more details. _(Recommeded threshold: > 80%)_.
+  at the documentation for the coverage module for more details. _(Recommended threshold: > 80%)_.
 
 ## Further Reading
 
