@@ -52,7 +52,8 @@ _(This list contains differences, additions, and clarifications to the above doc
 * Use `'single quotes'` for string literals, and `"""triple double quotes"""` for docstrings. Double
   quotes are OK for something like `"don't"`.
 * If you want to document your function parameters in their docstrings, we recommend using
-  [Sphinx style docstrings] instead of the Google style.
+  [Sphinx style docstrings] instead of the Google style docstrings described in the Google Python
+  Style Guide.
 
 ## How to Check Your Code With `pep8` and `pylint`
 
