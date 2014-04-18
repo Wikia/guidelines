@@ -1,4 +1,4 @@
-# Wikia Python Development Guidelines
+# Wikia Python Coding Conventions
 
 This document defines the best practices for contributing to Python projects at Wikia. The purpose
 of this document is to keep our code stable and consistent. We firmly believe that well written code
