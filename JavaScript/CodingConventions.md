@@ -489,7 +489,7 @@ Avoid minification through obfuscation and try to make your code more human read
 
 ##### Caching jQuery Objects
 
-Reduce the amount of DOM parsing by caching jQuery objects if the same object will be used more than once. All variables referencing jQuery Objects should be prefixed with a `$`.
+Reduce the number of DOM queries by caching jQuery objects if the same object will be used more than once. Prefix jQuery object variables with a `$`.
 
 ```javascript
 // bad
