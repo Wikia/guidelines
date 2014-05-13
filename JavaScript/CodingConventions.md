@@ -26,7 +26,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [Functions](#functions)
      * [Multi-line Statements](#multi-line-statements)
      * [Chained Method Calls](#chained-method-calls)
-  * [Prefixing jQuery Objects](#prefixing-jquery-objects)
+  * [Caching jQuery Objects](#caching-jquery-objects)
   * [Storing Context in a Local Variable](#storing-context-in-a-local-variable)
   * [Comments](#comments)
   * [Naming Conventions](#naming-conventions)
@@ -487,13 +487,21 @@ Avoid acronyms in variable names and be explicit in your variable naming. It sho
 
 Avoid minification through obfuscation and try to make your code more human readable. Let the minification process handle minifying for production use.
 
-##### Prefixing jQuery Objects
+##### Caching jQuery Objects
 
-All variables referencing jQuery Objects, should be prefixed with a `$`.
+Reduce the amount of DOM parsing by caching jQuery objects if the same object will be used more than once. All variables referencing jQuery Objects should be prefixed with a `$`.
 
 ```javascript
-// $div is a jQuery object
-var $div = $('div');
+// bad
+if ($('#foo').is(':visible')) {
+    $('#foo').addClass('active');
+};
+
+// good
+var $foo = $('#foo');
+if ($foo.is(':visible')) {
+    $foo.addClass('active');
+};
 ```
 
 #### Storing Context in a Local Variable
