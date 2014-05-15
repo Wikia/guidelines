@@ -297,6 +297,14 @@ var map = {
 	'you are': 15
 };
 ```
+When accessing object properties, dot notation is preferred over brackets. 
+```js
+// Bad
+myObj['someProp'];
+
+// Good
+myObj.someProp;
+```
 
 #### Arrays
 
