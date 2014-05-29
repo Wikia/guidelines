@@ -7,12 +7,11 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-for file in $@; do
-	if [ "${file##*.}" = "py" ]; then
-		$pep8 --config "$ROOT_DIR/Python/setup.cfg" $file
+FILES=$(printf "%s\n" $@ | grep ".*\.py$")
+if [ -n "$FILES" ]; then
+	$pep8 --config "$ROOT_DIR/Python/setup.cfg" $FILES
 
-		if [ $? -ne 0 ]; then
-			exit 1
-		fi
+	if [ $? -ne 0 ]; then
+		exit 1
 	fi
-done
+fi

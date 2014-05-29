@@ -6,12 +6,11 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-for file in $@; do
-	if [ "${file##*.}" = "js" ]; then
-		$jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $file
+FILES=$(printf "%s\n" $@ | grep ".*\.js$")
+if [ -n "$FILES" ]; then
+	$jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $FILES
 
-		if [ $? -ne 0 ]; then
-			exit 1
-		fi
+	if [ $? -ne 0 ]; then
+		exit 1
 	fi
-done
+fi

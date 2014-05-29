@@ -6,12 +6,11 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-for file in $@; do
-	if [ "${file##*.}" = "js" ]; then
-		$jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $file
+FILES=$(printf "%s\n" $@ | grep ".*\.js$")
+if [ -n "$FILES" ]; then
+	$jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $FILES
 
-		if [ $? -ne 0 ]; then
-			exit 1
-		fi
+	if [ $? -ne 0 ]; then
+		exit 1
 	fi
-done
+fi

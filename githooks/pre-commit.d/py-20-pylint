@@ -7,12 +7,11 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-for file in $@; do
-	if [ "${file##*.}" = "py" ]; then
-		$pylint --rcfile "$ROOT_DIR/Python/pylintrc" $file
+FILES=$(printf "%s\n" $@ | grep ".*\.py$")
+if [ -n "$FILES" ]; then
+	$pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
 
-		if [ $? -ne 0 ]; then
-			exit 1
-		fi
+	if [ $? -ne 0 ]; then
+		exit 1
 	fi
-done
+fi
