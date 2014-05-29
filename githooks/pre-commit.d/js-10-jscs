@@ -1,0 +1,17 @@
+#!/bin/sh
+
+jscs=$(which jscs)
+if [ $? -ne 0 ]; then
+	echo "jscs not installed or not on path" 1>&2
+	exit 1
+fi
+
+for file in $@; do
+	if [ "${file##*.}" = "js" ]; then
+		$jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $file
+
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+	fi
+done
