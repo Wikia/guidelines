@@ -1,0 +1,18 @@
+#!/bin/sh
+
+pylint=$(which pylint)
+if [ $? -ne 0 ]; then
+	echo "\`pylint\` not installed or not on path" 1>&2
+	echo "Please run \`pip install pylint\`" 1>&2
+	exit 1
+fi
+
+for file in $@; do
+	if [ "${file##*.}" = "py" ]; then
+		$pylint --rcfile "$ROOT_DIR/Python/pylintrc" $file
+
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+	fi
+done

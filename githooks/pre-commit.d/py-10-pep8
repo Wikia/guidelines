@@ -1,0 +1,18 @@
+#!/bin/sh
+
+pep8=$(which pep8)
+if [ $? -ne 0 ]; then
+	echo "\`pep8\` not installed or not on path" 1>&2
+	echo "Please run \`pip install pep8\`" 1>&2
+	exit 1
+fi
+
+for file in $@; do
+	if [ "${file##*.}" = "py" ]; then
+		$pep8 --config "$ROOT_DIR/Python/setup.cfg" $file
+
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+	fi
+done
