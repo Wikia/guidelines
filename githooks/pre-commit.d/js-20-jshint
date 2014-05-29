@@ -2,7 +2,8 @@
 
 jshint=$(which jshint)
 if [ $? -ne 0 ]; then
-	echo "jshint not installed or not on path" 1>&2
+	echo "\`jshint\` not installed or not on path" 1>&2
+	echo "Please run \`npm install -g jshint\`" 1>&2
 	exit 1
 fi
 

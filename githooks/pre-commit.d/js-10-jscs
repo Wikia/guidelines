@@ -2,7 +2,8 @@
 
 jscs=$(which jscs)
 if [ $? -ne 0 ]; then
-	echo "jscs not installed or not on path" 1>&2
+	echo "\`jscs\` not installed or not on path" 1>&2
+	echo "Please run \`npm install -g jscs\`" 1>&2
 	exit 1
 fi
 
