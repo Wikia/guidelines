@@ -14,7 +14,7 @@ new_stash=$(git rev-parse -q --verify refs/stash)
 # see http://stackoverflow.com/a/20480591
 if [[ $old_stash != $new_stash ]]; then
   # ensure the stash is restored after this hook runs
-  trap "git stash pop --quiet" SIGHUP SIGINT SIGTERM
+  trap "git stash pop --quiet" SIGHUP SIGINT SIGTERM EXIT
 elif [[ $stash_status == 0 ]]; then
   # If the stash command status wasn't 0, then something went wrong with
   # stashing, and the hooks should probably be run. If it was okay, then
