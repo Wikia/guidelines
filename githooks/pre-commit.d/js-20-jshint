@@ -1,16 +1,18 @@
 #!/bin/bash
 
+FILES=$(printf "%s\n" $@ | grep ".*\.js$")
+if [[ -z $FILES ]]; then
+  exit 0
+fi
+
 if ! hash jshint 2>/dev/null; then
   echo "\`jshint\` not installed or not on path" 1>&2
   echo "Please run \`npm install -g jshint\`" 1>&2
   exit 1
 fi
 
-FILES=$(printf "%s\n" $@ | grep ".*\.js$")
-if [[ -n $FILES ]]; then
-  $jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $FILES
+$jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $FILES
 
-  if [[ $? != 0 ]]; then
-    exit 1
-  fi
+if [[ $? != 0 ]]; then
+  exit 1
 fi

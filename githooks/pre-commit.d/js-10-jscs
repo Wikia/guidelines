@@ -1,16 +1,18 @@
 #!/bin/bash
 
+FILES=$(printf "%s\n" $@ | grep ".*\.js$")
+if [[ -z $FILES ]]; then
+  exit 0
+fi
+
 if ! hash jscs 2>/dev/null; then
   echo "\`jscs\` not installed or not on path" 1>&2
   echo "Please run \`npm install -g jscs\`" 1>&2
   exit 1
 fi
 
-FILES=$(printf "%s\n" $@ | grep ".*\.js$")
-if [[ -n $FILES ]]; then
-  $jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $FILES
+$jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $FILES
 
-  if [[ $? != 0 ]]; then
-    exit 1
-  fi
+if [[ $? != 0 ]]; then
+  exit 1
 fi
