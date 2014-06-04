@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PRE_COMMIT=.git/hooks/pre-commit
-DIR=$(dirname $0)
+DIR=$(cd -- "$(dirname "$0")"; pwd -P)
 
 if [[ ! -d .git ]]; then
 	echo "Git hooks install script must be run from the root directory of a git repository" 1>&2
