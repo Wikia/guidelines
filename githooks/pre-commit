@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# determine which revision we are diffing against
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+  REVISION=HEAD
+else
+  # Initial commit: diff against an empty tree object
+  REVISION=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# determine which files have actually changed
+FILES=$(git diff --cached --name-only --diff-filter=ACM "${REVISION}")
+
+# if no files have changed, exit now
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
 # remove everything that isn't part of the repo, but leave
 # ignored files which may be dependencies for installed hooks
 old_stash=$(git rev-parse -q --verify refs/stash)
@@ -25,17 +41,6 @@ elif [[ $stash_status == 0 ]]; then
   # sleep 1 # XXX hack, editor may erase message
   exit 0
 fi
-
-# determine which revision we are diffing against
-if git rev-parse --verify HEAD >/dev/null 2>&1; then
-  REVISION=HEAD
-else
-  # Initial commit: diff against an empty tree object
-  REVISION=4b825dc642cb6eb9a060e54bf8d69288fbee4904
-fi
-
-# determine which files have actually changed
-FILES=$(git diff --cached --name-only --diff-filter=ACM "${REVISION}")
 
 dir=$(readlink "$0")
 dir=$(dirname "$dir")
