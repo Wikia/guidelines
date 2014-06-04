@@ -2,16 +2,16 @@
 
 pylint=$(which pylint)
 if [ $? -ne 0 ]; then
-	echo "\`pylint\` not installed or not on path" 1>&2
-	echo "Please run \`pip install pylint\`" 1>&2
-	exit 1
+  echo "\`pylint\` not installed or not on path" 1>&2
+  echo "Please run \`pip install pylint\`" 1>&2
+  exit 1
 fi
 
 FILES=$(printf "%s\n" $@ | grep ".*\.py$")
 if [ -n "$FILES" ]; then
-	$pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
+  $pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
 
-	if [ $? -ne 0 ]; then
-		exit 1
-	fi
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
 fi
