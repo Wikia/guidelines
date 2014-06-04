@@ -7,6 +7,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# we need to run pylint on all files, because has certain "global"
+# checks that we want to know about
 FILES=$(git ls-files | grep ".*\.py$")
 if [ -n "$FILES" ]; then
   $pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
