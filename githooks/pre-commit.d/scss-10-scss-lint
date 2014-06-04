@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FILES=$(printf "%s\n" $@ | grep ".*\.scss$")
-if [[ -n $FILES ]]; then
+FILES=$(grep ".*\.scss$" <<< $@)
+if [[ -z "$FILES" ]]; then
   exit 0
 fi
 

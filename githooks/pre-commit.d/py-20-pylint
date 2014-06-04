@@ -3,7 +3,7 @@
 # we need to run pylint on all files, because has certain "global"
 # checks that we want to know about
 FILES=$(git ls-files | grep ".*\.py$")
-if [[ -z $FILES ]]; then
+if [[ -z "$FILES" ]]; then
   exit 0
 fi
 
