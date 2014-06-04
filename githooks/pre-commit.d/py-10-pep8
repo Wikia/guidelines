@@ -9,7 +9,7 @@ fi
 
 FILES=$(printf "%s\n" $@ | grep ".*\.py$")
 if [ -n "$FILES" ]; then
-  $pep8 --config "$ROOT_DIR/Python/setup.cfg" $FILES
+  $pep8 --config "$ROOT_DIR/Python/pep8" $FILES
 
   if [ $? -ne 0 ]; then
     exit 1
