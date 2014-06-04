@@ -14,7 +14,7 @@ if ! hash pylint 2>/dev/null; then
 fi
 
 
-$pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
+pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
 
 # see `pylint --long-help` for info on these exit codes
 if [[ $(($? & 1)) > 0 || $(($? & 2)) > 0 || $(($? & 16)) > 0 ]]; then

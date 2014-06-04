@@ -11,7 +11,7 @@ if ! hash pep8 2>/dev/null; then
   exit 1
 fi
 
-$pep8 --config "$ROOT_DIR/Python/pep8" $FILES
+pep8 --config "$ROOT_DIR/Python/pep8" $FILES
 
 if [[ $? != 0 ]]; then
   exit 1

@@ -11,7 +11,7 @@ if ! hash jscs 2>/dev/null; then
   exit 1
 fi
 
-$jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $FILES
+jscs --config "$ROOT_DIR/JavaScript/.jscs.json" $FILES
 
 if [[ $? != 0 ]]; then
   exit 1

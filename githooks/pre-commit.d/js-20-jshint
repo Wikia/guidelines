@@ -11,7 +11,7 @@ if ! hash jshint 2>/dev/null; then
   exit 1
 fi
 
-$jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $FILES
+jshint --config "$ROOT_DIR/JavaScript/.jshintrc" $FILES
 
 if [[ $? != 0 ]]; then
   exit 1

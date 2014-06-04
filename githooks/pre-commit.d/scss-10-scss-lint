@@ -11,7 +11,7 @@ if ! hash scss-lint 2>/dev/null; then
   exit 1
 fi
 
-$scsslint --config "$ROOT_DIR/SCSS/.scss-lint.yml" $FILES
+scss-lint --config "$ROOT_DIR/SCSS/.scss-lint.yml" $FILES
 
 if [[ $? != 0 ]]; then
   exit 1
