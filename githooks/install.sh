@@ -8,8 +8,8 @@ if [[ ! -d .git ]]; then
 	exit 1
 fi
 
-if [[ -e $PRE_COMMIT ]]; then
-	rm "$PRE_COMMIT"
+if [[ -e $PRE_COMMIT || -h $PRE_COMMIT ]]; then
+  rm "$PRE_COMMIT"
 fi
 
 ln -s "$DIR/pre-commit" "$PRE_COMMIT"
