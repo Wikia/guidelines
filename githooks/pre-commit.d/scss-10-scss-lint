@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 scsslint=$(which scss-lint)
 if [ $? -ne 0 ]; then

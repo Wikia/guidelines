@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 jscs=$(which jscs)
 if [ $? -ne 0 ]; then

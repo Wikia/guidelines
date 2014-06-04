@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 pep8=$(which pep8)
 if [ $? -ne 0 ]; then

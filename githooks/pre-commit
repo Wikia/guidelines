@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # remove everything that isn't part of the repo, but leave
 # ignored files which may be dependencies for installed hooks

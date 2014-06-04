@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PRE_COMMIT=.git/hooks/pre-commit
 DIR=$(dirname $0)
