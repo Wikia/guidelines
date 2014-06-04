@@ -1,7 +1,6 @@
 #!/bin/bash
 
-jshint=$(which jshint)
-if [[ $? != 0 ]]; then
+if ! hash jshint 2>/dev/null; then
   echo "\`jshint\` not installed or not on path" 1>&2
   echo "Please run \`npm install -g jshint\`" 1>&2
   exit 1

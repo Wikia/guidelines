@@ -1,7 +1,6 @@
 #!/bin/bash
 
-pep8=$(which pep8)
-if [[ $? != 0 ]]; then
+if ! hash pep8 2>/dev/null; then
   echo "\`pep8\` not installed or not on path" 1>&2
   echo "Please run \`pip install pep8\`" 1>&2
   exit 1

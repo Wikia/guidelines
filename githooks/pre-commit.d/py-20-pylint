@@ -1,7 +1,6 @@
 #!/bin/bash
 
-pylint=$(which pylint)
-if [[ $? != 0 ]]; then
+if ! hash pylint 2>/dev/null; then
   echo "\`pylint\` not installed or not on path" 1>&2
   echo "Please run \`pip install pylint\`" 1>&2
   exit 1
