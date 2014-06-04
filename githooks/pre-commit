@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# replace empty globs with an empty string
+shopt -s nullglob
+
 # determine which revision we are diffing against
 if git rev-parse --verify HEAD >/dev/null 2>&1; then
   REVISION=HEAD
@@ -43,10 +46,8 @@ elif [[ $stash_status == 0 ]]; then
 fi
 
 dir=$(readlink "$0")
-dir=$(dirname "$dir")
-dir=$(cd -- "$dir/.."; pwd)
-hooks="$dir/githooks/pre-commit.d/*"
-for hook in $hooks; do
+dir=$(cd -- "$(dirname "$dir")/.."; pwd)
+for hook in $dir/githooks/pre-commit.d/* $GIT_DIR/hooks/pre-commit.d/*; do
   if [[ -x $hook ]]; then
     REVISION="$REVISION" ROOT_DIR="$dir" $hook $FILES
 
@@ -54,8 +55,8 @@ for hook in $hooks; do
       exit 1
     fi
   else
-    hook_path=$(cd $(dirname $hook) && pwd)
-    hook_name=$(basename $hook)
+    hook_path=$(cd -- "$(dirname "$hook")"; pwd -P)
+    hook_name=$(basename "$hook")
     echo "Found non-executable hook \`$hook_name\`; please remove or \`chmod +x $hook_path/$hook_name\`"
     exit 1
   fi
