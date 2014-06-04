@@ -1,7 +1,7 @@
 #!/bin/bash
 
-FILES=$(grep ".*\.py$" <<< $@)
-if [[ -z "$FILES" ]]; then
+FILES=$(printf "%s\n" $@ | grep ".*\.py$")
+if [[ -z $FILES ]]; then
   exit 0
 fi
 
