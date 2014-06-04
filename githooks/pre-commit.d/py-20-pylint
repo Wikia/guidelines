@@ -7,11 +7,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-FILES=$(printf "%s\n" $@ | grep ".*\.py$")
+FILES=$(git ls-files | grep ".*\.py$")
 if [ -n "$FILES" ]; then
   $pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
 
-  if [ $? -ne 0 ]; then
+  # see `pylint --long-help` for info on these exit codes
+  if [[ $(($? & 1)) > 0 || $(($? & 2)) > 0 || $(($? & 16)) > 0 ]]; then
     exit 1
   fi
 fi
