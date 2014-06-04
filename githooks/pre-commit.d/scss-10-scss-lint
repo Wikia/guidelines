@@ -1,17 +1,17 @@
 #!/bin/bash
 
 scsslint=$(which scss-lint)
-if [ $? -ne 0 ]; then
+if [[ $? != 0 ]]; then
   echo "\`scss-lint\` not installed or not on path" 1>&2
   echo "Please run \`gem install scss-lint\`" 1>&2
   exit 1
 fi
 
 FILES=$(printf "%s\n" $@ | grep ".*\.scss$")
-if [ -n "$FILES" ]; then
+if [[ -n $FILES ]]; then
   $scsslint --config "$ROOT_DIR/SCSS/.scss-lint.yml" $FILES
 
-  if [ $? -ne 0 ]; then
+  if [[ $? != 0 ]]; then
     exit 1
   fi
 fi
