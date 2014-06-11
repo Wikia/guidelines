@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# we need to run pylint on all files, because has certain "global"
+# checks that we want to know about
+FILES=$(git ls-files | grep ".*\.py$")
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
+if ! hash pylint 2>/dev/null; then
+  echo "\`pylint\` not installed or not on path" 1>&2
+  echo "Please run \`pip install pylint\`" 1>&2
+  exit 1
+fi
+
+
+pylint --rcfile "$ROOT_DIR/Python/pylintrc" $FILES
+
+# see `pylint --long-help` for info on these exit codes
+if [[ $(($? & 1)) > 0 || $(($? & 2)) > 0 || $(($? & 16)) > 0 ]]; then
+  exit 1
+fi

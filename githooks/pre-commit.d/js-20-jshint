@@ -1,0 +1,37 @@
+#!/bin/bash
+
+FILES=$(printf "%s\n" $@ | grep ".*\.js$")
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
+if ! hash jshint 2>/dev/null; then
+  echo "\`jshint\` not installed or not on path" 1>&2
+  echo "Please run \`npm install -g jshint\`" 1>&2
+  exit 1
+fi
+
+# verify that the git repository .jshintrc file is the same as the guidelines
+# .jshintrc file, because Code Climate requires that the .jshintrc file be
+# checked into the repository
+JSHINTRC_ERROR=""
+GUIDELINES_JSHINTRC="$ROOT_DIR/JavaScript/.jshintrc"
+REPO_JSHINTRC="$(cd -- "$GIT_DIR/.."; pwd -P)/.jshintrc"
+if [[ ! -e "$REPO_JSHINTRC" ]]; then
+  JSHINTRC_ERROR="Code Climate requires the \`.jshintrc\` file to be checked into the repository"
+elif ! diff "$GUIDELINES_JSHINTRC" "$REPO_JSHINTRC" 1>/dev/null; then
+  JSHINTRC_ERROR="The repository .jshintrc file differs from the guidelines .jshintrc file"
+fi
+if [[ -n "$JSHINTRC_ERROR" ]]; then
+  # copy the correct .jshintrc file into the repository root
+  cp "$GUIDELINES_JSHINTRC" "$REPO_JSHINTRC"
+  echo $JSHINTRC_ERROR 1>&2
+  echo "Please run \`git stash && git add \"$REPO_JSHINTRC\" && git commit -nm \"Update .jshintrc\" && git stash pop\`" 1>&2
+  exit 1
+fi
+
+jshint --config "$GUIDELINES_JSHINTRC" $FILES
+
+if [[ $? != 0 ]]; then
+  exit 1
+fi

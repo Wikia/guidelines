@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILES=$(printf "%s\n" $@ | grep ".*\.py$")
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
+if ! hash pep8 2>/dev/null; then
+  echo "\`pep8\` not installed or not on path" 1>&2
+  echo "Please run \`pip install pep8\`" 1>&2
+  exit 1
+fi
+
+pep8 --config "$ROOT_DIR/Python/pep8" $FILES
+
+if [[ $? != 0 ]]; then
+  exit 1
+fi

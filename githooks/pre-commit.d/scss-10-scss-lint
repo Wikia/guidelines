@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILES=$(printf "%s\n" $@ | grep ".*\.scss$")
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
+if ! hash scss-lint 2>/dev/null; then
+  echo "\`scss-lint\` not installed or not on path" 1>&2
+  echo "Please run \`gem install scss-lint\`" 1>&2
+  exit 1
+fi
+
+scss-lint --config "$ROOT_DIR/SCSS/.scss-lint.yml" $FILES
+
+if [[ $? != 0 ]]; then
+  exit 1
+fi

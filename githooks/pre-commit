@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# replace empty globs with an empty string
+shopt -s nullglob
+
+# determine which revision we are diffing against
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+  REVISION=HEAD
+else
+  # Initial commit: diff against an empty tree object
+  REVISION=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# determine which files have actually changed
+FILES=$(git diff --cached --name-only --diff-filter=ACM "${REVISION}")
+
+# if no files have changed, exit now
+if [[ -z "$FILES" ]]; then
+  exit 0
+fi
+
+# remove everything that isn't part of the repo, but leave
+# ignored files which may be dependencies for installed hooks
+old_stash=$(git rev-parse -q --verify refs/stash)
+git stash save --keep-index --include-untracked --quiet >/dev/null 2>&1
+stash_status=$?
+new_stash=$(git rev-parse -q --verify refs/stash)
+
+# If there were no changes (e.g., `--amend` or `--allow-empty`)
+# then nothing was stashed, and we should skip everything,
+# including the tests themselves.  (Presumably the tests passed
+# on the previous commit, so there is no need to re-run them.)
+# see http://stackoverflow.com/a/20480591
+if [[ $old_stash != $new_stash ]]; then
+  # ensure the stash is restored after this hook runs
+  trap "git stash pop --quiet" SIGHUP SIGINT SIGTERM EXIT
+elif [[ $stash_status == 0 ]]; then
+  # If the stash command status wasn't 0, then something went wrong with
+  # stashing, and the hooks should probably be run. If it was okay, then
+  # no stash was created as a result of the command and that means nothing
+  # actually changed
+  echo "pre-commit script: no changes to test"
+  # Not sure what the following line is...
+  # sleep 1 # XXX hack, editor may erase message
+  exit 0
+fi
+
+dir=$(readlink "$0")
+dir=$(cd -- "$(dirname "$dir")/.."; pwd)
+for hook in $dir/githooks/pre-commit.d/* $GIT_DIR/hooks/pre-commit.d/*; do
+  if [[ -x $hook ]]; then
+    REVISION="$REVISION" ROOT_DIR="$dir" $hook $FILES
+
+    if [[ $? != 0 ]]; then
+      exit 1
+    fi
+  else
+    hook_path=$(cd -- "$(dirname "$hook")"; pwd -P)
+    hook_name=$(basename "$hook")
+    echo "Found non-executable hook \`$hook_name\`; please remove or \`chmod +x $hook_path/$hook_name\`"
+    exit 1
+  fi
+done
+
+exit 0

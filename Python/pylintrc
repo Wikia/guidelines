@@ -1,0 +1,38 @@
+# WIKIA BASE PYLINTRC FILE
+# ========================
+#
+# This file should be used as a starting point
+# for pylintrc files in other Wikia projects.
+
+
+[MASTER]
+# Don't pickle collected data for later comparisons (it's buggy)
+persistent = no
+
+[MESSAGES CONTROL]
+# Messages to disable
+disable = star-args,too-few-public-methods,too-many-public-methods,too-many-arguments,abstract-method
+
+[REPORTS]
+# Colorize output
+output-format = colorized
+# Don't display a full report by default
+reports = no
+
+[BASIC]
+# Regular expression for global variable names
+const-rgx = (([A-Z_][A-Z0-9_]{2,30})|([a-z_][a-z0-9_]{2,30})|(__.*__))$
+# Regular expression which should only match correct argument names
+argument-rgx = [a-z_][a-z0-9_]*$
+# Regular expression which should only match correct variable names
+variable-rgx = [a-z_][a-z0-9_]*$
+
+[FORMAT]
+# Maximum number of characters on a single line
+max-line-length = 120
+
+[SIMILARITIES]
+# Minimum lines number of a similarity
+min-similarity-lines = 10
+# Ignore imports when computing similarities
+ignore-imports = yes
