@@ -14,3 +14,10 @@ cd /usr/wikia/source/guidelines; git submodule init && git submodule update
 cd /usr/wikia/source/wiki
 ../guidelines/PHP/bin/php-mediawiki-stylize /path/to/your/file.php
 ```
+
+If you want to stylize all of the edits that you have before you stage them you can do the following:
+
+```sh
+cd /usr/wikia/source/wiki
+git diff --name-only | grep php | while read -r i; do ../guidelines/PHP/bin/php-mediawiki-stylize “$i”; done
+```
