@@ -1,6 +1,10 @@
 Wikia will continue to follow the MediaWiki style guidelines for PHP writing code. The MediaWiki
-guidelines can be found [here](http://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP). The
-supplemental Wikia PHP code guidelines can be found [here](https://one.wikia-inc.com/wiki/Engineering/Development_Guidelines/Code_Style#PHP).
+guidelines for PHP can be found [here](http://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP).
+
+Wikia Specific Guidelines
+-------------------------
+
+Function length should be limited to one “page” in length where a page is intentionally loosely defined as what fits into your editor window.
 
 Using the MediaWiki PHP Style Helper
 ------------------------------------
