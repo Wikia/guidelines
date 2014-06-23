@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR=$(dirname $0)
+STYLIZE=$DIR/../../mediawiki/tools/code-utils/stylize.php
+if [[ ! -e $STYLIZE ]]; then
+	echo "Error, $STYLIZE could not be found!"
+	exit 1
+fi
+
+exec $STYLIZE "$@"
