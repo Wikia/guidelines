@@ -48,7 +48,7 @@ If a function has multiple return points, make sure that the type of return valu
 
 ```javascript
 // bad - sometimes returns undefined and sometimes returns string
-function() {
+function () {
     if (someBool) {
         return;
     }
@@ -59,7 +59,7 @@ function() {
 /**
  * @returns {string}
  */
-function() {
+function () {
     if (someBool) {
         return '';
     }
@@ -91,14 +91,14 @@ Do not declare functions within blocks such as loops and conditionals. This will
 ```javascript
 // bad:
 if (someBool) {
-    function myFunc() {
+    function myFunc () {
         // code
     }
 }
 
 // also bad:
 while (condition) {
-    function myFunc() {
+    function myFunc () {
         // code
     }
 }
@@ -201,12 +201,12 @@ The one exception right now is AMD module dependencies.
 Examples:
 ```javascript
 // bad
-function bakeCupcakes(sugar, eggs, milk, icing, flour) {
+function bakeCupcakes (sugar, eggs, milk, icing, flour) {
     //...
 }
 
 // good
-function bakeCupcakes(ingredients) {
+function bakeCupcakes (ingredients) {
     // do something with ingredients.sugar, etc.
 }
 
@@ -325,7 +325,7 @@ someArray[1];
 
 #### Functions
 
-The function keyword and calling parentheses should always be followed by one space. 
+The function keyword or function name and calling parentheses should always be followed by one space. 
 
 ```js
 function foo (arg1, arg2) {
@@ -356,7 +356,7 @@ Lines should be broken into logical groups if it improves readability, such as s
 ```js
 var foo, baz;
 
-foo = function() {
+foo = function () {
 	someCode();
 };
 
@@ -417,7 +417,7 @@ Comment early and often! For comments inside functions, use inline comments. For
  * @param {string} flavor The flavor of the cookie
  * @return {object} cookie The delicious cookie
  */
-function makeCookies(flavor) {
+function makeCookies (flavor) {
     // create the cookie
     var cookie = {
         type: flavor,
@@ -472,7 +472,7 @@ var foo, bar,
 var myVariable;
 
 // variable casing for constructors
-function MyConstructor() { ... }
+function MyConstructor () { ... }
 ```
 
 ##### Constants
@@ -517,10 +517,10 @@ If you want to store the context of a function in a variable that can be passed 
 
 Example:
 ```javascript
-function example() {
+function example () {
 	var self = this;
 
-	$myObj.on('click', function() {
+	$myObj.on('click', function () {
 		// some code...
 
 		self.doSomething();
@@ -585,7 +585,7 @@ var a = (function () { return 1; })(),
 	b = (function () { return 2; }());
 
 // bad
-var a = function (){ return 1; }();
+var a = function () { return 1; }();
 ```
 
 ## Tools
