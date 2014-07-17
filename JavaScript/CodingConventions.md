@@ -296,6 +296,14 @@ var map = {
 	when: 4,
 	'you are': 15
 };
+
+// More than one var
+var map1 = {
+		key: 'val'
+	},
+	map2 = {
+		key: 'val'
+	};
 ```
 When accessing object properties, dot notation is preferred over brackets. 
 ```js
