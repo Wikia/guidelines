@@ -422,7 +422,7 @@ function makeCookies (flavor) {
     var cookie = {
         type: flavor,
         tastiness: 'delicious'
-    }
+    };
 
     // do more stuff annotated by inline comments ...
 
