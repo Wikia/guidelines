@@ -541,7 +541,7 @@ function example () {
 AMD module IDs should be all lazyCamelCase. This is in line with the AMD specification for IDs ([Source](https://github.com/amdjs/amdjs-api/wiki/AMD#id-))
 
 ```javascript
-define('myextension.myPage' ...)
+define('myExtension.myPage' ...)
 ```
 If there is a folder structure within the extension's scripts directory, the module's namespace should match the folder structure.
 
