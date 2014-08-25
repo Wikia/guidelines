@@ -29,12 +29,15 @@ The following naming rules have an impact on good code quality understanding. Th
 
 Each method should start with lower case letter and is written with cammelCase. The only exception is test method name, which starts with upper-case letter. 
 
+All methods:
+
 ```java
 public WikiArticleEditMode clickEditButton() {
 ...
 }
 ```
 
+Test method name (Exception): 
 ```java
 @Test(groups = {"MessageWall_001", "MessageWall", "Smoke3"})
 	public void MessageWall_001_writeEdit() {
