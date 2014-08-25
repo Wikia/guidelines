@@ -33,7 +33,9 @@ Each method should start with lower case letter and is written with cammelCase. 
 public WikiArticleEditMode clickEditButton() {
 ...
 }
+```
 
+```java
 @Test(groups = {"MessageWall_001", "MessageWall", "Smoke3"})
 	public void MessageWall_001_writeEdit() {
 	...
@@ -78,11 +80,11 @@ private void typeCategoryName(String category) {
 
 ## Variables & constants naming
 
-The following rules apply to naming variables and constants:
+The following rules apply to naming variables and constants.
 
 ### variables
 
-name of a variable should start with lower case letter and use cammelCase
+Name of a variable should start with lower case letter and use cammelCase.
 
 ```java
 public List<String> choosePhotos(int photoNum){
@@ -94,7 +96,7 @@ public List<String> choosePhotos(int photoNum){
 
 ### constants
 
-name of a constant should  use UPPER_CASE. In case of two words, separate it with underscore.
+Name of a constant should  use UPPER_CASE. In case of two words, separate it with underscore.
 
 ```java
 public class AddPhotoComponentObject extends BasePageObject{
