@@ -76,6 +76,40 @@ private void typeCategoryName(String category) {
 }
 ```
 
+## Variables & constants naming
+
+The following rules apply to naming variables and constants:
+
+### variables
+
+name of a variable should start with lower case letter and use cammelCase
+
+```java
+public List<String> choosePhotos(int photoNum){
+	List photoNames = new ArrayList<String>();
+	...
+	return photoNames;
+}
+```
+
+### constants
+
+name of a constant should  use UPPER_CASE. In case of two words, separate it with underscore.
+
+```java
+public class AddPhotoComponentObject extends BasePageObject{
+
+	@FindBy(css=".WikiaSearch#WikiaPhotoGallerySearch input[name='search']")
+	private WebElement SEARCH_FIELD;
+	@FindBy(css="#WikiaPhotoGallerySearch img.search")
+	private WebElement SEARCH_BUTTON;
+	@FindBy(css="#WikiaPhotoGallerySearchResultsSelect")
+	private WebElement SELECT_BUTTON;
+...
+}
+```
+
+
 ## Automated clicktracking tests
 
 The following rules apply to writing Automated Clicktracking Tests.
