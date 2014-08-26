@@ -8,6 +8,10 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [click prefix](#click-prefix)
   * [open prefix](#open-prefix)
   * [type prefix](#type-prefix)
+  * [select prefix](#select-prefix)
+  * [get prefix](#get-prefix)
+  * [clear prefx](#clear-prefix)
+  * [methods order](#methods-order) 
 
 * [Automated Clicktracking tests](#automated-clicktracking-tests)
   * [add Clicktracking groups](#add-clicktracking-groups)
@@ -58,6 +62,66 @@ private void typeCategoryName(String category) {
 	addCategoryInput.sendKeys(category);
 }
 ```
+### select prefix
+
+For each method that select something from dropdown, use "select" prefix.
+```java
+public void selectPinType() {
+	waitForElementByElement(pinCategorySelector);
+	Select pinCategorySelectorDropDown = new Select(pinCategorySelector);
+	List<WebElement> pinCategoryList = pinCategorySelectorDropDown.getOptions();
+	pinCategoryList.get(1).click();
+}
+```
+
+### get prefix
+
+For each method that return some value from page element, use "get" prefix
+```java
+public String getAssociatedArticleImageSrc() {
+	waitForElementByElement(associatedArticleImage);
+	String imageSrc = articleImageUrl.getAttribute("src");
+	return imageSrc;
+}
+```
+
+### clear prefix
+
+For each method that clear some fields, use "clear" prefix
+```java
+public String clearTitle() {
+	waitForElementByElement(titleField);
+	titleField.clear();
+}
+```
+
+### method order
+
+Example:
+```java
+class Example{
+	
+	public String clickButton() {
+		[...]
+	}
+	
+	public String clickSave() {
+		[...]
+	}
+	
+	public String verifyTitle() {
+		[...]
+	}
+	
+	public String typeDescription() {
+		[...]
+	}
+}
+
+```
+
+Methods in file should have alphabeticall order. If You want to add next click method You should add it after clickSave method, not in the end of the file. When methods will be in alphabeticall order we can faster find them in big files.
+
 
 ## Automated clicktracking tests
 
