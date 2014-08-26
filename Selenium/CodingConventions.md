@@ -15,6 +15,9 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [store events by areas](#store-events-by-areas)
   * [define expected events as Json objects](#define-expected-events-as-Json-objects)
 
+* [General formatting](#general-formatting)
+  * [indentation](#indentation) 
+
 ## Methods naming
 
 The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team experience. 
@@ -131,4 +134,24 @@ public class EventsArticleEditMode {
 			.build();
 
 }		
+```
+
+## General formatting
+
+The following rules have an impact on code readability.
+
+### indentation
+
+Rule for indentation is that each indentation is 1 tab which contains 4 whitespaces
+
+```java
+	public void executeScript(String script) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript(script);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 ```
