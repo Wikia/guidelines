@@ -5,15 +5,9 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 ## TOC
 
 * [Methods naming](#methods-naming)
-  * [case](#case)  
   * [click prefix](#click-prefix)
   * [open prefix](#open-prefix)
   * [type prefix](#type-prefix)
-  
-  
-* [Variables & constants naming](#variables-&-constants-naming)
-  * [variables](#variables)
-  * [constants](#constants)
 
 * [Automated Clicktracking tests](#automated-clicktracking-tests)
   * [add Clicktracking groups](#add-clicktracking-groups)
@@ -25,32 +19,13 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team experience. 
 
-### case
-
-Each method should start with lower case letter and is written with cammelCase. The only exception is test method name, which starts with upper-case letter. 
-
-All methods:
-
-```java
-public WikiArticleEditMode clickEditButton() {
-...
-}
-```
-
-Test method name (Exception): 
-```java
-@Test(groups = {"MessageWall_001", "MessageWall", "Smoke3"})
-	public void MessageWall_001_writeEdit() {
-	...
-	}
-```
-
 ### click prefix
 
 For each method that performs a click on page, use "click" prefix.
 
 ```java
 public WikiArticleEditMode clickEditButton() {
+
 	waitForElementByElement(editButton);
 	waitForElementClickableByElement(editButton);
 	scrollAndClick(editButton);
@@ -80,40 +55,6 @@ private void typeCategoryName(String category) {
 	addCategoryInput.sendKeys(category);
 }
 ```
-
-## Variables & constants naming
-
-The following rules apply to naming variables and constants.
-
-### variables
-
-Name of a variable should start with lower case letter and use cammelCase.
-
-```java
-public List<String> choosePhotos(int photoNum){
-	List photoNames = new ArrayList<String>();
-	...
-	return photoNames;
-}
-```
-
-### constants
-
-Name of a constant should  use UPPER_CASE. In case of two words, separate it with underscore.
-
-```java
-public class AddPhotoComponentObject extends BasePageObject{
-
-	@FindBy(css=".WikiaSearch#WikiaPhotoGallerySearch input[name='search']")
-	private WebElement SEARCH_FIELD;
-	@FindBy(css="#WikiaPhotoGallerySearch img.search")
-	private WebElement SEARCH_BUTTON;
-	@FindBy(css="#WikiaPhotoGallerySearchResultsSelect")
-	private WebElement SELECT_BUTTON;
-...
-}
-```
-
 
 ## Automated clicktracking tests
 
