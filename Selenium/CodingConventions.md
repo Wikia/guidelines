@@ -174,7 +174,7 @@ public class EventsArticleEditMode {
 
 ## Other method rules
 
-### method order
+### methods order
 
 Methods in file should have alphabeticall order. If You want to add next click method You should add it after clickSave method, not in the end of the file. When methods will be in alphabeticall order we can faster find them in big files.
 
