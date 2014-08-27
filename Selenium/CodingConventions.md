@@ -11,13 +11,16 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [select prefix](#select-prefix)
   * [get prefix](#get-prefix)
   * [clear prefx](#clear-prefix)
-  * [methods order](#methods-order) 
+
 
 * [Automated Clicktracking tests](#automated-clicktracking-tests)
   * [add Clicktracking groups](#add-clicktracking-groups)
   * [add tracker installation](#add-tracker-installation)
   * [store events by areas](#store-events-by-areas)
   * [define expected events as Json objects](#define-expected-events-as-Json-objects)
+
+* [Other method rules](#other-method-rules)
+  * [methods order](#methods-order) 
 
 ## Methods naming
 
@@ -61,7 +64,7 @@ private void typeCategoryName(String category) {
 ```
 ### select prefix
 
-For each method that select something from dropdown, use "select" prefix.
+For each method that selects something from dropdown, use "select" prefix.
 ```java
 public void selectPinType() {
 	waitForElementByElement(pinCategorySelector);
@@ -73,7 +76,7 @@ public void selectPinType() {
 
 ### get prefix
 
-For each method that return some value from page element, use "get" prefix
+For each method that returns some value from page element, use "get" prefix
 ```java
 public String getAssociatedArticleImageSrc() {
 	waitForElementByElement(associatedArticleImage);
@@ -84,41 +87,13 @@ public String getAssociatedArticleImageSrc() {
 
 ### clear prefix
 
-For each method that clear some fields, use "clear" prefix
+For each method that clears some fields, use "clear" prefix
 ```java
 public String clearTitle() {
 	waitForElementByElement(titleField);
 	titleField.clear();
 }
 ```
-
-### method order
-
-Example:
-```java
-class Example{
-	
-	public String clickButton() {
-		[...]
-	}
-	
-	public String clickSave() {
-		[...]
-	}
-	
-	public String verifyTitle() {
-		[...]
-	}
-	
-	public String typeDescription() {
-		[...]
-	}
-}
-
-```
-
-Methods in file should have alphabeticall order. If You want to add next click method You should add it after clickSave method, not in the end of the file. When methods will be in alphabeticall order we can faster find them in big files.
-
 
 ## Automated clicktracking tests
 
@@ -195,4 +170,33 @@ public class EventsArticleEditMode {
 			.build();
 
 }		
+```
+
+## Other method rules
+
+### method order
+
+Methods in file should have alphabeticall order. If You want to add next click method You should add it after clickSave method, not in the end of the file. When methods will be in alphabeticall order we can faster find them in big files.
+
+Example:
+```java
+class Example{
+	
+	public String clickButton() {
+		[...]
+	}
+	
+	public String clickSave() {
+		[...]
+	}
+	
+	public String typeDescription() {
+		[...]
+	}
+	
+	public String verifyTitle() {
+		[...]
+	}
+}
+
 ```
