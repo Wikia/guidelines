@@ -162,9 +162,9 @@ Example:
 	
 	public class OrderOfCodePageObject extends BasePageObject {
 	
-		@FindBy(css="#example_css_selector1)
+		@FindBy(css="#example_css_selector1")
 		private WebElement first_element;
-		@FindBy(css="#example_css_selector2)
+		@FindBy(css="#example_css_selector2")
 		private WebElement second_element;
 	
 		private static String CONSTANT_STRING = "example string";
