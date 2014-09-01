@@ -160,7 +160,7 @@ Rule for indentation is that each indentation is 1 tab which contains 4 whitespa
 
 There should be no space between the name of a function and the ( (left parenthesis) of its parameter list.
 There should be one space between the ) (right parenthesis) and the { (left curly brace) that begins the statement body.
-There shoild be one space before operator (+, -, *, /, %, ++, --) and one space after
+There should be one space before operator (+, -, *, /, %, ++, --) and one space after
 
 ```java
   function outer(c, d) {
