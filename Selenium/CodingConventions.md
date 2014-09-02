@@ -160,5 +160,3 @@ Rule for indentation is that each indentation is 1 tab which contains 4 whitespa
 ### length of line
 Avoid lines longer than 120 characters. 
 If your code starts to get indented way to the right, consider breaking your code into more methods.
-
-
