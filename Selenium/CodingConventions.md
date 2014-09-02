@@ -17,6 +17,8 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 * [General formatting](#general-formatting)
   * [indentation](#indentation) 
+  * [Length of line](#Length of line) 
+
 
 ## Methods naming
 
