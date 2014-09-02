@@ -17,7 +17,7 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 
 * [General formatting](#general-formatting)
   * [indentation](#indentation) 
-  * [Length of line](#Length of line) 
+  * [length of line](#length-of-line) 
 
 
 ## Methods naming
@@ -158,7 +158,7 @@ Rule for indentation is that each indentation is 1 tab which contains 4 whitespa
 	}
 ```
 
-### Length of line
+### length of line
 Avoid lines longer than 120 characters. 
 If your code starts to get indented way to the right, consider breaking your code into more methods.
 
