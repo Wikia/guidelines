@@ -19,7 +19,6 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [indentation](#indentation) 
   * [length of line](#length-of-line) 
 
-
 ## Methods naming
 
 The following naming rules have an impact on good code quality understanding. They were chosen based on QA Automation Team experience. 
