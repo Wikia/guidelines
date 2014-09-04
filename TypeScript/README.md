@@ -3,6 +3,13 @@
 * Refer to JavaScript style guidelines wherever applicable
 * Use object method shorthand where applicable
 
+## TOC
+* [Lambda Syntax/Arrow Functions](#lambda-syntaxarrow-functions)
+* [Typing: Interfaces and Basic Types](#typing-interfaces-and-basic-types)
+  * [`any` Typing](#any-typing)
+  * [Interfaces](#interfaces)
+  * [Basic Types](#basic-types)
+
 ## Lambda Syntax/Arrow Functions
 
 Arrow functions in TypeScript, much like in ES6, are simply syntactic sugar. From the [TypeScript guide](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39):
@@ -47,6 +54,9 @@ var _this = this;
 ```
 
 ## Typing: Interfaces and Basic Types
+
+### `any` Typing
+
 * **Do** not allow implicit `any` typing. Always type variables and functions where it is possible to misinterpret. Additionally, turn on compiler warning flags for implicit `any` types (if possible in your TS compiler).
 
 * **Do** define type of variables when they are declared but not initialized
@@ -62,6 +72,8 @@ var str: string;
 // Other code
 str = ‘hello world’;
 ```
+
+###Interfaces
 
 * For interfaces that are intended for use in more than one context, store the interface in a global definition file appropriate for your project.
 
@@ -100,7 +112,9 @@ func (): SomeType {
 }
 ```
 
-* Do **not** define types where the variable is assigned inline and the type is obvious
+### Basic Types
+
+* Do **not** define types where the variable is assigned inline and the type is basic/primitive/obvious
 
 ```typescript
 // Bad:
