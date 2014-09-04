@@ -1,6 +1,6 @@
 #TypeScript Language Rules
 
-* Refer to JavaScript style guidelines wherever applicable
+* Refer to [JavaScript](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) style guidelines wherever applicable
 * Use object method shorthand where applicable
 
 ## TOC
