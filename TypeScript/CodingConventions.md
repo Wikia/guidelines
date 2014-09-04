@@ -27,7 +27,7 @@ var obj = {
 	foo: null, 
 	bar () {
 		// parent scope	
-		var xhr = $.get(‘/example’);
+		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// The value of this correctly refers to parent scope
 			this.foo = data;
@@ -44,7 +44,7 @@ var obj = {
 	bar: function () {
 		// parent scope
 var _this = this;	
-		var xhr = $.get(‘/example’);
+		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// TypeScript aliases the correct reference of this to:
 			_this.foo = data;
@@ -65,12 +65,12 @@ var _this = this;
 // Bad:
 var str;
 // Other code
-str = ‘hello world’;
+str = 'hello world';
 
 // Good:
 var str: string;
 // Other code
-str = ‘hello world’;
+str = 'hello world';
 ```
 
 ###Interfaces
@@ -118,10 +118,10 @@ func (): SomeType {
 
 ```typescript
 // Bad:
-var str: string = ‘hello world’,
+var str: string = 'hello world',
 num: number = 1;
 
 // Good:
-var str = ‘hello world’,
+var str = 'hello world',
  num = 1;
 ```
