@@ -144,7 +144,7 @@ Some notes about Pylint:
 
 If you want to document the functionality of your code beyond simple one-line docstrings, use
 [Sphinx style docstrings]. This will allow you to document your code inline and then generate nice,
-browsable documentation from that. Here's an example of a fuction definition with its arguments
+browsable documentation from that. Here's an example of a function definition with its arguments
 documented:
 
 ```python
