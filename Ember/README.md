@@ -20,7 +20,7 @@ var FooView = Ember.View.extend();
 var FooView = Em.View.extend();
 ```
 ## Native prototype modifications
-* Use Ember’s additions to native prototypes, for instance:
+* Use Ember's additions to native prototypes, for instance:
 
 ```typescript
 // bad
@@ -29,7 +29,7 @@ Em.observer('foo.bar', function () {});
 // good
 function () {
 	/* function body */
-}.observes(‘foo.bar’);
+}.observes('foo.bar');
 ```
 
 ## Logging
