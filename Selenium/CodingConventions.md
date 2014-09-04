@@ -163,19 +163,23 @@ Example:
 	public class OrderOfCodePageObject extends BasePageObject {
 	
 		@FindBy(css="#example_css_selector1")
-		private WebElement first_element;
-		@FindBy(css="#example_css_selector2")
-		private WebElement second_element;
-	
+		private WebElement contextMenu;
+		@FindBys(@FindBy(css="#example_css_selector3"))
+		private List<WebElement> inputsList;
+		
+		private By firstOptionBy = By.cssSelector(".example_css_selector4");
+		
 		private static String CONSTANT_STRING = "example string";
+		private final int CONSTANT_INT = 100;
 		private int exampleVariable;
 	
 		public OrderOfCodePageObject (WebDriver driver) {
 			super(driver);
 		}
 		
-		private void exampleMethod() {
-			first_element.click();
+		private void clickContextMenuFirstOption() {
+			WebElement firstOption = contextMenu.findElement(firstOptionBy);
+			firstOption.click();
 		}
 	}
 ```
