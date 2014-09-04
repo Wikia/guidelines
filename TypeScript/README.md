@@ -9,17 +9,15 @@
   * [`any` Typing](#any-typing)
   * [Interfaces](#interfaces)
   * [Basic Types](#basic-types)
+* [Class Definitions](#class-definitions)
 
 ## Lambda Syntax/Arrow Functions
 
 Arrow functions in TypeScript, much like in ES6, are simply syntactic sugar. From the [TypeScript guide](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39):
 
-> To fix [the context], we switch the function expression to use the lambda syntax ( ()=>{} ) rather than the JavaScript function expression. This will automatically capture the 'this' available when the function is created rather than when it is invoked.
+> To fix [the context of an anonymous function], we switch the function expression to use the lambda syntax ( ()=>{} ) rather than the JavaScript function expression. This will automatically capture the 'this' available when the function is created rather than when it is invoked.
 
-
-* **Do not** use them in object literals
-* **Do not** use them in the global scope
-* **Do** use them in place of anonymous functions in callbacks, wherein the correct value of `this` will be stored by the TypeScript compiler. 
+What this means is that the following piece of TS code:
 
 
 ```typescript
@@ -53,6 +51,13 @@ var _this = this;
 }
 ```
 
+
+Here is the small list of guidelines regarding lambda syntax:
+
+* **Do not** use it to declare functions in object literals
+* **Do not** use it to declare functions in the global scope
+* **Do** use it in place of standard JS anonymous function notation for callbacks, wherein the correct value of `this` will be stored by the TypeScript compiler
+
 ## Typing: Interfaces and Basic Types
 
 ### `any` Typing
@@ -65,12 +70,12 @@ var _this = this;
 // Bad:
 var str;
 // Other code
-str = ‘hello world’;
+str = 'hello world';
 
 // Good:
 var str: string;
 // Other code
-str = ‘hello world’;
+str = 'hello world';
 ```
 
 ###Interfaces
@@ -124,4 +129,43 @@ num: number = 1;
 // Good:
 var str = ‘hello world’,
  num = 1;
+```
+
+
+## Class Definitions
+
+* Class names should be in **PascalCase**
+* The order of the class definition should be as follows:
+  * Class properties
+  * `constructor`
+  * Class methods
+* Class properties should all have types and semantic comments
+* Class methods should all be in object function shorthand
+* There should be no spaces between properties, but spaces between the last property and the constructor, between the constructor and methods, and between all the other methods.
+
+```typescript
+
+Class SomeClass {
+	// This is a property whose type is defined
+	property: string,
+	// Bad
+	propertyWithNoType,
+
+	constructor () {
+		// Initialize object
+	},
+
+	/**
+	 * @desc This is a method. Note it’s defined in object function shorthand
+	 * @returns What the semantic value of the return is
+	 */
+	someMethod () {
+			// Code
+	},
+
+	// Bad
+	someOtherMethod: function () {
+
+	}
+}
 ```
