@@ -54,9 +54,9 @@ with these documents.
 
 This list contains differences, additions, and clarifications to the above documents.
 
-* [PEP 8] suggests a line length limit of 80 characters. It also says that if you "strongly prefer a
-  longer line length", then you should use 100 characters. This is the convention we follow at
-  Wikia. See the ["max line length" section of PEP 8] for more details.
+* [PEP 8] suggests a line length limit of 80 characters. However, it also says that if you "strongly
+  prefer a longer line length", then you should use 100 characters. This is the convention we follow
+  at Wikia. See the ["max line length" section of PEP 8] for more details.
 * Use `UpperCamelCase` for class names.
 * Use `lowercase` or `lowercase_with_underscores` for function, method, and variable names. For
   short names, maximum two words, joined lowercase may be used (e.g. `filename`). For long names
