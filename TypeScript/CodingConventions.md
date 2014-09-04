@@ -1,6 +1,6 @@
 #TypeScript Language Rules
 
-* Refer to JavaScript style guidelines wherever applicable
+* Refer to [JavaScript](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) style guidelines wherever applicable
 * Use object method shorthand where applicable
 
 ## TOC
@@ -25,7 +25,7 @@ var obj = {
 	foo: null, 
 	bar () {
 		// parent scope	
-		var xhr = $.get(‘/example’);
+		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// The value of this correctly refers to parent scope
 			this.foo = data;
@@ -42,7 +42,7 @@ var obj = {
 	bar: function () {
 		// parent scope
 var _this = this;	
-		var xhr = $.get(‘/example’);
+		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// TypeScript aliases the correct reference of this to:
 			_this.foo = data;
@@ -123,11 +123,11 @@ func (): SomeType {
 
 ```typescript
 // Bad:
-var str: string = ‘hello world’,
+var str: string = 'hello world',
 num: number = 1;
 
 // Good:
-var str = ‘hello world’,
+var str = 'hello world',
  num = 1;
 ```
 
