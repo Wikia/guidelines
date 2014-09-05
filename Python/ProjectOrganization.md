@@ -163,7 +163,7 @@ Guide.
 [Click]: https://github.com/mitsuhiko/click
 [Requests]: https://github.com/kennethreitz/requests
 [Django]: https://github.com/django/django
-[Installation & Packaging Tutortial]: https://python-packaging-user-guide.readthedocs.org/en/latest/tutorial.html
+[Installation & Packaging Tutorial]: https://python-packaging-user-guide.readthedocs.org/en/latest/tutorial.html
 [virtualenv]: https://virtualenv.pypa.io/en/latest/
 [README in the python-cheeseshop repo]: https://github.com/Wikia/python-cheeseshop#readme
 [setuptools extras]: https://pythonhosted.org/setuptools/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
