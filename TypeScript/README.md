@@ -144,33 +144,49 @@ var str = 'hello world',
   * Private instance methods
 * Class properties should all have types and semantic comments
 * All class functions (both static and instance)
-  * Should be in object function shorthand (`name () {...}`)
+  * Should be in object function shorthand (`functionName () {...}`)
   * Should be in `camelCase`
+  * Should have JSDoc comments as described in Wikia JavaScript guidelines
 * There should be no spaces between properties, but spaces between the last property and the constructor, between the constructor and methods, and between all the other methods.
 
 ```typescript
 
 Class SomeClass {
 	// This is a property whose type is defined
-	property: string,
+	property: string;
 	// Bad
-	propertyWithNoType,
+	propertyWithNoType;
+	// Here is a private property
+	private propertyWhichIsPrivate;
 
 	constructor () {
 		// Initialize object
-	},
+	}
+
+	static someStaticMethod () {
+	
+	}
 
 	/**
 	 * @desc This is a method. Note it’s defined in object function shorthand
 	 * @returns What the semantic value of the return is
 	 */
-	someMethod () {
+	someMethod (parameter: string) {
 			// Code
-	},
+	}
 
 	// Bad
 	someOtherMethod: function () {
-
+		// Code
+	}
+	
+	// Also bad
+	function someOtherMethod () {
+		// Code
+	}
+	
+	private somePrivateMethod () {
+	
 	}
 }
 ```
