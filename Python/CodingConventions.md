@@ -169,6 +169,7 @@ def send_message(sender, recipient, message_body, priority=1):
 **NOTE:** If the data type of the parameter is a single word, you can combine them on one line.
 Otherwise, you need to define it on a separate line. Both examples are given above.
 
+
 [Google Python Style Guide]: http://google-styleguide.googlecode.com/svn/trunk/pyguide.html
 [PEP 8]: http://www.python.org/dev/peps/pep-0008/
 [PEP 20]: http://www.python.org/dev/peps/pep-0020/
