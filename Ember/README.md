@@ -2,6 +2,7 @@
 
 ## Table of Contents
 * [What is Ember](#what-is-ember)
+* [Naming Conventions](#naming-conventions)
 * [Accessing Ember Objects](#accessing-ember-objects)
 * [Declaring Ember Objects](#declaring-ember-objects)
 * [Native Prototype Modifications](#native-prototype-modifications)
@@ -9,6 +10,9 @@
 
 ## What is Ember?
 > Ember.js is an open-source client-side JavaScript web application framework based on the model-view-controller (MVC) software architectural pattern. It allows developers to create scalable single-page applications[1] by incorporating common idioms and best practices into a framework that provides a rich object model, declarative two-way data binding, computed properties, automatically-updating templates powered by Handlebars.js, and a router for managing application state. [(Wikipedia)](https://docs.google.com/a/wikia-inc.com/document/d/1c2o5ewMOkHFwrNrQy60bo20a0zO3E-tqNWQ6fiU2NC8/edit#)
+
+## Naming Conventions
+We follow the canonical naming conventions established by the Ember Core Team. The full Ember naming conventions documentation can be found [here](http://emberjs.com/guides/concepts/naming-conventions/).
 
 ## Accessing Ember Objects
 When accessing the Ember global object, always use the terse alias to the Ember global object: `Em`. For example:
