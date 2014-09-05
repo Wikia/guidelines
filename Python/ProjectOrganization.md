@@ -34,7 +34,7 @@ is meant to be installed as part of the package.
 
 **`myproject/myproject/__init__.py`**
 
-This file is what makes the directory into a Python package. A Python pacakge is simply a directory
+This file is what makes the directory into a Python package. A Python package is simply a directory
 that contains a file with this name. This file should typically be fairly empty. Sometimes you'll
 see people put all of their code in here, but that is frowned upon.
 
@@ -78,7 +78,7 @@ good chance you're doing something wrong.
 ## Packaging
 
 The best resource for learning about Pyton packaging best practices is the
-**[Installation & Packaging Tutortial]** maintained by the Python Packaging Authority (PyPA).
+**[Installation & Packaging Tutorial]** maintained by the Python Packaging Authority (PyPA).
 Reading that entire guide is highly recommended. Below are some clarifications about Wikia-specific
 guidelines related to packaging. These assume you have already read the guide.
 
@@ -102,7 +102,7 @@ So why would you even use requirements files? The main reasons are because they 
 easily save and recreate an entire environment, they can be more flexible, and some people think
 they're good for listing dev only dependencies. However, requirements files are almost never needed,
 and they often cause more confusion and make it harder to manage dependencies. And if you want to
-list dev only dpendencies, using [setuptools extras] is often a better solution. For example, you
+list dev only dependencies, using [setuptools extras] is often a better solution. For example, you
 can create an extra called "dev" and install those dependencies using `pip install -e .[dev]`. So
 the recommendation is to not use requirements files unless they provide a significant benefit for
 your particular situation.
