@@ -134,13 +134,18 @@ var str = 'hello world',
 
 ## Class Definitions
 
-* Class names should be in **PascalCase**
-* The order of the class definition should be as follows:
-  * Class properties
+* Class names should be in `PascalCase`
+* The order of the class definition should be something like as follows (the exact ordering is not so important as picking an order and sticking with it):
+  * Public class properties
+  * Private class properties
   * `constructor`
-  * Class methods
+  * Static functions
+  * Public instance methods
+  * Private instance methods
 * Class properties should all have types and semantic comments
-* Class methods should all be in object function shorthand
+* All class functions (both static and instance)
+  * Should be in object function shorthand (`name () {...}`)
+  * Should be in `camelCase`
 * There should be no spaces between properties, but spaces between the last property and the constructor, between the constructor and methods, and between all the other methods.
 
 ```typescript
