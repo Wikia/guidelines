@@ -11,7 +11,8 @@ persistent = no
 
 [MESSAGES CONTROL]
 # Messages to disable
-disable = star-args,too-few-public-methods,too-many-public-methods,too-many-arguments,abstract-method
+disable = star-args,too-few-public-methods,too-many-public-methods,too-many-arguments,
+    abstract-method,maybe-no-member,redundant-keyword-arg,too-many-instance-attributes
 
 [REPORTS]
 # Colorize output
@@ -26,10 +27,12 @@ const-rgx = (([A-Z_][A-Z0-9_]{2,30})|([a-z_][a-z0-9_]{2,30})|(__.*__))$
 argument-rgx = [a-z_][a-z0-9_]*$
 # Regular expression which should only match correct variable names
 variable-rgx = [a-z_][a-z0-9_]*$
+# Regular expression for functions that don't require a docstring
+no-docstring-rgx = (__.*__|decorator|wrapper)$
 
 [FORMAT]
 # Maximum number of characters on a single line
-max-line-length = 120
+max-line-length = 100
 
 [SIMILARITIES]
 # Minimum lines number of a similarity
