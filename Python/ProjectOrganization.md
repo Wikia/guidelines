@@ -77,7 +77,7 @@ good chance you're doing something wrong.
 
 ## Packaging
 
-The best resource for learning about Pyton packaging best practices is the
+The best resource for learning about Python packaging best practices is the
 **[Installation & Packaging Tutorial]** maintained by the Python Packaging Authority (PyPA).
 Reading that entire guide is highly recommended. Below are some clarifications about Wikia-specific
 guidelines related to packaging. These assume you have already read the guide.
