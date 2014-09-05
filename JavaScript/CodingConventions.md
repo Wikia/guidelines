@@ -35,6 +35,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [AMD Modules](#amd-modules)
      * [JS Files](#js-files)
   * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
+  * [Nested Functions](#nested-functions)
 * [Tools](#tools)
 * [Resources](#resources)
 
@@ -594,6 +595,44 @@ var a = (function () { return 1; })(),
 
 // bad
 var a = function () { return 1; }();
+```
+
+### Nested Functions
+
+Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can be broken down into functional units. This keeps code easy to read and easier to unit test. 
+
+```javascript
+// good
+function doCoolThings() {
+	// ... do stuff
+}
+
+function myCallback() {
+	// ... do stuff
+	if (someConditional) {
+		doCoolThings();
+	}
+}
+
+$.nirvana.sendRequest({
+	// ...
+	callback: myCallback
+});
+
+
+// bad
+$.nirvana.sendRequest({
+	// ...
+	callback: function () {
+		// ... do stuff
+		
+		if (someConditional) {
+			// do even more stuff
+		}
+	}
+});
+
+
 ```
 
 ## Tools
