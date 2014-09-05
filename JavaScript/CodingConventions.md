@@ -627,7 +627,7 @@ $.nirvana.sendRequest({
 		// ... do stuff
 		
 		if (someConditional) {
-			// do even more stuff
+			// ... do even more stuff
 		}
 	}
 });
