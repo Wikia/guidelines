@@ -154,6 +154,9 @@ expected, because it should read config files put there by Chef. This is a commo
 deployment: build once, deploy everywhere. You can include a default config in your application, but
 it should just contain some reasonable defaults for your applications settings.
 
+You should also read the [configuration section](ScenarioGuide.md#configuration) of the Scenario
+Guide.
+
 
 [Flask]: https://github.com/mitsuhiko/flask
 [Werkzeug]: https://github.com/mitsuhiko/werkzeug
