@@ -16,6 +16,7 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [define expected events as Json objects](#define-expected-events-as-Json-objects)
 
 * [General formatting](#general-formatting)
+  * [order of code inside class](#order-of-code-inside-class)
   * [indentation](#indentation) 
   * [length of line](#length-of-line) 
 
@@ -140,6 +141,49 @@ public class EventsArticleEditMode {
 ## General formatting
 
 The following rules have an impact on code readability.
+
+### order of code inside class
+
+Rule for ordering parts of code inside class is that right under the class name is UIMapping, then constants and variables and then constructor.
+
+Correct order:
+
+* imports
+* class name
+* UIMapping
+* constants and variables
+* constructor
+* methods
+
+Example:
+
+```java
+	import com.wikia.first_import
+	import com.wikia.second_import
+	
+	public class OrderOfCodePageObject extends BasePageObject {
+	
+		@FindBy(css="#example_css_selector1")
+		private WebElement contextMenu;
+		@FindBys(@FindBy(css="#example_css_selector3"))
+		private List<WebElement> inputsList;
+		
+		private By firstOptionBy = By.cssSelector(".example_css_selector4");
+		
+		private static String CONSTANT_STRING = "example string";
+		private final int CONSTANT_INT = 100;
+		private int exampleVariable;
+	
+		public OrderOfCodePageObject (WebDriver driver) {
+			super(driver);
+		}
+		
+		private void clickContextMenuFirstOption() {
+			WebElement firstOption = contextMenu.findElement(firstOptionBy);
+			firstOption.click();
+		}
+	}
+```
 
 ### indentation
 
