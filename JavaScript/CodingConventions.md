@@ -621,7 +621,7 @@ $.nirvana.sendRequest({
 
 // good
 // Note: functions can be declared as object methods, etc. Simplified for example.
-fucntion requestCallback() {
+function requestCallback() {
 	// ...
 	handleFoo();
 }
