@@ -619,14 +619,15 @@ $.nirvana.sendRequest({
 
 // good (Note: functions can be declared as object methods, etc. Simplified for example.)
 fucntion requestCallback() {
-	if (foo) {
-		handleFoo();
-	}
+	// ...
+	handleFoo();
 }
 
 function handleFoo() {
 	// ... 
-	foo.forEach(fooLoop);
+	if (foo) {
+		foo.forEach(fooLoop);
+	}
 }
 
 function fooLoop() {
