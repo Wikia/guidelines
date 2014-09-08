@@ -16,6 +16,7 @@
 * [Generic Types](#generic-types)
 * [Class Definitions](#class-definitions)
 * [Object-Orientation](#object-orientation)
+* [Declaration Files](#declaration-files)
 
 ## Overview
 
@@ -306,3 +307,8 @@ Note: The [TypeScript Handbook entry on Mixins](http://www.typescriptlang.org/Ha
 ## Declaration Files
 
 TypeScript Declaration files (extension `.d.ts.`) allow the TypeScript compiler to know the types of variables and functions from external libraries. They have to be hand-created, but there is also a quite high-quality repository of TS Declaration files called [DefinitelyTyped](http://definitelytyped.org/) which is expansive and well-maintained.
+
+A Declaration file can also be generated for an existing TypeScript file by compiling it with the `--declaration` flag, as in
+```
+tsc --declaration file.ts
+```
