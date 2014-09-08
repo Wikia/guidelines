@@ -602,37 +602,41 @@ var a = function () { return 1; }();
 Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
 
 ```javascript
-// good
-function doCoolThings() {
-	// ... do stuff
-}
-
-function myCallback() {
-	// ... do stuff
-	if (someConditional) {
-		doCoolThings();
-	}
-}
-
-$.nirvana.sendRequest({
-	// ...
-	callback: myCallback
-});
-
-
 // bad
 $.nirvana.sendRequest({
 	// ...
 	callback: function () {
 		// ... do stuff
 		
-		if (someConditional) {
+		if (foo) {
 			// ... do even more stuff
+			foo.forEach(function () {
+				// ... getting a little too deep here...
+			});
 		}
 	}
 });
 
+// good (Note: functions can be declared as object methods, etc. Simplified for example.)
+fucntion requestCallback() {
+	if (foo) {
+		handleFoo();
+	}
+}
 
+function handleFoo() {
+	// ... 
+	foo.forEach(fooLoop);
+}
+
+function fooLoop() {
+	// ...
+}
+
+$.nirvana.sendRequest({
+	// ...
+	callback: requestCallback
+});
 ```
 
 ## Tools
