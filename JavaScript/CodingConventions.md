@@ -599,7 +599,7 @@ var a = function () { return 1; }();
 
 ### Nested Functions
 
-Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. 
+Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
 
 ```javascript
 // good
