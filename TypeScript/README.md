@@ -6,7 +6,7 @@
   * [Compiler](#compiler)
   * [IDEs/Text Editors](#idestext-editors)
   * [Linter](#linter)
-* [Typing](#typing-interfaces-and-basic-types)
+* [Typing](#typing)
   * [`any` Typing](#any-typing)
   * [Interfaces](#interfaces)
   * [Basic Types](#basic-types)
