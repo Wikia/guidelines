@@ -25,14 +25,17 @@
 
 ## Overview
 
-* TypeScript is a superset of JavaScript, so do refer to the [Wikia JavaScript Guidelines](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) wherever applicable
-* Before referring to these guidelines, read the [Typescript Handbook](http://www.typescriptlang.org/Handbook) in full to understand what features are available in TS
+> TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. [typescriptlang.org](typescriptlang.org)
+
+Since TypeScript is a superset of JavaScript, refer to the [Wikia JavaScript Guidelines](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) wherever applicable.
+
+Before referring to these guidelines, read the [TypeScript Handbook](http://www.typescriptlang.org/Handbook) in full to understand what features are available in TypeScript.
 
 ## Tools
 
 ### Compiler
 
-The easiset way to acquire a TypeScript Compiler is as an [NPM package](https://www.npmjs.org/package/typescript). It is also available as a VisualStudio plugin (see TS website).
+The easiset way to acquire a TypeScript Compiler is by downloading the [NPM package](https://www.npmjs.org/package/typescript). It is also available as a VisualStudio plugin (see TS website).
 
 ### IDEs/Text Editors
 
@@ -49,7 +52,7 @@ The general rule is that one should aim to have full type coverage over the code
 
 ### Basic Types
 
-Do **not** define types where the variable is assigned inline and the type is a basic type (`boolean`, `number`, `string`, `Array<T>`, or `enum`), or if it is being set to the return value of a function whose return type is annotated.
+Do **not** annotate types where the variable is assigned inline and the type is a basic type (`boolean`, `number`, `string`, `Array<T>`, or `enum`), or if it is being set to the return value of a function whose return type is annotated.
 ```typescript
 // Bad
 var str: string = 'hello world',
@@ -81,12 +84,12 @@ interface Person {
 ```typescript
 
 // Bad
-func (): {str: string, num: number} {
+function performOperation (): {str: string, num: number} {
 	// Code which returns an object
 }
 
 // Also bad
-func (): {
+function performOperation (): {
 	str: string,
 	num: number
 } {
@@ -99,11 +102,11 @@ interface SomeType {
 	num; number
 }
 
-func (): SomeType {
+function performOperation (): SomeType {
 	// Code which returns an object
 }
 ```
-* Notable TypeScript feature: redefinition of an interface will extend the original definition. See [TypeScript Handbook: Declaration Merging](http://www.typescriptlang.org/Handbook#declaration-merging).
+<aside class="success">Notable TypeScript feature: redefinition of an interface will extend the original definition. See [TypeScript Handbook: Declaration Merging](http://www.typescriptlang.org/Handbook#declaration-merging).</aside>
 
 ### `any` Typing
 
@@ -276,7 +279,7 @@ Class SomeClass {
 
 	/**
 	 * @desc This is a method. Note it’s defined in object function shorthand
-	 * @returns What the semantic value of the return is
+	 * @returns some meaningful description of return value
 	 */
 	someMethod (parameter: string) {
 			// Code
