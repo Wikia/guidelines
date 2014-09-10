@@ -48,7 +48,7 @@ Why would a programmer use TypeScript instead of vanilla JavaScript?
 
 ### TS &#x2283; JS
 
-Since TypeScript is a superset of JavaScript, refer to the [Wikia JavaScript Guidelines](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) wherever applicable.
+Since TypeScript is a superset of JavaScript, refer to the [Wikia JavaScript Guidelines](../JavaScript/CodingConventions.md) wherever applicable.
 
 ### Handbook
 
