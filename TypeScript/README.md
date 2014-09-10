@@ -2,6 +2,10 @@
 
 ## Table Of Contents
 * [Overview](#overview)
+  * [What is TypeScript?](#what-is-typescript)
+  * [Why TypeScript?](#why-typescript)
+  * [TS &#x2283; JS](#ts-js)
+  * [Handbook](#handbook)
 * [Tools](#tools)
   * [Compiler](#compiler)
   * [IDEs/Text Editors](#idestext-editors)
@@ -25,9 +29,27 @@
 
 ## Overview
 
-> TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. [typescriptlang.org](typescriptlang.org)
+### What is TypeScript?
+
+> TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. (typescriptlang.org)
+
+### Why TypeScript?
+
+Why would a programmer use TypeScript instead of vanilla JavaScript?
+
+* It has type-checking, which...
+  * reduces the number of runtime type errors
+  * removes the necessity of checking types in code
+  * generates self-documenting code (no need to maintain comments on the type of a parameter)
+* It unlocks power of the Object-Oriented paradigm for JavaScript
+* It has built-in mechanisms for encapsulation/information hiding
+* All JS is valid TS, so it is a hop skip and a jump from coding JS to coding TS
+
+### TS &#x2283; JS
 
 Since TypeScript is a superset of JavaScript, refer to the [Wikia JavaScript Guidelines](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) wherever applicable.
+
+### Resources
 
 Before referring to these guidelines, read the [TypeScript Handbook](http://www.typescriptlang.org/Handbook) in full to understand what features are available in TypeScript.
 
@@ -44,7 +66,11 @@ The easiset way to acquire a TypeScript Compiler is by downloading the [NPM pack
 
 ### Linter
 
-There is a [TypeScript linter available on NPM](https://www.npmjs.org/package/tslint), and also plugins available for various build task runners/build systems.
+There is a [TypeScript linter available on NPM](https://www.npmjs.org/package/tslint), and also plugins available for various build task runners/build systems. Check out included `tslint.json` file for recommended settings.
+
+### Formatter
+
+There is a [TypeScript formatter available on NPM](https://www.npmjs.org/package/tsfmt). check out included `tsfmt.json` for recommended settings.
 
 ## Typing
 
@@ -75,38 +101,40 @@ var foo = fn();
 
 * For interfaces that are intended for use in more than one place in code, **prefer to declare that interface in a global `.d.ts` typing file rather than a local `.ts` file** (see [Declaration Files](#declaration-files)).
 * Interface names should be PascalCase:
-```typescript
-interface Person {
-	name: string;
-}
-```
+
+	```typescript
+	interface Person {
+		name: string;
+	}
+	```
 * Where function return types are objects, **do** define the type as an interface at the top of the file (it will be scoped to the file).
-```typescript
 
-// Bad
-function performOperation (): {str: string, num: number} {
-	// Code which returns an object
-}
+	```typescript
+	// Bad
+	function performOperation (): {str: string, num: number} {
+		// Code which returns an object
+	}
 
-// Also bad
-function performOperation (): {
-	str: string,
-	num: number
-} {
-	// Code which returns an object
-}
+	// Also bad
+	function performOperation (): {
+		str: string,
+		num: number
+	} {
+		// Code which returns an object
+	}
 
-// Good:
-interface SomeType {
-	str: string,
-	num; number
-}
+	// Good:
+	interface SomeType {
+		str: string,
+		num; number
+	}
 
-function performOperation (): SomeType {
-	// Code which returns an object
-}
-```
-<aside class="success">Notable TypeScript feature: redefinition of an interface will extend the original definition. See [TypeScript Handbook: Declaration Merging](http://www.typescriptlang.org/Handbook#declaration-merging).</aside>
+	function performOperation (): SomeType {
+		// Code which returns an object
+	}
+	```
+
+*Notable TypeScript feature*: redefinition of an interface will extend the original definition. See [TypeScript Handbook: Declaration Merging](http://www.typescriptlang.org/Handbook#declaration-merging).
 
 ### `any` Typing
 
@@ -114,26 +142,26 @@ function performOperation (): SomeType {
 
 * **Do** define type of variables when they are declared but not initialized
 
-```typescript
-// Bad:
-var str;
-// Other code
-str = 'hello world';
+	```typescript
+	// Bad:
+	var str;
+	// Other code
+	str = 'hello world';
 
-// Good:
-var str: string;
-// Other code
-str = 'hello world';
+	// Good:
+	var str: string;
+	// Other code
+	str = 'hello world';
 ```
 
 * **Do** provide comments for something like a union type, which has a defined return type that just can't be expressed in TypeScript yet.
 
-```typescript
-// @returns Promise<Person> | Person
-function getPerson (): any {
-	// datastore retreival code
-}
-```
+	```typescript
+	// @returns Promise<Person> | Person
+	function getPerson (): any {
+		// datastore retreival code
+	}
+	```
 
 ### Generic Types
 
@@ -260,46 +288,46 @@ var literal = {
   * Should have JSDoc comments as described in Wikia JavaScript guidelines
 * There should be no newlines between properties, but newlines between the last property and the constructor, between the constructor and methods, and between all the other methods.
 
-```typescript
-Class SomeClass {
-	// This is a property whose type is defined
-	property: string;
-	// Bad
-	propertyWithNoType;
-	// Here is a private property
-	private propertyWhichIsPrivate;
+	```typescript
+	Class SomeClass {
+		// This is a property whose type is defined
+		property: string;
+		// Bad
+		propertyWithNoType;
+		// Here is a private property
+		private propertyWhichIsPrivate;
 
-	constructor () {
-		// Initialize object
-	}
+		constructor () {
+			// Initialize object
+		}
 
-	static someStaticMethod () {
-	
-	}
+		static someStaticMethod () {
+		
+		}
 
-	/**
-	 * @desc This is a method. Note it’s defined in object function shorthand
-	 * @returns some meaningful description of return value
-	 */
-	someMethod (parameter: string) {
+		/**
+		 * @desc This is a method. Note it’s defined in object function shorthand
+		 * @returns some meaningful description of return value
+		 */
+		someMethod (parameter: string) {
+				// Code
+		}
+
+		// Bad
+		someOtherMethod: function () {
 			// Code
+		}
+		
+		// Also bad
+		function someOtherMethod () {
+			// Code
+		}
+		
+		private somePrivateMethod () {
+		
+		}
 	}
-
-	// Bad
-	someOtherMethod: function () {
-		// Code
-	}
-	
-	// Also bad
-	function someOtherMethod () {
-		// Code
-	}
-	
-	private somePrivateMethod () {
-	
-	}
-}
-```
+	```
 
 ### Object-Orientation
 
