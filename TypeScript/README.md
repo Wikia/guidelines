@@ -8,9 +8,10 @@
   * [Handbook](#handbook)
   * [Formatter](#formatter)
 * [Tools](#tools)
-  * [Compiler](#compiler)
+  * [tsc](#tsc)
   * [IDEs/Text Editors](#idestext-editors)
-  * [Linter](#linter)
+  * [TSLint](#tslint)
+  * [tsfmt](#tsfmt)
 * [Typing](#typing)
   * [`any` Typing](#any-typing)
   * [Interfaces](#interfaces)
@@ -56,7 +57,7 @@ Before referring to these guidelines, read the [TypeScript Handbook](http://www.
 
 ## Tools
 
-### Compiler
+### tsc
 
 The easiset way to acquire a TypeScript Compiler is by downloading the [NPM package](https://www.npmjs.org/package/typescript). It is also available as a VisualStudio plugin (see TS website).
 
@@ -65,13 +66,13 @@ The easiset way to acquire a TypeScript Compiler is by downloading the [NPM pack
 * PhpStorm/WebStorm supports TypeScript with code completion, refactoring and debugging
 * Syntax highlighting is available for Sublime Text/
 
-### Linter
+### TSLint
 
 There is a [TypeScript linter available on NPM](https://www.npmjs.org/package/tslint), and also plugins available for various build task runners/build systems. Check out included `tslint.json` file for recommended settings.
 
-### Formatter
+### tsfmt
 
-There is a [TypeScript formatter available on NPM](https://www.npmjs.org/package/tsfmt). check out included `tsfmt.json` for recommended settings.
+There is a [TypeScript formatter available on NPM](https://www.npmjs.org/package/tsfmt). Check out included `tsfmt.json` for recommended settings.
 
 ## Typing
 
