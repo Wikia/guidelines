@@ -35,18 +35,20 @@ checks where possible. Inside a function, use ```assert``` for type checking and
 silently fail. **NEVER** pass a string to ```assert```. Example:
 
 ```php
-function getOtherClass(MyClass $a) { // will fail automatically if $a is not an instance of MyClass
-  $b = doSomething($a);
+use Wikia\Util\Assert;
 
-  assert($b instanceof SomeOtherClass); // assume this will raise an error and be logged
-  // do something with SomeOtherClass
+function getOtherClass( MyClass $a ) { // will fail automatically if $a is not an instance of MyClass
+	$b = doSomething( $a );
+
+	Assert::boolean( $b instanceof SomeOtherClass );
+	// do something with SomeOtherClass
 }
 
-function doSomething(MyClass $a) {
-  if ($a->someCondition()) {
-    return new SomeOtherClass($a);
-  }
+function doSomething( MyClass $a ) {
+	if ( $a->someCondition() ) {
+		return new SomeOtherClass( $a );
+	}
 
-  return null;
+	return null;
 }
 ```
