@@ -207,7 +207,7 @@ var arr: number[];
 
 ### Lambda Syntax/Arrow Functions
 
-Arrow functions in TypeScript, much like in ES6, are simply syntactic sugar. From the [TypeScript guide](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39):
+Arrow functions in TypeScript, much like in ES6, are simply syntactic sugar. From the [TypeScript Handbook](http://www.typescriptlang.org/Handbook#functions-lambdas-and-using-39this39):
 
 > To fix [the context of an anonymous function], we switch the function expression to use the lambda syntax ( ()=>{} ) rather than the JavaScript function expression. This will automatically capture the `this` available when the function is created rather than when it is invoked.
 
@@ -350,8 +350,9 @@ Note: The [TypeScript Handbook entry on Mixins](http://www.typescriptlang.org/Ha
 
 ## Modules
 
-Modules are TypeScript's mechanism for encapsulation. They are designed to replace [Immediately Invoked Function Expression](https://github.com/Wikia/guidelines/blob/typescript/JavaScript/CodingConventions.md#immediately-invoked-function-expressions-iife) and to be used wherever information hiding is needed.
+Modules are TypeScript's mechanism for encapsulation. They are designed to replace [Immediately Invoked Function Expression](../JavaScript/CodingConventions.md#immediately-invoked-function-expressions-iife) (and, in fact, compile to IIFEs).  They are to be used wherever information hiding is needed.
 * They are declared as blocks with the `module` keyword
+* Each module should have **its own file**.
 * Should have a block comment describing the use of the module
 * Items in the module that should be externally visible are prefaced with the `export` keyword.
 * Module names should be in `PascalCase`
