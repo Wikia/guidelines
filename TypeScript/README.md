@@ -4,8 +4,9 @@
 * [Overview](#overview)
   * [What is TypeScript?](#what-is-typescript)
   * [Why TypeScript?](#why-typescript)
-  * [TS &#x2283; JS](#ts-js)
+  * [TS &#x2283; JS](#ts--js)
   * [Handbook](#handbook)
+  * [Formatter](#formatter)
 * [Tools](#tools)
   * [Compiler](#compiler)
   * [IDEs/Text Editors](#idestext-editors)
@@ -49,7 +50,7 @@ Why would a programmer use TypeScript instead of vanilla JavaScript?
 
 Since TypeScript is a superset of JavaScript, refer to the [Wikia JavaScript Guidelines](https://github.com/Wikia/guidelines/blob/master/JavaScript/CodingConventions.md) wherever applicable.
 
-### Resources
+### Handbook
 
 Before referring to these guidelines, read the [TypeScript Handbook](http://www.typescriptlang.org/Handbook) in full to understand what features are available in TypeScript.
 
