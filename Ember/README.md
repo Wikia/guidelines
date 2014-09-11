@@ -3,8 +3,9 @@
 ## Table of Contents
 * [What is Ember](#what-is-ember)
 * [Naming Conventions](#naming-conventions)
-* [Accessing Ember Objects](#accessing-ember-objects)
+* [Accessing Ember Namespace](#accessing-ember-namespace)
 * [Declaring Ember Objects](#declaring-ember-objects)
+* [Accessors and Mutators](#accessors-and-mutators)
 * [Native Prototype Modifications](#native-prototype-modifications)
 * [Logging](#logging)
 
@@ -14,10 +15,10 @@
 ## Naming Conventions
 We follow the canonical naming conventions established by the Ember Core Team. The full Ember naming conventions documentation can be found [here](http://emberjs.com/guides/concepts/naming-conventions/).
 
-## Accessing Ember Objects
-When accessing the Ember global object, always use the terse alias to the Ember global object: `Em`. For example:
+## Accessing Ember Namespace
+When accessing the `Ember` global object, always use its abbreviated alias: `Em`.
 
-```typescript
+```javascript
 // bad
 var FooView = Ember.View.extend();
 
@@ -31,13 +32,50 @@ In Ember objects, declare in this order:
 * Calculated property declarations
 * `actions` hash
 * `observer` declarations
-* Overloaded functions (`click`/`mouseUp` handlers in `View` objects, etc.)
+* Overloaded functions (`click`/`mouseUp` handlers in `Em.View` objects, etc.)
 * Call `reopenClass` to declare additional functions
 
-## Native prototype modifications
-* Use Ember's additions to native prototypes, for instance:
+Other notes:
+* Always use `Em.Object.extend` to create Ember objects
+* When extending built-in Ember classes, declare the new class as a member of the global `App` object
 
-```typescript
+## Accessors and Mutators
+Always use `extend` and `get` to add and `set` to access properties in `Em.Object`s. There may be unexpected side effects if the dot or bracket operators are used, because Ember sometimes chooses to store properties in sub-objects.
+
+```javascript
+App.Person = Em.Object.extend({
+	// Default values
+	name: '',
+	occupation: '',
+	address: ''
+})
+
+var batman = App.Person.create();
+
+// good
+batman.set('name', 'Bruce Wayne');
+
+// good -- set is chainable
+batman.set('occupation', 'Vigilante')
+	.set('address', 'Wayne Mansion');
+
+// good -- set can add previously undefined properties
+batman.set('toolbelt', ['batarang', 'bat gas', 'grappling hook']);
+
+// good
+Em.Logger.info(batman.get('toolbelt').length); // Logs '3'
+
+// bad
+batman.toolbelt = ['balloon', 'silly putty'];
+
+// bad
+Em.Logger.info(batman.toolbelt.length) // Might log '3', might throw an error
+```
+
+## Native prototype modifications
+Use Ember's additions to native prototypes, for instance:
+
+```javascript
 // bad
 Em.observer('foo.bar', function () {});
 
