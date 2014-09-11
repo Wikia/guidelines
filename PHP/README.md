@@ -25,3 +25,30 @@ If you want to stylize all of the edits that you have before you stage them you 
 cd /usr/wikia/source/wiki
 git diff --name-only | grep php | while read -r i; do ../guidelines/PHP/bin/php-mediawiki-stylize “$i”; done
 ```
+
+Type-Checking and Assertions
+----------------------------
+
+When validating function input types, prefer [type hinting](http://php.net/manual/en/language.oop5.typehinting.php) over
+[```instanceof```](http://php.net/manual/en/internals2.opcodes.instanceof.php) or [```assert```](http://php.net/manual/en/function.assert.php)
+checks where possible. Inside a function, use ```assert``` for type checking and other programming errors and never
+silently fail. **NEVER** pass a string to ```assert```. Example:
+
+```php
+use Wikia\Util\Assert;
+
+function getOtherClass( MyClass $a ) { // will fail automatically if $a is not an instance of MyClass
+	$b = doSomething( $a );
+
+	Assert::boolean( $b instanceof SomeOtherClass );
+	// do something with SomeOtherClass
+}
+
+function doSomething( MyClass $a ) {
+	if ( $a->someCondition() ) {
+		return new SomeOtherClass( $a );
+	}
+
+	return null;
+}
+```
