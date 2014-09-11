@@ -35,7 +35,7 @@ checks where possible. Inside a function, use ```assert``` for type checking and
 silently fail. **NEVER** pass a string to ```assert```. Example:
 
 ```php
-use Wikia\Util\ErrorChecking\Assert;
+use Wikia\Util\Assert;
 
 function getOtherClass( MyClass $a ) { // will fail automatically if $a is not an instance of MyClass
 	$b = doSomething( $a );
