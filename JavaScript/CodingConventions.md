@@ -35,6 +35,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [AMD Modules](#amd-modules)
      * [JS Files](#js-files)
   * [Immediately Invoked Function Expressions (IIFE)](#immediately-invoked-function-expressions-iife)
+  * [Nested Functions](#nested-functions)
 * [Tools](#tools)
 * [Resources](#resources)
 
@@ -594,6 +595,52 @@ var a = (function () { return 1; })(),
 
 // bad
 var a = function () { return 1; }();
+```
+
+### Nested Functions
+
+Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
+
+For dealing with multiple asynchronous callbacks, use the promise pattern. We use jQuery's [Deferred Ojbect](http://api.jquery.com/category/deferred-object/) for this. 
+
+```javascript
+// bad
+$.nirvana.sendRequest({
+	// ...
+	callback: function () {
+		// ... do stuff
+		
+		if (foo) {
+			// ... do even more stuff
+			foo.forEach(function () {
+				// ... getting a little too deep here...
+			});
+		}
+	}
+});
+
+// good
+// Note: functions can be declared as object methods, etc. Simplified for example.
+function requestCallback() {
+	// ...
+	handleFoo();
+}
+
+function handleFoo() {
+	// ... 
+	if (foo) {
+		foo.forEach(fooLoop);
+	}
+}
+
+function fooLoop() {
+	// ...
+}
+
+$.nirvana.sendRequest({
+	// ...
+	callback: requestCallback
+});
 ```
 
 ## Tools
