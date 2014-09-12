@@ -599,9 +599,9 @@ var a = function () { return 1; }();
 
 ### Nested Functions
 
-Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asyncronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
+Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asynchronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
 
-For dealing with multiple asynchronous callbacks, use the promise pattern. We use jQuery's [Deferred Ojbect](http://api.jquery.com/category/deferred-object/) for this. 
+For dealing with multiple asynchronous callbacks, use the promise pattern. We use jQuery's [Deferred Object](http://api.jquery.com/category/deferred-object/) for this. 
 
 ```javascript
 // bad
