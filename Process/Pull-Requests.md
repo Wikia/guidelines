@@ -22,23 +22,23 @@ This section outlines the guidelines that should be imposed upon pull requests a
 From this point forward the abbreviation PR will be used in place of “pull request.”
 
 Each PR will:
-	1. Include a reference to the Jira ticket it is addressing. This can take the
-		 following forms:
-		1. {team}-{number} tag as the first part of the title where {team} is the
-			 Jira team and {number} is the jira ticket number. Example: PLATFORM-11.
-		2. A link to the ticket in the body of the PR. Example:
-			 https://wikia-inc.atlassian.net/browse/PLATFORM-11.
-	2. Include a title that provides a one sentence overview of the purpose of the
-		 PR. Abbreviations can be used when necessary. Example: “PLAT-433 put the
-		 thumbnail under the original dir in the thumb path”.
-	3. Contain a description written using complete sentences of the changes being
-		 made and any context necessary to understand them. Example:
-		 https://github.com/Wikia/vignette/pull/15.
-		1. An @ message to the stakeholders and reviewers of the PR. If the PR
-			 contains production SQL changes the @SQLReview tag should be used to
-			 notify the SQL review team. Example: “/cc @nmonterroso”.
-	4. The source code diff. This is provided by Github automatically.
-	5. Tests for behavioral changes made to the code. 
+  1. Include a reference to the Jira ticket it is addressing. This can take the
+     following forms:
+    1. {team}-{number} tag as the first part of the title where {team} is the
+       Jira team and {number} is the jira ticket number. Example: PLATFORM-11.
+    2. A link to the ticket in the body of the PR. Example:
+       https://wikia-inc.atlassian.net/browse/PLATFORM-11.
+  2. Include a title that provides a one sentence overview of the purpose of the
+     PR. Abbreviations can be used when necessary. Example: “PLAT-433 put the
+     thumbnail under the original dir in the thumb path”.
+  3. Contain a description written using complete sentences of the changes being
+     made and any context necessary to understand them. Example:
+     https://github.com/Wikia/vignette/pull/15.
+       1. An @ message to the stakeholders and reviewers of the PR. If the PR
+	  contains production SQL changes the @SQLReview tag should be used to
+	  notify the SQL review team. Example: “/cc @nmonterroso”.
+  4. The source code diff. This is provided by Github automatically.
+  5. Tests for behavioral changes made to the code. 
 
 Finally, PRs should be atomic. That is, they should address one item (task, bug,
 story, etc). Exceptions to this requirement may exist (such as stories) but they
@@ -52,11 +52,11 @@ of the team. Team specific guidelines should go above and beyond those listed
 here.
 
 First, a PR should not be merged to dev/master any of the following apply:
-	* A broken build which typically means that unit and or integration tests are
-		not passing.
-	* Comments asking for clarification that have not been addressed.
-	* An explicit request to not merge.
-	* A PR that was explicitly identified as a “work in progress”. 
+  * A broken build which typically means that unit and or integration tests are
+    not passing.
+  * Comments asking for clarification that have not been addressed.
+  * An explicit request to not merge.
+  * A PR that was explicitly identified as a “work in progress”. 
 
 Next, a PR should not be merged unless it has been reviewed by at least one
 other person on the team.
@@ -75,10 +75,7 @@ software craftsmanship through peer review.
 
 ## See Also
 
-	* [Tim Pope’s git commit message
-		suggestions](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-	* [MediaWiki commit message
-		guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines)
-  * [MediaWiki code review
-		guidelines](https://www.mediawiki.org/wiki/Gerrit/Code_review)
+  * [Tim Pope’s git commit message suggestions](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+  * [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines)
+  * [MediaWiki code review guidelines](https://www.mediawiki.org/wiki/Gerrit/Code_review)
 	
