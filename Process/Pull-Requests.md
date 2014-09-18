@@ -34,9 +34,9 @@ Each PR will:
   3. Contain a description written using complete sentences of the changes being
      made and any context necessary to understand them. Example:
      https://github.com/Wikia/vignette/pull/15.
-       1. An @ message to the stakeholders and reviewers of the PR. If the PR
-	  contains production SQL changes the @SQLReview tag should be used to
-	  notify the SQL review team. Example: “/cc @nmonterroso”.
+       1. [optional] An @ message to the stakeholders and reviewers of the PR.
+       2. If the PR contains production SQL changes the @SQLReview tag should be
+          used to notify the SQL review team. Example: “/cc @nmonterroso”.
   4. The source code diff. This is provided by Github automatically.
   5. Tests for behavioral changes made to the code. 
 
@@ -78,4 +78,3 @@ software craftsmanship through peer review.
   * [Tim Pope’s git commit message suggestions](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
   * [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines)
   * [MediaWiki code review guidelines](https://www.mediawiki.org/wiki/Gerrit/Code_review)
-	
