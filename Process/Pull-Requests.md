@@ -14,7 +14,7 @@ all that is required to create the pull request on Github.
 
 Pull request guidelines are a foundational step towards better software
 development practices. Pull request guidelines will nurture a culture of
-of broader peer review and lower friction across groups and services.
+broader peer review and lower friction across groups and services.
 
 ## Guidelines
 
@@ -35,8 +35,9 @@ Each PR will:
      made and any context necessary to understand them. Example:
      https://github.com/Wikia/vignette/pull/15.
        1. [optional] An @ message to the stakeholders and reviewers of the PR.
+          Example: “/cc @nmonterroso”.
        2. If the PR contains production SQL changes the @SQLReview tag should be
-          used to notify the SQL review team. Example: “/cc @nmonterroso”.
+          used to notify the SQL review team.
   4. The source code diff. This is provided by Github automatically.
   5. Tests for behavioral changes made to the code. 
 
