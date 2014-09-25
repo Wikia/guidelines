@@ -10,7 +10,7 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
   * [type prefix](#type-prefix)
   * [select prefix](#select-prefix)
   * [get prefix](#get-prefix)
-  * [clear prefx](#clear-prefix)
+  * [clear prefix](#clear-prefix)
 
 
 * [Automated Clicktracking tests](#automated-clicktracking-tests)
