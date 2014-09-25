@@ -69,8 +69,7 @@ For each method that selects something from dropdown, use "select" prefix.
 public void selectPinType() {
 	waitForElementByElement(pinCategorySelector);
 	Select pinCategorySelectorDropDown = new Select(pinCategorySelector);
-	List<WebElement> pinCategoryList = pinCategorySelectorDropDown.getOptions();
-	pinCategoryList.get(1).click();
+	pinCategorySelectorDropDown.selectByIndex(1);
 }
 ```
 
@@ -80,8 +79,7 @@ For each method that returns some value from page element, use "get" prefix
 ```java
 public String getAssociatedArticleImageSrc() {
 	waitForElementByElement(associatedArticleImage);
-	String imageSrc = articleImageUrl.getAttribute("src");
-	return imageSrc;
+	return articleImageUrl.getAttribute("src");
 }
 ```
 
