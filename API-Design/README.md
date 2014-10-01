@@ -30,17 +30,17 @@ If you don’t see what you need here refer [to the
 RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
- * `200` OK: represents a successful HTTP request. It should not be used for an
+ * `200 OK`: represents a successful HTTP request. It should not be used for an
    error (see 4xx and 5xx) or an empty result set (consider using 404).
- * `201` Created: the resource was created synchronously (e.g. via POST or PUT).
- * `202` Accepted: the request was accepted. Use this to identify `POST`, `PUT`, or
+ * `201 Created`: the resource was created synchronously (e.g. via `POST` or `PUT`).
+ * `202 Accepted`: the request was accepted. Use this to identify `POST`, `PUT`, or
 	 `DELETE` requests that will be handled asynchronously.
- * `301` Moved Permanently
- * `304` Not Modified: used with conditional HTTP request to indicate that the
+ * `301 Moved Permanently`
+ * `304 Not Modified`: used with conditional HTTP request to indicate that the
    client already has the request body.
- * `400` Bad Request: there is a problem on the client side.
- * `404` Not Found: the server did not find anything matching the request URI.
- * `500` Internal Server Error: there is a problem on the server side.
+ * `400 Bad Request`: there is a problem on the client side.
+ * `404 Not Found`: the server did not find anything matching the request URI.
+ * `500 Internal Server Error`: there is a problem on the server side.
 
 Related:
  * [Return appropriate status
