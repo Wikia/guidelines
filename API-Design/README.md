@@ -30,35 +30,52 @@ If you don’t see what you need here refer [to the
 RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
- * 200 OK: represents a successful HTTP request. It should not be used for an
+ * `200` OK: represents a successful HTTP request. It should not be used for an
    error (see 4xx and 5xx) or an empty result set (consider using 404).
- * 201 Created: the resource was created. Use this when a new resource has been created.
- * 301 Moved Permanently
- * 304 Not Modified: used with conditional HTTP request to indicate that the
+ * `201` Created: the resource was created synchronously (e.g. via POST or PUT).
+ * `202` Accepted: the request was accepted. Use this to identify `POST`, `PUT`, or
+	 `DELETE` requests that will be handled asynchronously.
+ * `301` Moved Permanently
+ * `304` Not Modified: used with conditional HTTP request to indicate that the
    client already has the request body.
- * 400 Bad Request: there is a problem on the client side.
- * 404 Not Found: the server did not find anything matching the request URI.
- * 500 Internal Server Error: there is a problem on the server side.
+ * `400` Bad Request: there is a problem on the client side.
+ * `404` Not Found: the server did not find anything matching the request URI.
+ * `500` Internal Server Error: there is a problem on the server side.
 
-### Use HTTP Verbs to Manipulate Resoures
+Related:
+ * [Return appropriate status
+	 codes](https://github.com/interagent/http-api-design/blob/master/README.md#return-appropriate-status-codes)
+
+### Use HTTP Verbs to Manipulate Resources
 
 Use HTTP verbs to manipulate resources. Below you will find a summary of the
 primary HTTP verbs and how they should be used.
 
- * GET: used to retrieve data and should have no other side effects. It should
+ * `GET`: used to retrieve data and should have no other side effects. It should
    not change any state on the server. Secondary side effects such as logging,
    caching, measuring, and monitoring are acceptable.
- * POST: create a new resource under the URI with the representation
+ * `POST`: create a new resource under the URI with the representation
    provided in the body of the request.
- * PUT: modify a resource at the specified URI with the representation
-   provided. If the resource does not exist it will be created. PUT operations
+ * `PUT`: modify a resource at the specified URI with the representation
+   provided. If the resource does not exist it will be created. `PUT` operations
    should be idempotent.
- * DELETE: Delete the resource identified by the URI. DELETE operations should
+ * `DELETE`: Delete the resource identified by the URI. `DELETE` operations should
 	 be idempotent.
 
-If identical PUT or DELETE operations are repeated against a resource they may
+If identical `PUT` or `DELETE` operations are repeated against a resource they may
 have different HTTP status codes and headers but they should not change the
 system state on the server.
+
+Use conditional `GET` to avoid sending full resource representations.
+Conditional `GET` can be used to save both bandwidth and server resources.
+
+To support conditional `GET`, provide `Last-Modified` and `Etag` headers with your
+representations. The client can then send an `If-Modified-Since` header with the
+request that the server can use to determine if the client has the most
+up-to-date representation. If the client is up-to-date then the server can
+respond with a `304 Not Modified` status code and an empty body. Similarly, the
+client can use the `If-None-Match` header with the last `Etag` to receive a new
+representation if it has changed.
 
 ### Use HTTP Headers for Additional Application Semantics
 
