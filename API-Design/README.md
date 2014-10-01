@@ -30,32 +30,31 @@ If you don’t see what you need here refer [to the
 RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
-  * 200 OK: represents a successful HTTP request. It should not be used for an
-		error (see 4xx and 5xx) or an empty result set (consider using 404).
-	* 201 Created: the resource was created. Use this when a new resource has been
-		created.
-	* 301 Moved Permanently
-	* 304 Not Modified: used with conditional HTTP request to indicate that the
-		client already has the request body.
-	* 400 Bad Request: there is a problem on the client side.
-	* 404 Not Found: the server did not find anything matching the request URI.
-	* 500 Internal Server Error: there is a problem on the server side.
+ * 200 OK: represents a successful HTTP request. It should not be used for an
+   error (see 4xx and 5xx) or an empty result set (consider using 404).
+ * 201 Created: the resource was created. Use this when a new resource has been created.
+ * 301 Moved Permanently
+ * 304 Not Modified: used with conditional HTTP request to indicate that the
+   client already has the request body.
+ * 400 Bad Request: there is a problem on the client side.
+ * 404 Not Found: the server did not find anything matching the request URI.
+ * 500 Internal Server Error: there is a problem on the server side.
 
 ### Use HTTP Verbs to Manipulate Resoures
 
 Use HTTP verbs to manipulate resources. Below you will find a summary of the
 primary HTTP verbs and how they should be used.
 
-	* GET: used to retrieve data and should have no other side effects. It should
-		not change any state on the server. Secondary side effects such as logging,
-		caching, measuring, and monitoring are acceptable.
-	* POST: create a new resource under the URI with the representation
-		provided in the body of the request.
-	* PUT: modify a resource at the specified URI with the representation
-		provided. If the resource does not exist it will be created. PUT operations
-		should be idempotent.
-	* DELETE: Delete the resource identified by the URI. DELETE operations should
-		be idempotent.
+ * GET: used to retrieve data and should have no other side effects. It should
+   not change any state on the server. Secondary side effects such as logging,
+   caching, measuring, and monitoring are acceptable.
+ * POST: create a new resource under the URI with the representation
+   provided in the body of the request.
+ * PUT: modify a resource at the specified URI with the representation
+   provided. If the resource does not exist it will be created. PUT operations
+   should be idempotent.
+ * DELETE: Delete the resource identified by the URI. DELETE operations should
+	 be idempotent.
 
 If identical PUT or DELETE operations are repeated against a resource they may
 have different HTTP status codes and headers but they should not change the
