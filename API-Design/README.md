@@ -20,7 +20,26 @@ Fielding in 2001. It informs much of the best practice around API design in the
 industry. REST is not an all or nothing architecture and APIs do not have to conform to
 all of the REST constraints to be useful and valuable to the business.
 
-## Universal Guidelines
+## Guidelines
+
+This section provides some general guidelines for API design. As a starting
+point, APIs should be designed with the end user in mind-- the developer. The
+goal is an interface that is intuitive, consistent, explorable, and pragmatic.
+
+### Resources and Naming
+
+Most concepts should be nouns and not verbs. Use HTTP verbs (see below) to
+manipulate resources. Favor concrete names (e.g. `/articles`) over abstract ones (e.g. `/items`).
+
+Use plural nouns to identify resources. For example, use `/articles` and
+`/comments` to address collections of articles and comments respectively. Use
+`/articles/{article_name}` to address a specific article.
+
+[Minimize path nesting for
+resources](https://github.com/interagent/http-api-design#minimize-path-nesting).
+For example, instead of addressing a comment via the article
+`/articles/{article_name}/comments/{comment_id}` request the comment from the
+root using `/comments/{comment_id}`.
 
 ### Use HTTP Status Codes
 
@@ -81,7 +100,7 @@ representation if it has changed.
 
 HTTP headers provide an additional layer of API semantics on top of HTTP status
 codes and verbs. Below is a summary of some of the common HTTP headers that can
-be used to affect API semantics.
+be used to affect cacheability and state manipulation.
 
 A tabular enumeration of HTTP headers can be found
 [here](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
@@ -97,24 +116,20 @@ Request:
  * `If-Unmodified-Since`: Can be used to make `GET` or `PUT` conditional.
 	 Combined with `Last-Modified`.
 
-Consider using standard headers first before adding query parameters. The
-standard headers are part of the HTTP protocol and have extensive documentation
-and industry adoption. The same cannot be said for query parameters.
-
 Response:
  * `Cache-Control`: Use to specify how intermediaries should cache.
 	 [TBD](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
  * `Content-Type`: This determines the parser used by the client and the
-	 application semantics. Avoid plain-old-JSON (in the form of
-	 `application/json`) at the edges. See [RESTful WEB
-	 APIs](http://www.amazon.com/RESTful-Web-APIs-Leonard-Richardson/dp/1449358063).
+	 application semantics. [Prefer machine readable content
+	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema) over
+	 plain-old-JSON (in the form of `application/json`).
  * `Etag`: Use to specify the version of the resources as a UUID.
  * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
 	 and `If-Unmodified-Since` above.
 
-### Resources and Naming
-
-### Caching
+Consider using standard headers first before adding query parameters. The
+standard headers are part of the HTTP protocol and have extensive documentation
+and industry adoption. The same cannot be said for query parameters.
 
 ## Common Patterns
 
@@ -123,6 +138,13 @@ Response:
 
 via `Accept` header?
 
+### Timestamps
+
+Use ISO8601 in UTC.
+
+### Caching
+
+### Error Handling
 
 ## Context Specific Guidelines
 
