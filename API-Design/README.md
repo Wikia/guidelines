@@ -87,25 +87,32 @@ A tabular enumeration of HTTP headers can be found
 [here](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
 
 Request:
- * `Content-Type`: Determines what parser to use for the recipient. Typically
-	 only used by the client on `PUT` and `POST` requests.
  * `Accept`: Consider using accept to support multiple versions of an API end
 	 point or different representations.
- * `If-Match`: Used to make `PUT` and `POST` conditional. Used with `Etag` to
+ * `If-Match`: Use with `Etag` to make `PUT` and `POST` conditional and
 	 avoid lost updates.
- * `If-None-Match`: See conditional `GET` above. Used with `Etag`.
- * `If-Modified-Since`: See conditional `GET` above. Used with `Last-Modified`.
+ * `If-Modified-Since`: See conditional `GET` above. Use with `Last-Modified`
+	 from the same resource response.
+ * `If-None-Match`: See conditional `GET` above. Use with `Etag`.
  * `If-Unmodified-Since`: Can be used to make `GET` or `PUT` conditional.
 	 Combined with `Last-Modified`.
- * `Cache-Control`: Determines how intermediaries should cache.
-	 [TBD](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
 
 Consider using standard headers first before adding query parameters. The
 standard headers are part of the HTTP protocol and have extensive documentation
 and industry adoption. The same cannot be said for query parameters.
 
 Response:
+ * `Cache-Control`: Use to specify how intermediaries should cache.
+	 [TBD](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
+ * `Content-Type`: This determines the parser used by the client and the
+	 application semantics. Avoid plain-old-JSON (in the form of
+	 `application/json`) at the edges. See [RESTful WEB
+	 APIs](http://www.amazon.com/RESTful-Web-APIs-Leonard-Richardson/dp/1449358063).
+ * `Etag`: Use to specify the version of the resources as a UUID.
+ * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
+	 and `If-Unmodified-Since` above.
 
+### Resources and Naming
 
 ### Caching
 
@@ -116,10 +123,9 @@ Response:
 
 via `Accept` header?
 
-### Saving a round-trip
-
 
 ## Context Specific Guidelines
+
 ### Internal APIs
 
 
@@ -128,6 +134,18 @@ via `Accept` header?
 
 ## Additional Resources
 
+### Articles
+
  * [Richardson REST Maturity
    Model (RMM)](http://martinfowler.com/articles/richardsonMaturityModel.html)
+
+### API Design Guides
+
  * [Heroku API Design Guide](https://github.com/interagent/http-api-design)
+
+### Books
+
+ * [HTTP: The Definitive
+	 Guide](http://www.amazon.com/HTTP-The-Definitive-Guide-Guides/dp/1565925092)
+ * [RESTful WEB
+	 APIs](http://www.amazon.com/RESTful-Web-APIs-Leonard-Richardson/dp/1449358063)
