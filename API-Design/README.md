@@ -41,7 +41,7 @@ For example, instead of addressing a comment via the article
 `/articles/{article_name}/comments/{comment_id}` request the comment from the
 root using `/comments/{comment_id}`.
 
-### Use HTTP Status Codes
+### Use Appropriate HTTP Status Codes
 
 The HTTP status codes provide the most basic set of API semantics. Use them as
 they were intended. Below is an enumeration of some of the common status codes.
@@ -134,6 +134,14 @@ and industry adoption. The same cannot be said for query parameters.
 ## Common Patterns
 
 ### Pagination
+
+First, consider paginating with ranges using `Range`, `Content-Range`, and
+`Next-Range` headers. See the [Heroku
+example](https://devcenter.heroku.com/articles/platform-api-reference#ranges) as an possible implementation.
+
+If `Range` won’t work use the query parameters `offset` and `limit` (in that
+order). Example `/search?q=Foo&offset=50&limit=25`.
+
 ### Versioning
 
 via `Accept` header?
