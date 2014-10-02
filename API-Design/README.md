@@ -148,7 +148,8 @@ via `Accept` header?
 
 ### Timestamps
 
-Use ISO8601 in UTC.
+Use [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) with combined data and time
+in UTC for timestamps.
 
 ### Caching
 
