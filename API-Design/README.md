@@ -80,19 +80,44 @@ representation if it has changed.
 ### Use HTTP Headers for Additional Application Semantics
 
 HTTP headers provide an additional layer of API semantics on top of HTTP status
-codes and verbs. Consider using headers first before adding query parameters. Below is a
-summary of some of the common patterns that can be implemented with HTTP
-headers.
+codes and verbs. Below is a summary of some of the common HTTP headers that can
+be used to affect API semantics.
 
-The request headers can be found
-[here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.3). The
-response headers are listed
-[here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6.2).
+A tabular enumeration of HTTP headers can be found
+[here](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
 
- * Pagination
- * Saving a round-trip
+Request:
+ * `Content-Type`: Determines what parser to use for the recipient. Typically
+	 only used by the client on `PUT` and `POST` requests.
+ * `Accept`: Consider using accept to support multiple versions of an API end
+	 point or different representations.
+ * `If-Match`: Used to make `PUT` and `POST` conditional. Used with `Etag` to
+	 avoid lost updates.
+ * `If-None-Match`: See conditional `GET` above. Used with `Etag`.
+ * `If-Modified-Since`: See conditional `GET` above. Used with `Last-Modified`.
+ * `If-Unmodified-Since`: Can be used to make `GET` or `PUT` conditional.
+	 Combined with `Last-Modified`.
+ * `Cache-Control`: Determines how intermediaries should cache.
+	 [TBD](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
+
+Consider using standard headers first before adding query parameters. The
+standard headers are part of the HTTP protocol and have extensive documentation
+and industry adoption. The same cannot be said for query parameters.
+
+Response:
+
 
 ### Caching
+
+## Common Patterns
+
+### Pagination
+### Versioning
+
+via `Accept` header?
+
+### Saving a round-trip
+
 
 ## Context Specific Guidelines
 ### Internal APIs
@@ -100,7 +125,9 @@ response headers are listed
 
 ### External APIs
 
+
 ## Additional Resources
 
-  * [Richardson REST Maturity
-		Model](http://martinfowler.com/articles/richardsonMaturityModel.html)
+ * [Richardson REST Maturity
+   Model (RMM)](http://martinfowler.com/articles/richardsonMaturityModel.html)
+ * [Heroku API Design Guide](https://github.com/interagent/http-api-design)
