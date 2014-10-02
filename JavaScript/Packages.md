@@ -16,6 +16,7 @@ In the dark ages of the monolith™, Wikia developers put all the JavaScript the
 Developers should use [npm](http://www.npmjs.org) and [bower](http://www.bower.io) (for front-end deps) to manage their JavaScript dependencies. All projects, from full Node.js applications to jQuery plugins should have a valid [package.json](https://www.npmjs.org/doc/files/package.json.html) that uses [semantic versioning](http://semver.org/). This is important so that developers can manage and deploy safe, version-locked modules for their applications. You do not have to have your
 module in npm or bower's public repositories to manage your package using npm or bower. Both tools support installing packages from github. For instance:
 ```bash
+// Install package from git with npm install
 $ npm install Wikia/foo --save
 // with version
 $ npm install Wikia/foo#1.4.0 --save
