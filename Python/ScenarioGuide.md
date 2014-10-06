@@ -45,6 +45,10 @@ If you want an [ORM] for a relational database, we've decided to use [SQLAlchemy
 
 For building command-lines tools, use [Click], the "Command Line Interface Creation Kit".
 
+## Http Library
+
+Python has a lot of url/http libraries.  We recommend [Requests]
+
 ## Daemonization
 
 If you're building something that needs to run as a daemon that's not a web app, you can use
@@ -63,4 +67,5 @@ If you're building something that needs to run as a daemon that's not a web app,
 [SQLAlchemy]: http://www.sqlalchemy.org/
 [ORM]: http://en.wikipedia.org/wiki/Object-relational_mapping
 [Click]: http://click.pocoo.org/
+[Requests]: http://docs.python-requests.org/en/latest/
 [daemonocle]: https://pypi.python.org/pypi/daemonocle/
