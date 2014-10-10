@@ -118,7 +118,9 @@ Request:
 
 Response:
  * `Cache-Control`: Use to specify how intermediaries should cache.
-	 [TBD](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
+	 Provided as needed to guide cacheability. See
+	 [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3) for
+	 more details.
  * `Content-Type`: This determines the parser used by the client and the
 	 application semantics. [Prefer machine readable content
 	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema) over
@@ -135,12 +137,9 @@ and industry adoption. The same cannot be said for query parameters.
 
 ### Pagination
 
-First, consider paginating with ranges using `Range`, `Content-Range`, and
-`Next-Range` headers. See the [Heroku
-example](https://devcenter.heroku.com/articles/platform-api-reference#ranges) as an possible implementation.
-
-If `Range` won’t work use the query parameters `offset` and `limit` (in that
-order). Example `/search?q=Foo&offset=50&limit=25`.
+First, consider paginating by adding `next`, and `previous` links to the
+representation of the collection. If you need to use query parameters use `offset` and
+`limit` (in that order). Example `/search?q=Foo&offset=50&limit=25`.
 
 ### Versioning
 
@@ -151,7 +150,8 @@ via `Accept` header?
 Use [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) with combined data and time
 in UTC for timestamps.
 
-### Caching
+### Partial Responses
+
 
 ### Error Handling
 
