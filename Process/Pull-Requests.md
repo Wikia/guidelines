@@ -40,6 +40,7 @@ Each PR will:
           used to notify the SQL review team.
   4. The source code diff. This is provided by Github automatically.
   5. Tests for behavioral changes made to the code. 
+  6. Be reviewed and approved by someone other than the author.
 
 Finally, PRs should be atomic. That is, they should address one item (task, bug,
 story, etc). Exceptions to this requirement may exist (such as stories) but they
