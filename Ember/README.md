@@ -42,6 +42,8 @@ Other notes:
 ## Accessors and Mutators
 Always use `extend` and `get` to add and `set` to access properties in `Em.Object`s. There may be unexpected side effects if the dot or bracket operators are used, because Ember sometimes chooses to store properties in sub-objects.
 
+When setting multiple properties on an `Ember.Object` instance, use [`setProperties`](http://emberjs.com/api/classes/Ember.Object.html#method_setProperties).
+
 ```javascript
 App.Person = Em.Object.extend({
 	// Default values
@@ -70,6 +72,17 @@ batman.toolbelt = ['balloon', 'silly putty'];
 
 // bad
 Em.Logger.info(batman.toolbelt.length) // Might log '3', might throw an error
+
+// setting multiple properties
+// good
+batman.setProperties({
+	sidekick: 'Robin',
+	realName: 'Bruce Wayne'
+});
+
+// bad
+batman.set('sidekick', 'Robin');
+batman.set('realName', 'Bruce Wayne');
 ```
 
 ## Native prototype modifications
