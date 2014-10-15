@@ -41,6 +41,44 @@ For example, instead of addressing a comment via the article
 `/articles/{article_name}/comments/{comment_id}` request the comment from the
 root using `/comments/{comment_id}`.
 
+### Representations and Media Types
+
+JSON should be used for representations unless there is a compelling reason to
+use something else.
+
+One of the drawbacks to plain JSON is that there are no rules regarding the
+structure or format of JSON messages. As a result, many APIs are snowflakes that
+require custom clients and documentation. This can be avoided by using a
+structured JSON message format such as
+[HAL](http://stateless.co/hal_specification.html),
+[Siren](https://github.com/kevinswiber/siren), [JSON-LD](http://json-ld.org/) or
+creating a schema of your own using [JSON Schema](http://json-schema.org/).
+
+Consider using [HAL](http://stateless.co/hal_specification.html) first. The
+advantages provided by HAL:
+	* It’s simple and easy to understand.
+	* It’s lightweight and has [good language
+    coverage](https://github.com/mikekelly/hal_specification/wiki/Libraries)
+    including Python, JS, PHP, Java, Objective-C, Clojure, and Go.
+	* It encourages using standard link relations. This reduces the need for
+    custom documentation.
+	* It supports transclusion of resources via the
+    [`_embeded`](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2) property.
+	* There is a [schema for validation](http://hyperschema.org/mediatypes/hal)
+    and an [API browser](https://github.com/mikekelly/hal-browser).
+	* It supports both JSON and XML.
+
+Note that [JSON Schema](http://json-schema.org/) can be used to validate many of
+the media types listed above. See the [media types
+page](http://hyperschema.org/mediatypes/) on
+[hyperschema.org](http://hyperschema.org).
+
+When deciding upon property names in JSON (or XML) messages, first see if it
+maps to an existing vocabulary. Start with the [IANA link
+relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml).
+If you don’t find what you are looking for there, try
+[schema.org](http://schema.org/docs/full.html).
+
 ### Use Appropriate HTTP Status Codes
 
 The HTTP status codes provide the most basic set of API semantics. Use them as
