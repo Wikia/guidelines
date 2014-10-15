@@ -281,7 +281,7 @@ try {
 
 #### Objects
 
-Object declarations can be made on a single line if they are short (remember the line length limits). When an object declaration is too long to fit on one line, there must be one property per line. Property names only need to be quoted if they are reserved words or contain special characters:
+Object declarations can be made on a single line if they are short (remember the [line length](#white-space-guidelines) limits). When an object declaration is too long to fit on one line, there must be one property per line. Property names only need to be quoted if they are reserved words or contain special characters:
 
 ```js
 // Bad
