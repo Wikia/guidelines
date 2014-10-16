@@ -171,35 +171,50 @@ Consider using standard headers first before adding query parameters. The
 standard headers are part of the HTTP protocol and have extensive documentation
 and industry adoption. The same cannot be said for query parameters.
 
+### Documentation
+
+If the API is using HAL, use the [HAL
+Browser](https://github.com/mikekelly/hal-browser). If a custom message format
+is used consider documenting it with
+[swagger](https://helloreverb.com/developers/swagger).
+
 ## Common Patterns
 
 ### Pagination
 
-First, consider paginating by adding `next`, and `previous` links to the
-representation of the collection. If you need to use query parameters use `offset` and
-`limit` (in that order). Example `/search?q=Foo&offset=50&limit=25`.
+First, consider paginating by adding `next`, and `previous` [link
+relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
+to the representation of the collection. If you need to use query parameters use
+`offset` and `limit` (in that order). Example
+`/search?q=Foo&offset=50&limit=25`.
+
+Here is an example [when using
+HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05#section-6).
 
 ### Versioning
 
-via `Accept` header?
+Version with [the `Accepts`
+header](https://github.com/interagent/http-api-design#version-with-accepts-header).
 
 ### Timestamps
 
 Use [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) with combined data and time
 in UTC for timestamps.
 
-### Partial Responses
-
-
 ### Error Handling
+
+No official standards exist in this space. Consider using [HTTP
+Problem](https://www.mnot.net/blog/2013/05/15/http_problem).
 
 ## Context Specific Guidelines
 
 ### Internal APIs
 
+TBD
 
 ### External APIs
 
+TDB
 
 ## Additional Resources
 
