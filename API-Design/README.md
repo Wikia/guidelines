@@ -56,17 +56,17 @@ creating a schema of your own using [JSON Schema](http://json-schema.org/).
 
 Consider using [HAL](http://stateless.co/hal_specification.html) first. The
 advantages provided by HAL:
-	* It’s simple and easy to understand.
-	* It’s lightweight and has [good language
+ * It’s simple and easy to understand.
+ * It’s lightweight and has [good language
     coverage](https://github.com/mikekelly/hal_specification/wiki/Libraries)
     including Python, JS, PHP, Java, Objective-C, Clojure, and Go.
-	* It encourages using standard link relations. This reduces the need for
+ * It encourages using standard link relations. This reduces the need for
     custom documentation.
-	* It supports transclusion of resources via the
+ * It supports transclusion of resources via the
     [`_embeded`](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2) property.
-	* There is a [schema for validation](http://hyperschema.org/mediatypes/hal)
+ * There is a [schema for validation](http://hyperschema.org/mediatypes/hal)
     and an [API browser](https://github.com/mikekelly/hal-browser).
-	* It supports both JSON and XML.
+ * It supports both JSON and XML.
 
 Note that [JSON Schema](http://json-schema.org/) can be used to validate many of
 the media types listed above. See the [media types
