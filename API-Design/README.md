@@ -233,11 +233,25 @@ in UTC for timestamps.
 ### Error Handling
 
 No official standards exist in this space. Consider using [HTTP
-Problem](https://www.mnot.net/blog/2013/05/15/http_problem).
+Problem](https://www.mnot.net/blog/2013/05/15/http_problem) before creating one
+of your own.
+
+Below is an example response using HTTP Problem for a query that produced no
+results:
+
+    HTTP/1.1 404 Not Found
+    Content-Type: application/problem+json
+    Content-Language: en
+
+    {
+     "title": "We could not find the article you were looking for.",
+     "detail": "Searching for the article id 12345 produced no results.",
+    }
+
 
 ### Transclusion
 
-TBD
+TDB; Needs an example.
 
 ## Context Specific Guidelines
 
