@@ -39,7 +39,9 @@ The main focus of this guide will be HTTP APIs.
 REST is the architecture of the web as described in the [PhD
 dissertation](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm) by Roy
 Fielding in 2001. It informs much of the best practice around API design in the
-industry. REST is not an all or nothing architecture and APIs do not have to conform to
+industry.
+
+REST is not an all or nothing architecture and APIs do not have to conform to
 all of the REST constraints to be useful and valuable to the business.
 
 ## Guidelines
@@ -51,7 +53,8 @@ goal is an interface that is intuitive, consistent, explorable, and pragmatic.
 ### Resources and Naming
 
 Most concepts should be nouns and not verbs. Use HTTP verbs (see below) to
-manipulate resources. Favor concrete names (e.g. `/articles`) over abstract ones (e.g. `/items`).
+manipulate resources. Favor concrete names (e.g. `/articles`) over abstract ones
+(e.g. `/items`).
 
 Use plural nouns to identify resources. For example, use `/articles` and
 `/comments` to address collections of articles and comments respectively. Use
