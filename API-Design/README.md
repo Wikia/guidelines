@@ -219,7 +219,11 @@ HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05#section-6).
 ### Versioning
 
 Version with [the `Accepts`
-header](https://github.com/interagent/http-api-design#version-with-accepts-header).
+header](https://github.com/interagent/http-api-design#version-with-accepts-header). For example:
+
+    Accept: application/hal+json; version=1
+
+Include the content type in addition to the version.
 
 ### Timestamps
 
