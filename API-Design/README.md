@@ -206,6 +206,10 @@ in UTC for timestamps.
 No official standards exist in this space. Consider using [HTTP
 Problem](https://www.mnot.net/blog/2013/05/15/http_problem).
 
+### Transclusion
+
+TBD
+
 ## Context Specific Guidelines
 
 ### Internal APIs
@@ -233,3 +237,9 @@ TDB
 	 Guide](http://www.amazon.com/HTTP-The-Definitive-Guide-Guides/dp/1565925092)
  * [RESTful WEB
 	 APIs](http://www.amazon.com/RESTful-Web-APIs-Leonard-Richardson/dp/1449358063)
+
+## Notes
+
+  * Could transclusion be facilitated via Varnish+ESI in an intermediary in HAL? This
+    would probably require translation back to JSON before returning to the
+    client.
