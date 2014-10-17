@@ -1,5 +1,33 @@
 # API Design Guide
 
+## Contents
+
+- [API Design Guide](#api-design-guide)
+    - [Contents](#contents)
+    - [Introduction](#introduction)
+    - [On RESTfulness](#on-restfulness)
+    - [Guidelines](#guidelines)
+        - [Resources and Naming](#resources-and-naming)
+        - [Representations and Media Types](#representations-and-media-types)
+        - [Use Appropriate HTTP Status Codes](#use-appropriate-http-status-codes)
+        - [Use HTTP Verbs to Manipulate Resources](#use-http-verbs-to-manipulate-resources)
+        - [Use HTTP Headers for Additional Application Semantics](#use-http-headers-for-additional-application-semantics)
+        - [Documentation](#documentation)
+    - [Common Patterns](#common-patterns)
+        - [Pagination](#pagination)
+        - [Versioning](#versioning)
+        - [Timestamps](#timestamps)
+        - [Error Handling](#error-handling)
+        - [Transclusion](#transclusion)
+    - [Context Specific Guidelines](#context-specific-guidelines)
+        - [Internal APIs](#internal-apis)
+        - [External APIs](#external-apis)
+    - [Additional Resources](#additional-resources)
+        - [Articles](#articles)
+        - [API Design Guides](#api-design-guides)
+        - [Books](#books)
+    - [Notes](#notes)
+
 ## Introduction
 
 This document is an API design guide for use at Wikia. The goal of this guide
