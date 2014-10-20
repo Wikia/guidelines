@@ -75,9 +75,8 @@ One of the drawbacks to plain JSON is that there are no rules regarding the
 structure or format of JSON messages. As a result, many APIs are snowflakes that
 require custom clients and documentation. This can be avoided by using a
 structured JSON message format such as
-[HAL](http://stateless.co/hal_specification.html),
-[Siren](https://github.com/kevinswiber/siren), [JSON-LD](http://json-ld.org/) or
-creating a schema of your own using [JSON Schema](http://json-schema.org/).
+[HAL](http://stateless.co/hal_specification.html), [JSON-LD](http://json-ld.org/)
+[Siren](https://github.com/kevinswiber/siren).
 
 Consider using [HAL](http://stateless.co/hal_specification.html) first. The
 advantages provided by HAL:
@@ -92,6 +91,11 @@ advantages provided by HAL:
  * There is a [schema for validation](http://hyperschema.org/mediatypes/hal)
     and an [API browser](https://github.com/mikekelly/hal-browser).
  * It supports both JSON and XML.
+
+Disadvantages:
+ * It’s thin on protocol semantics. Out-of-band documentation will be required
+	 for state transitions.
+ * It’s more loosely coupled with standard vocabularies.
 
 Note that [JSON Schema](http://json-schema.org/) can be used to validate many of
 the media types listed above. See the [media types
@@ -251,17 +255,39 @@ results:
 
 ### Transclusion
 
-TDB; Needs an example.
+HAL supports transclusion via the `_embedded` property. See below for an
+example. The
+[clients](https://github.com/mikekelly/hal_specification/wiki/Libraries) should
+support this.
+
+    "_embedded": {
+			"users": [
+				{
+					"_links": {
+						  "self": {
+								"href": "http://whiskey.wikia.com/wiki/User:Craiglpalmer"
+							}
+					},
+					"id": “Craiglpalmer",
+					"name": "Craig L. Palmer"
+				}
+			]
+    }
+
+Embeds may be [full or
+partial](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2).
+Consider using query parameters to expand embedded resources e.g.
+`?emebed=user,comments`.
+
+If additional granularity is required considered amending this document with a
+proposal for standardization.
 
 ## Context Specific Guidelines
 
 ### Internal APIs
 
-TBD
-
-### External APIs
-
-TDB
+Format and media type constraints can be relaxed internally. However the same
+principle applies-- use a standard vocabulary and media type.
 
 ## Additional Resources
 
@@ -269,6 +295,7 @@ TDB
 
  * [Richardson REST Maturity
    Model (RMM)](http://martinfowler.com/articles/richardsonMaturityModel.html)
+ * [Resource Oriented Web Services](http://blog.sgo.to/2014/02/rows.html)
 
 ### API Design Guides
 
@@ -283,6 +310,8 @@ TDB
 
 ## Notes
 
-  * Could transclusion be facilitated via Varnish+ESI in an intermediary in HAL? This
-    would probably require translation back to JSON before returning to the
-    client.
+ * Could transclusion be facilitated via Varnish+ESI in an intermediary in HAL? This
+   would probably require translation back to JSON before returning to the
+   client.
+ * Should JSON-LD be the go-to standard for external APIs? The durability of the
+	 standard seems higher but the current tooling is lower.
