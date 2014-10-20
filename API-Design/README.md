@@ -68,13 +68,13 @@ root using `/comments/{comment_id}`.
 ### Representations and Media Types
 
 JSON should be used for representations unless there is a compelling reason to
-use something else.
+otherwise.
 
 One of the drawbacks to plain JSON is that there are no rules regarding the
 structure or format of JSON messages. As a result, many APIs are snowflakes that
 require custom clients and documentation. This can be avoided by using a
 structured JSON message format such as
-[HAL](http://stateless.co/hal_specification.html), [JSON-LD](http://json-ld.org/)
+[HAL](http://stateless.co/hal_specification.html), [JSON-LD](http://json-ld.org/), or
 [Siren](https://github.com/kevinswiber/siren).
 
 Consider using [HAL](http://stateless.co/hal_specification.html) first. The
@@ -85,7 +85,7 @@ advantages provided by HAL:
     including Python, JS, PHP, Java, Objective-C, Clojure, and Go.
  * It encourages using standard link relations. This reduces the need for
     custom documentation.
- * It supports transclusion of resources via the
+ * It supports [transclusion](#transclusion) of resources via the
     [`_embeded`](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2) property.
  * There is a [schema for validation](http://hyperschema.org/mediatypes/hal)
     and an [API browser](https://github.com/mikekelly/hal-browser).
@@ -94,7 +94,7 @@ advantages provided by HAL:
 Disadvantages:
  * It’s thin on protocol semantics. Out-of-band documentation will be required
 	 for state transitions.
- * It’s more loosely coupled with standard vocabularies.
+ * It’s loosely coupled with standard vocabularies.
 
 Note that [JSON Schema](http://json-schema.org/) can be used to validate many of
 the media types listed above. See the [media types
@@ -116,7 +116,8 @@ RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
  * `200 OK`: represents a successful HTTP request. It should not be used for an
-   error (see 4xx and 5xx) or an empty result set (consider using 404).
+   error (see 4xx and 5xx) or an empty result set (consider using `404 Not
+	 Found`).
  * `201 Created`: the resource was created synchronously (e.g. via `POST` or `PUT`).
  * `202 Accepted`: the request was accepted. Use this to identify `POST`, `PUT`, or
 	 `DELETE` requests that will be handled asynchronously.
@@ -189,8 +190,9 @@ Response:
 	 more details.
  * `Content-Type`: This determines the parser used by the client and the
 	 application semantics. [Prefer machine readable content
-	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema) over
-	 plain-old-JSON (in the form of `application/json`).
+	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema)
+	 such as [HAL](http://stateless.co/hal_specification.html) over plain-old-JSON
+	 (in the form of `application/json`).
  * `Etag`: Use to specify the version of the resources as a UUID.
  * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
 	 and `If-Unmodified-Since` above.
@@ -210,14 +212,13 @@ is used consider documenting it with
 
 ### Pagination
 
-First, consider paginating by adding `next`, and `previous` [link
+Add pagination by using `next`, and `previous` [link
 relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
-to the representation of the collection. If you need to use query parameters use
-`offset` and `limit` (in that order). Example
-`/search?q=Foo&offset=50&limit=25`.
-
-Here is an example [when using
+to the representation of the collection. Here is an example [when using
 HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05#section-6).
+
+If you need to use query parameters for the URLs use `offset` and `limit` (in
+that order). Example `/search?q=Foo&offset=50&limit=25`.
 
 ### Versioning
 
