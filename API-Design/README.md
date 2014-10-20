@@ -21,7 +21,6 @@
         - [Transclusion](#transclusion)
     - [Context Specific Guidelines](#context-specific-guidelines)
         - [Internal APIs](#internal-apis)
-        - [External APIs](#external-apis)
     - [Additional Resources](#additional-resources)
         - [Articles](#articles)
         - [API Design Guides](#api-design-guides)
