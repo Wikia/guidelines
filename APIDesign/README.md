@@ -77,7 +77,7 @@ structured JSON message format such as
 [HAL](http://stateless.co/hal_specification.html), [JSON-LD](http://json-ld.org/), or
 [Siren](https://github.com/kevinswiber/siren).
 
-Consider using [HAL](http://stateless.co/hal_specification.html) first. The
+Start with [HAL](http://stateless.co/hal_specification.html) first. The
 advantages provided by HAL:
  * It’s simple and easy to understand.
  * It’s lightweight and has [good language
@@ -106,6 +106,11 @@ maps to an existing vocabulary. Start with the [IANA link
 relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml).
 If you don’t find what you are looking for there, try
 [schema.org](http://schema.org/docs/full.html).
+
+Ensure that the application design is not wedded to a particular hypermedia
+format (e.g. HAL). The domain model should be sufficiently decoupled from the
+media type to allow for multiple or evolving representations and potentially
+versions.
 
 ### Use Appropriate HTTP Status Codes
 
@@ -296,6 +301,7 @@ principle applies-- use a standard vocabulary and media type.
  * [Richardson REST Maturity
    Model (RMM)](http://martinfowler.com/articles/richardsonMaturityModel.html)
  * [Resource Oriented Web Services](http://blog.sgo.to/2014/02/rows.html)
+ * [Three Levels of Hypermedia Messages](http://amundsen.com/blog/archives/1138)
 
 ### API Design Guides
 
