@@ -30,6 +30,12 @@ var person = new Person('ken');
 
 ## Where Should Your Module Live?
 Each module should live in it's own git repository.
+The [jQuery project](https://github.com/jquery/jquery) is a legendary example of a package designed for universal distribution. At the minimum, your project should specify the following:
+* `package.json` to manage your projects dependencies
+* `tests/` folder containing all the tests for your module
+* `dist/` containing the compiled versions of application (these are out of the box drop-in versions)
+* `src/` folder is where the development version of your source code will live
+* make, jake, rake, gulp, or grunt files: Whatever your build tool's config file is
 Example project structure:
 ```
 projectRoot
@@ -37,6 +43,7 @@ projectRoot
 |- src/
 |- tests/
 |- package.json
+|- gulpfile.js
 |- README.md
 ```
 In the dark ages of the monolith™, Wikia developers put all the JavaScript they'd use in the Wikia/app repo. Now that their are multiple JavaScript applications and services living in our ecosystem, we should break out of this dated model and move significantly reusable pieces of code (that have been [properly developed](#encapsulation-explicitness-and-api)) to their own repos. This makes modules easier to [distribute and manage as packages](#packaging-and-versioning).
