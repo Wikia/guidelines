@@ -8,12 +8,42 @@ In order to support [DRYness](http://en.wikipedia.org/wiki/Don't_repeat_yourself
 
 ## Encapsulation, Explicitness and API
 When developing your JS modules, aim to encapsulate your modules. If your module requires external input, make sure your module exposes a public API for module consumers to pass in that input explicitly. In the past, the organization has been lax on the use of globals in modules. This is an antipattern that breaks encapsulation and makes it so that your module becomes tightly coupled with it's application context. *Do not use globals in your modules*.
+```javascript
+// bad example
+function Person () {
+	// although this might work in the context you developed your plugin in, it requires
+	// other developers to implement this global as well.
+	this.name = window.name;
+}
+
+var person = new Person();
+
+// good example
+function Person (name) {
+	// when writing code intended for use in arbitrary environments, prefer the explicit
+	// definition and passing of state, rather than binding to state in the global context
+	this.name = name;
+}
+
+var person = new Person('ken');
+```
 
 ## Where Should Your Module Live?
+Each module should live in it's own git repository.
+Example project structure:
+```
+projectRoot
+|- dist/
+|- src/
+|- tests/
+|- package.json
+|- README.md
+```
 In the dark ages of the monolith™, Wikia developers put all the JavaScript they'd use in the Wikia/app repo. Now that their are multiple JavaScript applications and services living in our ecosystem, we should break out of this dated model and move significantly reusable pieces of code (that have been [properly developed](#encapsulation-explicitness-and-api)) to their own repos. This makes modules easier to [distribute and manage as packages](#packaging-and-versioning).
 
 ## Packaging and Versioning 
-Developers should use [npm](http://www.npmjs.org) and [bower](http://www.bower.io) (for front-end deps) to manage their JavaScript dependencies. All projects, from full Node.js applications to jQuery plugins should have a valid [package.json](https://www.npmjs.org/doc/files/package.json.html) that uses [semantic versioning](http://semver.org/). This is important so that developers can manage and deploy safe, version-locked modules for their applications. You do not have to have your
+Developers should use [npm](http://www.npmjs.org) and [bower](http://www.bower.io) (for front-end dependenciess) to manage their JavaScript dependencies. **Use bower to manage packages client-side packages and npm to manage server packages.**
+All projects, from full Node.js applications to jQuery plugins should have a valid [package.json](https://www.npmjs.org/doc/files/package.json.html) that uses [semantic versioning](http://semver.org/). This is important so that developers can manage and deploy safe, version-locked modules for their applications. You do not have to have your
 module in npm or bower's public repositories to manage your package using npm or bower. Both tools support installing packages from github. For instance:
 ```bash
 // Install package from git with npm install
@@ -26,7 +56,7 @@ $ npm install Wikia/foo#1.4.0 --save
 	"foo": "Wikia/foo"
 }
 
-// Install bower package from github (more details here: http://bower.io/docs/api/#install)
+// Install bower package from github 
 $ bower install https://github.com/user/package.git --save
 // with version
 $ bower install https://github.com/user/package.git#1.4.0
@@ -36,6 +66,7 @@ $ bower install https://github.com/user/package.git#1.4.0
 	"foo": "http://bower.io/docs/api/#install"
 }
 ```
+For more details on bower's api, [explore this page](ttp://bower.io/docs/api/#install).
 
 ## Testing
 Your module should be fully unit tested and those tests should live in your modules repo.
