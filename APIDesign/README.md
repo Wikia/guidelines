@@ -282,7 +282,7 @@ support this.
 Embeds may be [full or
 partial](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2).
 Consider using query parameters to expand embedded resources e.g.
-`?emebed=user,comments`.
+`?embed=user,comments`.
 
 If additional granularity is required considered amending this document with a
 proposal for standardization.
