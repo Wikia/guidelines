@@ -14,7 +14,7 @@ production at Wikia.
  * Clojure
  * Java
 
-By choosing one of these languages implementors leverage existing organizational
+By choosing one of the above implementors leverage existing organizational
 experience in productizing services in these languages as well as the production
 tooling (deploy tools, logging, and monitoring).
 
@@ -23,7 +23,7 @@ see the new programming language section below for the process for selecting a
 new programming language.
 
 Note that there are legacy systems in production using programming languages
-listed above. There are existing systems implemented using:
+not listed above. There are existing systems implemented using:
 
  * Ruby
  * Perl
@@ -46,7 +46,7 @@ need to be answered:
  2. How will the programming language be deployed and run in production?
  3. How mature is the industry support for the language? Some metrics that might
 		be used to answer this question are: questions on stack overflow, mailing
-		list activity, production deployments at a similar traffic valume.
+		list activity, and production deployments at a similar traffic volume.
  4. Is there existing organizational expertise in the proposed language?
  5. Does the language effect the organization’s ability to recruit?
  6. What is the expected learning curve for becoming productive in the language?
