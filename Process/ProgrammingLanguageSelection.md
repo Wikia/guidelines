@@ -30,7 +30,7 @@ not listed above. There are existing systems implemented using:
  * Scala
 
 Although there is some production support for these languages they are
-considered legacy and should not be selected for future development unless they
+considered legacy and should *not be selected* for future development unless they
 go through the process described below.
 
 ## New Programming Language
@@ -45,7 +45,8 @@ To introduce a new language into production at Wikia, the following questions
 need to be answered:
 
  1. What does the proposed language offer that is not provided by one of the
-		currently supported languages?
+		currently supported languages? Are there significant advantages (or
+		potential advantages) to using the proposed language?
  2. How will the programming language be deployed and run in production?
  3. How mature is the industry support for the language? Some metrics that might
 		be used to answer this question are: questions on stack overflow, mailing
@@ -53,14 +54,17 @@ need to be answered:
  4. Is there existing organizational expertise in the proposed language?
  5. Does the language effect the organization’s ability to recruit?
  6. What is the expected learning curve for becoming productive in the language?
- 7. Is there a pool of developers in both Poland and the US that could be hired
+ 7. Is there training available either internally or externally?
+ 8. Are there textbooks and reference materials for the proposed language?
+ 9. What is the level of industry adoption for the language? Who is using it in
+		production?
+ 10. Is there a pool of developers in both Poland and the US that could be hired
 		to support and expand the development of services written in the language?
 
 In addition to the questions above, the developers seeking to use a new language
 should consider the impact to the business in selecting a new language for the
-project beginning development. For example, does the effort needed to
-introduce and learn a new language put the expected delivery of the required
-functionality at risk?
+project. For example, does the effort needed to introduce and learn a new
+language put the expected delivery of the required functionality at risk?
 
 Questions regarding the introduction of a new language as well as the request to
 introduce a new language should be sent to the [architecture
