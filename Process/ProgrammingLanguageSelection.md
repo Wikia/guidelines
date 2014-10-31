@@ -38,6 +38,9 @@ go through the process described below.
 This section describes the process that should be followed when introducing a
 new language into the Wikia production environment.
 
+First, if the project is on the critical path for the business, a customer, or other
+team, the use of an existing supported language is strongly encouraged.
+
 To introduce a new language into production at Wikia, the following questions
 need to be answered:
 
