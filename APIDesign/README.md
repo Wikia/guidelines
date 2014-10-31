@@ -306,6 +306,7 @@ principle applies-- use a standard vocabulary and media type.
 ### API Design Guides
 
  * [Heroku API Design Guide](https://github.com/interagent/http-api-design)
+ * [18F API Standards](https://github.com/18F/api-standards)
 
 ### Books
 
