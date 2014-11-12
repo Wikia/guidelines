@@ -55,13 +55,11 @@ goal is an interface that is intuitive, consistent, explorable, and pragmatic.
 
 ### Resources and Naming
 
-Most concepts should be nouns and not verbs. Use HTTP verbs (see below) to
-manipulate resources. Use concrete names (e.g. `/articles`). Do not use abstract ones
-(e.g. `/items`).
-
 Use plural nouns to identify resources. For example, use `/articles` and
 `/comments` to address collections of articles and comments respectively. Use
 `/articles/{article_name}` to address a specific article.
+
+Use HTTP verbs (see below) to manipulate resources.
 
 [Minimize path nesting for
 resources](https://github.com/interagent/http-api-design#minimize-path-nesting).
@@ -118,7 +116,7 @@ If you don’t see what you need here refer [to the
 RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
- * `200 OK`: represents a successful HTTP request. It should not be used for an
+ * `200 OK`: represents a successful HTTP request. Do not use for an
    error (see 4xx and 5xx) or an empty result set (use `404 Not
 	 Found`).
  * `201 Created`: the resource was created synchronously (e.g. via `POST` or `PUT`).
@@ -147,15 +145,15 @@ primary HTTP verbs and how they should be used.
    provided in the body of the request.
  * `PUT`: modify a resource at the specified URI with the representation
    provided. If the resource does not exist it will be created. `PUT` operations
-   should be idempotent.
- * `DELETE`: Delete the resource identified by the URI. `DELETE` operations should
-	 be idempotent.
+   need to be idempotent.
+ * `DELETE`: Delete the resource identified by the URI. `DELETE` operations need
+	 to be idempotent.
 
 If identical `PUT` or `DELETE` operations are repeated against a resource they may
-have different HTTP status codes and headers but they should *not* change the
+have different HTTP status codes and headers but they will *not* change the
 system state on the server.
 
-All content responses should support conditional `GET` to avoid sending full
+All content responses will support conditional `GET` to avoid sending full
 resource representations. Conditional `GET` can be used to save both bandwidth
 and server resources.
 
@@ -187,8 +185,8 @@ API endpoints need to support the following request headers:
  * `If-Unmodified-Since`: Can be used to make `GET` or `PUT` conditional.
 	 Combined with `Last-Modified`.
 
-All responses should include the following headers:
- * `Cache-Control`: Use to specify how intermediaries should cache.
+All responses will include the following headers:
+ * `Cache-Control`: Use to specify how intermediaries will cache.
 	 See [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
 	 for more details.
  * `Content-Type`: This determines the parser used by the client and the
