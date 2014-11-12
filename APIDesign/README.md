@@ -190,10 +190,8 @@ All responses will include the following headers:
 	 See [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
 	 for more details.
  * `Content-Type`: This determines the parser used by the client and the
-	 application semantics. [Prefer machine readable content
-	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema)
-	 such as [HAL](http://stateless.co/hal_specification.html) over plain-old-JSON
-	 (in the form of `application/json`).
+	 application semantics. The two acceptible types are `application/hal+json` and
+	 `application/problem+json`.
  * `Etag`: Use to specify the version of the resources as a UUID.
  * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
 	 and `If-Unmodified-Since` above.
@@ -274,8 +272,6 @@ Embeds may be [full or
 partial](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2).
 Use query parameters to expand embedded resources e.g.
 `?embed=user,comments`.
-
-## Context Specific Guidelines
 
 ## Additional Resources
 
