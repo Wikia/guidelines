@@ -19,8 +19,6 @@
         - [Timestamps](#timestamps)
         - [Error Handling](#error-handling)
         - [Transclusion](#transclusion)
-    - [Context Specific Guidelines](#context-specific-guidelines)
-        - [Internal APIs](#internal-apis)
     - [Additional Resources](#additional-resources)
         - [Articles](#articles)
         - [API Design Guides](#api-design-guides)
