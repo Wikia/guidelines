@@ -56,7 +56,7 @@ goal is an interface that is intuitive, consistent, explorable, and pragmatic.
 ### Resources and Naming
 
 Most concepts should be nouns and not verbs. Use HTTP verbs (see below) to
-manipulate resources. Favor concrete names (e.g. `/articles`) over abstract ones
+manipulate resources. Use concrete names (e.g. `/articles`). Do not use abstract ones
 (e.g. `/items`).
 
 Use plural nouns to identify resources. For example, use `/articles` and
@@ -69,20 +69,23 @@ For example, instead of addressing a comment via the article
 `/articles/{article_name}/comments/{comment_id}` request the comment from the
 root using `/comments/{comment_id}`.
 
+*Note*: Additional work is being done to identify the Wikia content ontology--
+the concepts and nouns within the Wikia product domain. Additional information
+and pointers will be provided when the become available.
+
 ### Representations and Media Types
 
-JSON should be used for representations unless there is a compelling reason to
-otherwise.
+Use JSON and for representations. Use
+[`application/hal+json`](http://stateless.co/hal_specification.html) for the
+media type.
 
 One of the drawbacks to plain JSON is that there are no rules regarding the
 structure or format of JSON messages. As a result, many APIs are snowflakes that
 require custom clients and documentation. This can be avoided by using a
 structured JSON message format such as
-[HAL](http://stateless.co/hal_specification.html), [JSON-LD](http://json-ld.org/), or
-[Siren](https://github.com/kevinswiber/siren).
+[HAL](http://stateless.co/hal_specification.html).
 
-Start with [HAL](http://stateless.co/hal_specification.html) first. The
-advantages provided by HAL:
+The advantages provided by HAL:
  * It’s simple and easy to understand.
  * It’s lightweight and has [good language
     coverage](https://github.com/mikekelly/hal_specification/wiki/Libraries)
@@ -95,21 +98,12 @@ advantages provided by HAL:
     and an [API browser](https://github.com/mikekelly/hal-browser).
  * It supports both JSON and XML.
 
-Disadvantages:
- * It’s thin on protocol semantics. Out-of-band documentation will be required
-	 for state transitions.
- * It’s loosely coupled with standard vocabularies.
-
-Note that [JSON Schema](http://json-schema.org/) can be used to validate many of
-the media types listed above. See the [media types
-page](http://hyperschema.org/mediatypes/) on
-[hyperschema.org](http://hyperschema.org).
-
-When deciding upon property names in JSON (or XML) messages, first see if it
+When deciding upon property names in JSON messages, first see if it
 maps to an existing vocabulary. Start with the [IANA link
 relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml).
 If you don’t find what you are looking for there, try
-[schema.org](http://schema.org/docs/full.html).
+[schema.org](http://schema.org/docs/full.html). If you still can’t find what you
+need consult the API design guild.
 
 Ensure that the application design is not wedded to a particular hypermedia
 format (e.g. HAL). The domain model should be sufficiently decoupled from the
@@ -125,7 +119,7 @@ RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
  * `200 OK`: represents a successful HTTP request. It should not be used for an
-   error (see 4xx and 5xx) or an empty result set (consider using `404 Not
+   error (see 4xx and 5xx) or an empty result set (use `404 Not
 	 Found`).
  * `201 Created`: the resource was created synchronously (e.g. via `POST` or `PUT`).
  * `202 Accepted`: the request was accepted. Use this to identify `POST`, `PUT`, or
@@ -147,7 +141,7 @@ Use HTTP verbs to manipulate resources. Below you will find a summary of the
 primary HTTP verbs and how they should be used.
 
  * `GET`: used to retrieve data and should have no other side effects. It should
-   not change any state on the server. Secondary side effects such as logging,
+   *not* change any state on the server. Secondary side effects such as logging,
    caching, measuring, and monitoring are acceptable.
  * `POST`: create a new resource under the URI with the representation
    provided in the body of the request.
@@ -158,11 +152,12 @@ primary HTTP verbs and how they should be used.
 	 be idempotent.
 
 If identical `PUT` or `DELETE` operations are repeated against a resource they may
-have different HTTP status codes and headers but they should not change the
+have different HTTP status codes and headers but they should *not* change the
 system state on the server.
 
-Use conditional `GET` to avoid sending full resource representations.
-Conditional `GET` can be used to save both bandwidth and server resources.
+All content responses should support conditional `GET` to avoid sending full
+resource representations. Conditional `GET` can be used to save both bandwidth
+and server resources.
 
 To support conditional `GET`, provide `Last-Modified` and `Etag` headers with your
 representations. The client can then send an `If-Modified-Since` header with the
@@ -181,8 +176,8 @@ be used to affect cacheability and state manipulation.
 A tabular enumeration of HTTP headers can be found
 [here](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
 
-Request:
- * `Accept`: Consider using accept to support multiple versions of an API end
+API endpoints need to support the following request headers:
+ * `Accept`: Use `Accept` to support multiple versions of an API end
 	 point or different representations.
  * `If-Match`: Use with `Etag` to make `PUT` and `POST` conditional and
 	 avoid lost updates.
@@ -192,7 +187,7 @@ Request:
  * `If-Unmodified-Since`: Can be used to make `GET` or `PUT` conditional.
 	 Combined with `Last-Modified`.
 
-Response:
+All responses should include the following headers:
  * `Cache-Control`: Use to specify how intermediaries should cache.
 	 Provided as needed to guide cacheability. See
 	 [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3) for
@@ -206,16 +201,13 @@ Response:
  * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
 	 and `If-Unmodified-Since` above.
 
-Consider using standard headers first before adding query parameters. The
+Use standard headers first before adding query parameters. The
 standard headers are part of the HTTP protocol and have extensive documentation
 and industry adoption. The same cannot be said for query parameters.
 
 ### Documentation
 
-If the API is using HAL, use the [HAL
-Browser](https://github.com/mikekelly/hal-browser). If a custom message format
-is used consider documenting it with
-[swagger](https://helloreverb.com/developers/swagger).
+Use the [HAL Browser](https://github.com/mikekelly/hal-browser).
 
 ## Common Patterns
 
@@ -231,7 +223,7 @@ that order). Example `/search?q=Foo&offset=50&limit=25`.
 
 ### Versioning
 
-Version with [the `Accepts`
+Version with [the `Accept`
 header](https://github.com/interagent/http-api-design#version-with-accepts-header). For example:
 
     Accept: application/hal+json; version=1
@@ -240,14 +232,12 @@ Include the content type in addition to the version.
 
 ### Timestamps
 
-Use [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) with combined data and time
+Use [ISO8601](http://en.wikipedia.org/wiki/ISO_8601) with combined date and time
 in UTC for timestamps.
 
 ### Error Handling
 
-No official standards exist in this space. Consider using [HTTP
-Problem](https://www.mnot.net/blog/2013/05/15/http_problem) before creating one
-of your own.
+Use [HTTP Problem](https://www.mnot.net/blog/2013/05/15/http_problem).
 
 Below is an example response using HTTP Problem for a query that produced no
 results:
@@ -285,18 +275,10 @@ support this.
 
 Embeds may be [full or
 partial](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2).
-Consider using query parameters to expand embedded resources e.g.
+Use query parameters to expand embedded resources e.g.
 `?embed=user,comments`.
 
-If additional granularity is required considered amending this document with a
-proposal for standardization.
-
 ## Context Specific Guidelines
-
-### Internal APIs
-
-Format and media type constraints can be relaxed internally. However the same
-principle applies-- use a standard vocabulary and media type.
 
 ## Additional Resources
 
@@ -326,3 +308,9 @@ principle applies-- use a standard vocabulary and media type.
    client.
  * Should JSON-LD be the go-to standard for external APIs? The durability of the
 	 standard seems higher but the current tooling is lower.
+ * Should [JSON Schema](http://json-schema.org/) be used to validate
+	 HAL? See the [media types page](http://hyperschema.org/mediatypes/) on
+	 [hyperschema.org](http://hyperschema.org).
+ * Should TLS be used for all requests? Certainly when access tokens are
+	 involved. See the [related Heroku
+	 recommendation](https://github.com/interagent/http-api-design#require-tls).
