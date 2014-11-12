@@ -75,7 +75,7 @@ and pointers will be provided when the become available.
 
 ### Representations and Media Types
 
-Use JSON and for representations. Use
+Use JSON for state representations. Use
 [`application/hal+json`](http://stateless.co/hal_specification.html) for the
 media type.
 
@@ -189,9 +189,8 @@ API endpoints need to support the following request headers:
 
 All responses should include the following headers:
  * `Cache-Control`: Use to specify how intermediaries should cache.
-	 Provided as needed to guide cacheability. See
-	 [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3) for
-	 more details.
+	 See [here](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html#sec13.1.3)
+	 for more details.
  * `Content-Type`: This determines the parser used by the client and the
 	 application semantics. [Prefer machine readable content
 	 types](https://github.com/interagent/http-api-design#provide-machine-readable-json-schema)
