@@ -128,7 +128,7 @@ var foo = fn();
 	// Good:
 	interface SomeType {
 		str: string,
-		num; number
+		num: number
 	}
 
 	function performOperation (): SomeType {
