@@ -27,7 +27,7 @@ reports = no
 module-rgx = [a-z_][a-z0-9_]+$
 
 # Global variable names
-const-rgx = (([A-Z_][A-Z0-9_]+)|([a-z_][a-z0-9_]+$)|(__.*__))$
+const-rgx = (([A-Z_][A-Z0-9_]+)|([a-z_][a-z0-9_]+)|(__.*__))$
 
 # Classes
 class-rgx = [A-Z_][a-zA-Z0-9]+$
