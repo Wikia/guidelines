@@ -55,7 +55,7 @@ no-docstring-rgx = (__.*__|decorator|wrapper)$
 
 [FORMAT]
 # Maximum number of characters on a single line - should match pep8 setting
-max-line-length = 120
+max-line-length = 100
 
 [SIMILARITIES]
 # Minimum lines number of a similarity
