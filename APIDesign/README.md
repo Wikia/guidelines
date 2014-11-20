@@ -31,7 +31,7 @@ This document is an API design guide for use at Wikia. The goal of this guide
 is the creation of consistent, pragmatic APIs and reduced developer overhead.
 The main focus of this guide will be HTTP APIs.
 
-It should be noted that this guide may based upon invalid or untested
+It should be noted that this guide may be based upon invalid or untested
 assumptions. However until specific issues are surfaced as this is applied to
 production the recommendations made below should be followed when building APIs.
 
