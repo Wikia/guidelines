@@ -67,7 +67,7 @@ root using `/comments/{comment_id}`.
 
 *Note*: Additional work is being done to identify the Wikia content ontology--
 the concepts and nouns within the Wikia product domain. Additional information
-and pointers will be provided when the become available.
+and pointers will be provided when they become available.
 
 ### Representations and Media Types
 
