@@ -69,6 +69,12 @@ root using `/comments/{comment_id}`.
 the concepts and nouns within the Wikia product domain. Additional information
 and pointers will be provided when they become available.
 
+*Clients should never depend on specific URIs or URI formats.* The only
+exception to this is the entry point for the API. For example, an API client
+should not rely on an image thumbnail format that they can manipulate to change
+the size of the thumbnail. This creates a tight coupling between the client, the
+URI format, and the server and breaks the client-server constraint of REST.
+
 ### Representations and Media Types
 
 Use JSON for state representations. Use
