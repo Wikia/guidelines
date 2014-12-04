@@ -7,7 +7,7 @@ In order to support [DRYness](http://en.wikipedia.org/wiki/Don't_repeat_yourself
 5. [Dependencies](#dependencies)
 
 ## Encapsulation, Explicitness and API
-When developing your JS modules, aim to encapsulate your modules. If your module requires external input, make sure your module exposes a public API for module consumers to pass in that input explicitly. In the past, the organization has been lax on the use of globals in modules. This is an antipattern that breaks encapsulation and makes it so that your module becomes tightly coupled with it's application context. *Do not use globals in your modules*.
+When developing your JS modules, aim to encapsulate your modules. If your module requires external input, make sure your module exposes a public API for module consumers to pass in that input explicitly. In the past, the organization has been lax on the use of globals in modules. This is an antipattern that breaks encapsulation and makes it so that your module becomes tightly coupled with its application context. *Do not use globals in your modules*.
 ```javascript
 // bad example
 function Person () {
@@ -29,7 +29,7 @@ var person = new Person('ken');
 ```
 
 ## Where Should Your Module Live?
-Each module should live in it's own git repository.
+Each module should live in its own git repository.
 The [jQuery project](https://github.com/jquery/jquery) is a legendary example of a package designed for universal distribution. At the minimum, your project should specify the following:
 * `package.json` to manage your projects dependencies
 * `tests/` folder containing all the tests for your module
