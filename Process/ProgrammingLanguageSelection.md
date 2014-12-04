@@ -41,16 +41,16 @@ questions need to be answered:
 
  1. What does the proposed language offer that is not provided by one of the
     currently supported languages?
-    a. Are there significant advantages (or potential advantages) to using the proposed
-       language? This question includes libraries and open source projects that allow
-       us to not re-implement existing work.
+  1. Are there significant advantages (or potential advantages) to using the proposed
+     language? This question includes libraries and open source projects that allow
+     us to not re-implement existing work.
  2. How will the programming language be deployed and run in production?
  3. What evidence exists to support this language as a viable choice? Some metrics
     that might be used to answer this question are:
-    a. Questions on stack overflow.
-    b. Mailing list activity.
-    c. Production deployments at a similar traffic volume.
-    d. Job openings in the industry specifically targeting this language.
+  1. Questions on stack overflow.
+  2. Mailing list activity.
+  3. Production deployments at a similar traffic volume.
+  4. Job openings in the industry specifically targeting this language.
  4. Is there existing organizational expertise in the proposed language?
  5. Does the language affect the organization’s ability to recruit?
  6. How much training is available either internally or externally?
