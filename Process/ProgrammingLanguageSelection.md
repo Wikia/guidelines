@@ -4,20 +4,18 @@ This document describes the currently supported programming languages and the
 criteria for selecting a new programming language. Programming languages at
 Wikia fall into two categories-- general purpose and specialized.
 
-## General Purpose Programming Language Criteria
+Questions regarding the introduction of a new language as well as the request to
+introduce a new language should be sent to the [architecture
+committee](https://one.wikia-inc.com/wiki/Engineering/Architecture_Committee).
 
-To introduce a new general purpose language the following criteria needs to be
-met in addition to the specific language criteria:
+## General Purpose Programming Languages
 
- 1. Anyone in engineering can move to a project using the language with minimal
-    effort and be productive.
- 2. There is a large pool of developers to recruit from in all geographies where
-    Wikia employs engineers.
-
-There is significant cost to adding a general purpose service language to the
-environment due to the training, tooling, and operational support that will be
-required to support the language in production. As such the number of general
-purpose languages should remain small.
+A general purpose programming language may be used for any new projects or
+services. The team developing the new service is responsible for deciding which
+of the currently supported languages will be used. This decision should be
+reviewed by the architect / Architecture committee. See the [decision making
+guidelines](https://docs.google.com/a/wikia-inc.com/document/d/10NUUnGgdi8redDZbNn3XU3d4rPvwGy8tqDhqNo_mqCg/edit#heading=h.yfbk5ojzb4k3)
+for more details.
 
 The currently supported general purpose languages are:
 
@@ -34,7 +32,45 @@ MediaWiki and the Huddler code base. Python was previously vetted by the
 architect and service development using the language has begun (deploy-tools,
 monetization, and data engineering).
 
-## Specialized Programming Language Criteria
+### Criteria for Introducing a New General Purpose Programming Language
+
+To introduce a new general purpose language the following criteria needs to be
+met in addition to the specific language criteria:
+
+ 1. Anyone in engineering can move to a project using the language with minimal
+    effort and be productive.
+ 2. There is a large pool of developers to recruit from in all geographies where
+    Wikia employs engineers.
+
+There is significant cost to adding a general purpose service language to the
+environment due to the training, tooling, and operational support that will be
+required to support the language in production. As such the number of general
+purpose languages should remain small.
+
+
+## Special Purpose Programming Languages
+
+A special purpose programming language may be used when the scope of the project
+is self contained and will be limited to 2-3 developers.
+
+This decision should be reviewed by the architect / Architecture committee. See
+the [decision making
+guidelines](https://docs.google.com/a/wikia-inc.com/document/d/10NUUnGgdi8redDZbNn3XU3d4rPvwGy8tqDhqNo_mqCg/edit#heading=h.yfbk5ojzb4k3)
+for more details.
+
+The currently supported special purpose languages are:
+
+ * Clojure - for the thumbnailer (vignette), poky (Huddler), and casino (Huddler)
+ * Node.js - for parsoid
+ * Typescript - for Mercury front-end and intermediary code
+ * Ruby - for chef and the analytics UI
+ * Go (undergoing evaluation with the authentication project)
+
+These special purpose languages are still in use but no longer supported:
+
+ * Scala
+
+### Criteria for Introducing a New Special Purpose Programming Language
 
 To introduce a new specialized language into production at Wikia, the following
 questions need to be answered:
@@ -63,19 +99,3 @@ questions need to be answered:
      there room in the project timeline to rewrite it in another language?
  11. The scope of the project being considered is self-contained and limited to a few
      (2-3) developers
-
-The currently supported special purpose languages are:
-
- * Clojure - for the thumbnailer (vignette), poky (Huddler), and casino (Huddler)
- * Node.js - for parsoid
- * Typescript - for Mercury front-end and intermediary code
- * Ruby - for chef and the analytics UI
- * Go (undergoing evaluation with the authentication project)
-
-These special purpose languages are still in use but no longer supported:
-
- * Scala
-
-Questions regarding the introduction of a new language as well as the request to
-introduce a new language should be sent to the [architecture
-committee](https://one.wikia-inc.com/wiki/Engineering/Architecture_Committee).
