@@ -29,19 +29,17 @@ These general purpose languages are no longer supported:
 
  * Perl
 
-PHP is included because of the organizational expertise and because of
-MediaWikia. Python was previously vetted by the architect and service
-development using the language has begun (deploy-tools, monetization, and data
-engineering).
+PHP is included because of the organizational expertise and investment in
+MediaWiki and the Huddler code base. Python was previously vetted by the
+architect and service development using the language has begun (deploy-tools,
+monetization, and data engineering).
 
 ## Specialized Programming Language Criteria
 
 To introduce a new specialized language into production at Wikia, the following
 questions need to be answered:
 
- 1. What does the proposed language offer that is not provided by one of the
-    currently supported languages?
-  1. Are there significant advantages (or potential advantages) to using the proposed
+ 1. Are there significant advantages (or potential advantages) to using the proposed
      language? This question includes libraries and open source projects that allow
      us to not re-implement existing work.
  2. How will the programming language be deployed and run in production?
