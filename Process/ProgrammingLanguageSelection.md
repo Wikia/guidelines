@@ -51,7 +51,7 @@ purpose languages should remain small.
 ## Special Purpose Programming Languages
 
 A special purpose programming language may be used when the scope of the project
-is self contained and will be limited to 2-3 developers.
+is self-contained and will be limited to 2-3 developers.
 
 This decision should be reviewed by the architect / Architecture committee. See
 the [decision making
