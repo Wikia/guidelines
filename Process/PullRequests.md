@@ -22,12 +22,12 @@ This section outlines the guidelines that should be imposed upon pull requests a
 From this point forward the abbreviation PR will be used in place of “pull request.”
 
 Each PR will:
-  1. Include a reference to the Jira ticket it is addressing. This can take the
-     following forms:
-    1. {team}-{number} tag as the first part of the title where {team} is the
-       Jira team and {number} is the jira ticket number. Example: PLATFORM-11.
-    2. A link to the ticket in the body of the PR. Example:
-       https://wikia-inc.atlassian.net/browse/PLATFORM-11.
+  1. Include a reference to the Jira ticket it is addressing. This should take the
+     following form {team}-{number} tag as the first part of the title where {team} is the
+     Jira team and {number} is the jira ticket number. Example: PLATFORM-11. The ticket 
+     number should be part of the title not the PR body, because deploy tools
+     automatically scan git comments and mark ticket resolution version. Currently
+     only commit comments which include the PR title are scanned, whereas PR description not.
   2. Include a title that provides a one sentence overview of the purpose of the
      PR. Abbreviations can be used when necessary. Example: “PLAT-433 put the
      thumbnail under the original dir in the thumb path”.
