@@ -22,8 +22,12 @@ found in the [MediaWiki Coding Conventions](http://www.mediawiki.org/wiki/Manual
 
 ### Function Length
 
-Function length should be limited to one “page”, where a page is intentionally loosely defined as what
-fits into your editor window.
+Functions should have a limited length.  This limit is loosely defined as one “page”, where a page is the number
+of lines that fit into your editor window or less.  This definition is intentionally vague to allow flexibility but the
+spirit of this guideline is that a developer should not have to scroll to see a full function definition.
+
+If a single function becomes too long it should be broken up into smaller functions which the original function can
+call.
 
 ### Type-Checking and Assertions
 
