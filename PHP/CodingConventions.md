@@ -44,7 +44,7 @@ Conditional tests should not do more than two checks on a single line.  If a con
 one of the following remedies should be used:
  
 * each check should be split into it's own line
-* each check should be split into separate conditionals
+* the single conditional should be split into separate conditionals of two or less checks
 * all checks replaced by a function call
 
 Example:
@@ -55,7 +55,7 @@ if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oa
    // do something
 }
 
-// Good
+// Good - each check split into it's own line
 if ( F::App()->wg->User->can('edit') &&
      F::App()->wg->Skin->getSkinName() == 'oasis' &&
      empty( F::app->wg->NoExternals )
@@ -63,7 +63,7 @@ if ( F::App()->wg->User->can('edit') &&
     // do something
 }
 
-// Good
+// Good - single conditional split into separate conditionals of two or less checks
 if ( !F::App()->wg->User->can('edit') ) {
     return;
 }
@@ -71,7 +71,7 @@ if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExtern
     // do something
 }
 
-// Good
+// Good - checks replaced by a function call
 if ( oasisUserCanEdit() ) {
     // do something
 }
