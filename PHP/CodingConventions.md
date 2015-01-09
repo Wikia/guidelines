@@ -41,7 +41,13 @@ If a single line becomes too long, newlines should be added at appropriate break
 ### Conditional Logic
 
 Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
-each check should be split into it's own line, split into separate conditionals, or replaced by a function call:
+one of the following remedies should be used:
+ 
+* each check should be split into it's own line
+* each check should be split into separate conditionals
+* all checks replaced by a function call
+
+Example:
 
 ```php
 // Bad
