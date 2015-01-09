@@ -22,12 +22,20 @@ found in the [MediaWiki Coding Conventions](http://www.mediawiki.org/wiki/Manual
 
 ### Function Length
 
-Functions should have a limited length. This limit is loosely defined as one “page”, where a page is the number
-of lines that fit into your editor window or less. This definition is intentionally vague to allow flexibility but the
-spirit of this guideline is that a developer should not have to scroll to see a full function definition.
+A function definition should be easy for a reader to digest.  This means two things:
 
-If a single function becomes too long it should be broken up into smaller functions which the original function can
+* A function should not do too much
+* A reader should not have to scroll to see the entire definition
+
+For the first point, "Clean Code" ([PDF](https://one.wikia-inc.com/wiki/File:Clean_Code_Book.pdf)) sums this up nicely:
+
+> Functions should do one thing.  They should do it well.  They should do it only.
+
+If a function does more than one thing, it should be split into smaller functions which the original function can
 call.
+
+To the second point, a function should be less than a page in length.  Anything longer almost certainly does more than
+one thing, and forces a reader to scroll to view the whole function.
 
 ### Type-Checking and Assertions
 
