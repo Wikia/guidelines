@@ -9,6 +9,8 @@ with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engin
 * [Base Rules](#base-rules)
 * [Additional Rules](#additional-rules)
   * [Function Length](#function-length)
+  * [Line Length](#line-length)
+  * [Conditional Logic](#conditional-logic)
   * [Type-Checking and Assertions](#type-checking-and-assertions)
 * [Tools](#tools)
   * [MediaWiki PHP Style Helper](#mediawiki-php-style-helper)
@@ -24,10 +26,51 @@ found in the [MediaWiki Coding Conventions](http://www.mediawiki.org/wiki/Manual
 
 Functions should have a limited length.  This limit is loosely defined as one “page”, where a page is the number
 of lines that fit into your editor window or less.  This definition is intentionally vague to allow flexibility but the
-spirit of this guideline is that a developer should not have to scroll to see a full function definition.
+spirit of this guideline is that a developer should not have to scroll vertically to see a full function definition.
 
 If a single function becomes too long it should be broken up into smaller functions which the original function can
 call.
+
+### Line Length
+
+Lines should be limited to 120 characters.  This limit is chosen as a typical IDE default for line breaks.  The spirit
+of this guideline is that a developer should not have to scroll horizontally to see the end of a line.
+
+If a single line becomes too long, newlines should be added at appropriate breakpoints.
+
+### Conditional Logic
+
+Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
+each check should be split into it's own line, split into separate conditionals, or replaced by a function call:
+
+```php
+// Bad
+if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExternals ) {
+   // do something
+}
+
+// Good
+if ( F::App()->wg->User->can('edit') &&
+     F::App()->wg->Skin->getSkinName() == 'oasis' &&
+     empty( F::app->wg->NoExternals
+   ) {
+    // do something
+}
+
+// Good
+if ( !F::App()->wg->User->can('edit') ) {
+    return;
+}
+if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExternals ) {
+    // do something
+}
+
+// Good
+if ( $this->oasisUserCanEdit() ) {
+    // do something
+}
+
+```
 
 ### Type-Checking and Assertions
 
