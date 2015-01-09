@@ -52,7 +52,7 @@ if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oa
 // Good
 if ( F::App()->wg->User->can('edit') &&
      F::App()->wg->Skin->getSkinName() == 'oasis' &&
-     empty( F::app->wg->NoExternals
+     empty( F::app->wg->NoExternals )
    ) {
     // do something
 }
@@ -66,8 +66,16 @@ if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExtern
 }
 
 // Good
-if ( $this->oasisUserCanEdit() ) {
+if ( oasisUserCanEdit() ) {
     // do something
+}
+
+function oasisUserCanEdit() {
+    return (
+        F::App()->wg->User->can('edit') &&
+        F::App()->wg->Skin->getSkinName() == 'oasis' &&
+        empty( F::app->wg->NoExternals )
+    );
 }
 
 ```
