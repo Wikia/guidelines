@@ -56,7 +56,7 @@ if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oa
 }
 
 // Good - each check split into it's own line
-if ( F::App()->wg->User->can('edit') &&
+if ( F::App()->wg->User->can( 'edit' ) &&
      F::App()->wg->Skin->getSkinName() == 'oasis' &&
      empty( F::app->wg->NoExternals )
    ) {
@@ -64,7 +64,7 @@ if ( F::App()->wg->User->can('edit') &&
 }
 
 // Good - single conditional split into separate conditionals of two or less checks
-if ( !F::App()->wg->User->can('edit') ) {
+if ( !F::App()->wg->User->can( 'edit' ) ) {
     return;
 }
 if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExternals ) {
@@ -78,7 +78,7 @@ if ( oasisUserCanEdit() ) {
 
 function oasisUserCanEdit() {
     return (
-        F::App()->wg->User->can('edit') &&
+        F::App()->wg->User->can( 'edit' ) &&
         F::App()->wg->Skin->getSkinName() == 'oasis' &&
         empty( F::app->wg->NoExternals )
     );
