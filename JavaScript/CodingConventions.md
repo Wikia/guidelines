@@ -139,6 +139,8 @@ When using `switch` statements:
  - Use `break`, `return` or `throw` for each case other than `default`.
  - The `default` case should always be last.
 
+As with all our whitespace guidelines, switch statements follow JSLint. 
+
 ```javascript
 // bad
 switch (foo) {
@@ -154,15 +156,15 @@ switch (foo) {
 
 // good
 switch (foo) {
-    case 'bar':
-    case 'foobar':
-        x();
-        break;
-    case 'baz':
-        y();
-        break;
-    default:
-        z();
+case 'bar':
+case 'foobar':
+	x();
+	break;
+case 'baz':
+	y();
+	break;
+default:
+	z();
 }
 ```
 
