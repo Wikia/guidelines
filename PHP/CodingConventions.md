@@ -1,6 +1,6 @@
 # Wikia PHP Coding Conventions
 
-This file documents Wikia's PHP coding conventions.  To propose changes to this document, please open a pull request
+This file documents Wikia's PHP coding conventions. To propose changes to this document, please open a pull request
 with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engineers) for review.
 
 
@@ -22,8 +22,8 @@ found in the [MediaWiki Coding Conventions](http://www.mediawiki.org/wiki/Manual
 
 ### Function Length
 
-Functions should have a limited length.  This limit is loosely defined as one “page”, where a page is the number
-of lines that fit into your editor window or less.  This definition is intentionally vague to allow flexibility but the
+Functions should have a limited length. This limit is loosely defined as one “page”, where a page is the number
+of lines that fit into your editor window or less. This definition is intentionally vague to allow flexibility but the
 spirit of this guideline is that a developer should not have to scroll to see a full function definition.
 
 If a single function becomes too long it should be broken up into smaller functions which the original function can
@@ -60,8 +60,7 @@ function doSomething( MyClass $a ) {
 ### MediaWiki PHP Style Helper
 
 MediaWiki provides a code formatting helper ([stylize.php](https://git.wikimedia.org/blob/mediawiki%2Ftools%2Fcode-utils.git/master/stylize.php))
-which is provided via a submodule in this repo under `mediawiki/tools/code-utils`. To use `stylize.php` on your code
-before you check in:
+which is provided via a submodule in this repo under `mediawiki/tools/code-utils`. To use `stylize.php` on your code before you check in:
 
 ```sh
 git clone git@github.com:Wikia/guidelines.git /usr/wikia/source/guidelines
