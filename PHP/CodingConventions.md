@@ -43,7 +43,7 @@ If a single line becomes too long, newlines should be added at appropriate break
 Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
 one of the following remedies should be used:
  
-* each check should be split into it's own line
+* each check should be split onto its own line
 * the single conditional should be split into separate conditionals of two or less checks
 * all checks replaced by a function call
 
