@@ -51,7 +51,7 @@ Example:
 
 ```php
 // Bad
-if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
+if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
    // do something
 }
 
