@@ -51,23 +51,23 @@ Example:
 
 ```php
 // Bad
-if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExternals ) {
+if ( F::App()->wg->User->can('edit') && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
    // do something
 }
 
-// Good - each check split into it's own line
-if ( F::App()->wg->User->can( 'edit' ) &&
+// Good - each check split onto its own line
+if ( F::App()->wg->User->isAllowed( 'edit' ) &&
      F::App()->wg->Skin->getSkinName() == 'oasis' &&
-     empty( F::app->wg->NoExternals )
+     empty( F::app()->wg->NoExternals )
    ) {
     // do something
 }
 
 // Good - single conditional split into separate conditionals of two or less checks
-if ( !F::App()->wg->User->can( 'edit' ) ) {
+if ( !F::App()->wg->User->isAllowed( 'edit' ) ) {
     return;
 }
-if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app->wg->NoExternals ) {
+if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
     // do something
 }
 
@@ -78,9 +78,9 @@ if ( oasisUserCanEdit() ) {
 
 function oasisUserCanEdit() {
     return (
-        F::App()->wg->User->can( 'edit' ) &&
+        F::App()->wg->User->isAllowed( 'edit' ) &&
         F::App()->wg->Skin->getSkinName() == 'oasis' &&
-        empty( F::app->wg->NoExternals )
+        empty( F::app()->wg->NoExternals )
     );
 }
 
