@@ -9,6 +9,8 @@ with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engin
 * [Base Rules](#base-rules)
 * [Additional Rules](#additional-rules)
   * [Function Length](#function-length)
+  * [Line Length](#line-length)
+  * [Conditional Logic](#conditional-logic)
   * [Type-Checking and Assertions](#type-checking-and-assertions)
 * [Tools](#tools)
   * [MediaWiki PHP Style Helper](#mediawiki-php-style-helper)
@@ -36,6 +38,61 @@ call.
 
 To the second point, a function should be less than a page in length.  Anything longer almost certainly does more than
 one thing, and forces a reader to scroll to view the whole function.
+
+### Line Length
+
+Lines should be limited to 120 characters.  This limit is chosen as a typical IDE default for line breaks.  The spirit
+of this guideline is that a developer should not have to scroll horizontally to see the end of a line.
+
+If a single line becomes too long, newlines should be added at appropriate breakpoints.
+
+### Conditional Logic
+
+Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
+one of the following remedies should be used:
+ 
+* each check should be split onto its own line
+* the single conditional should be split into separate conditionals of two or less checks
+* all checks replaced by a function call
+
+Example:
+
+```php
+// Bad
+if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
+   // do something
+}
+
+// Good - each check split onto its own line
+if ( F::App()->wg->User->isAllowed( 'edit' ) &&
+     F::App()->wg->Skin->getSkinName() == 'oasis' &&
+     empty( F::app()->wg->NoExternals )
+   ) {
+    // do something
+}
+
+// Good - single conditional split into separate conditionals of two or less checks
+if ( !F::App()->wg->User->isAllowed( 'edit' ) ) {
+    return;
+}
+if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
+    // do something
+}
+
+// Good - checks replaced by a function call
+if ( oasisUserCanEdit() ) {
+    // do something
+}
+
+function oasisUserCanEdit() {
+    return (
+        F::App()->wg->User->isAllowed( 'edit' ) &&
+        F::App()->wg->Skin->getSkinName() == 'oasis' &&
+        empty( F::app()->wg->NoExternals )
+    );
+}
+
+```
 
 ### Type-Checking and Assertions
 
@@ -68,7 +125,7 @@ function doSomething( MyClass $a ) {
 ### MediaWiki PHP Style Helper
 
 MediaWiki provides a code formatting helper ([stylize.php](https://git.wikimedia.org/blob/mediawiki%2Ftools%2Fcode-utils.git/master/stylize.php))
-which is provided via a submodule in this repo under `mediawiki/tools/code-utils`. To use `stylize.php` on your code before you check in:
+which is provided via a sub-module in this repo under `mediawiki/tools/code-utils`. To use `stylize.php` on your code before you check in:
 
 ```sh
 git clone git@github.com:Wikia/guidelines.git /usr/wikia/source/guidelines
