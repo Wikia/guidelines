@@ -103,7 +103,7 @@ added after the opening parenthesis and before the closing parenthesis.
 
 ```php
 // good
-$foo = array( 'bar', 'baz' 'zed' );
+$foo = array( 'bar', 'baz', 'zed' );
 
 // bad
 $foo = array('bar', 'baz', 'zed');
