@@ -97,21 +97,11 @@ function oasisUserCanEdit() {
 ### Array Syntax
 
 PHP supports 2 forms of syntax for arrays, ```array()``` and the shorter ```[]``` which was introduced in PHP 5.4.
+At Wikia we favor the 2nd version and actively try and convert old style arrays to the new style. If you encounter
+old style arrays during development, please convert them to the new style.
 
-Examples of how to use the first version are numerous in MediaWiki's coding conventions. Specifically, padding should be
-added after the opening parenthesis and before the closing parenthesis.
-
-```php
-// good
-$foo = array( 'bar', 'baz', 'zed' );
-
-// bad
-$foo = array('bar', 'baz', 'zed');
-
-```
-
-The shorter bracket syntax is not covered by these conventions, but should follow a similar practice. Padding should be
-added for both array definitions, as well as anonymous arrays. Note that padding should not be applied to array indexing.
+In regards to syntax, padding should be added for both array definitions, as well as anonymous arrays. Note that
+padding should not be applied to array indexing.
 
 ```php
 // good
