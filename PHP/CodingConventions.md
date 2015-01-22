@@ -11,6 +11,7 @@ with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engin
   * [Function Length](#function-length)
   * [Line Length](#line-length)
   * [Conditional Logic](#conditional-logic)
+  * [Array Syntax](#array-syntax)
   * [Type-Checking and Assertions](#type-checking-and-assertions)
 * [Tools](#tools)
   * [MediaWiki PHP Style Helper](#mediawiki-php-style-helper)
