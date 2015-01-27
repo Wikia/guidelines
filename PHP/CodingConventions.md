@@ -11,6 +11,7 @@ with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engin
   * [Function Length](#function-length)
   * [Line Length](#line-length)
   * [Conditional Logic](#conditional-logic)
+  * [Array Syntax](#array-syntax)
   * [Type-Checking and Assertions](#type-checking-and-assertions)
 * [Tools](#tools)
   * [MediaWiki PHP Style Helper](#mediawiki-php-style-helper)
@@ -92,6 +93,27 @@ function oasisUserCanEdit() {
     );
 }
 
+```
+
+### Array Syntax
+
+PHP supports 2 forms of syntax for arrays, ```array()``` and the shorter ```[]``` which was introduced in PHP 5.4.
+At Wikia we favor the 2nd version and actively try and convert old style arrays to the new style. If you encounter
+old style arrays during development, please convert them to the new style.
+
+In regards to syntax, padding should be added for both array definitions, as well as anonymous arrays. Note that
+padding should not be applied to array indexing.
+
+```php
+// good
+$foo = [ 'bar', 'baz', 'zed' ];
+myFunctionCall( [ 'needs', 'an', 'array' ] );
+$foo['theDude'] = 'abides';
+
+// bad
+$foo = ['bar', 'baz', 'zed'];
+myFunctionCall( ['needs', 'an', 'array'] );
+$foo[ 'theDude' ] = 'abides';
 ```
 
 ### Type-Checking and Assertions
