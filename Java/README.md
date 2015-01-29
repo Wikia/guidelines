@@ -1,11 +1,25 @@
-# Wikia's Java Guidelines
+# Wikia's Java Coding Guidelines
 
-This directory contains guidelines for creating and/or contributing to Java projects at Wikia.
+Wikia follows [Google guidelines](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html)
 
-## Index
+With following addition:
+ - 100 column limit should be used by all projects, with exceptions noted in Google guidelines.
 
-Wikia use [Google guidelines](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html)
 
-InteliJ users can use [code style](https://google-styleguide.googlecode.com/svn/trunk/intellij-java-google-style.xml)
+## InteliJ configuration:
 
-To do this, put this file to your [config's directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs)
+If you are InteliJ user you can use [this configuration file][formatter/intellij-java-google-style.xml] to make it automatically format code conforming to the guidelines.
+
+To make this work:
+ - put [this][formatter/intellij-java-google-style.xml] file in your [InteliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
+ - launch InteliJ and go to Settings -> Editor -> Code Style -> Java. And from Scheme combobox choose: GoogleStyle
+
+```bash
+	# linux one-liner for installing config file
+	curl https://raw.githubusercontent.com/Wikia/guidelines/master/Java/formatter/intellij-java-google-style.xml -o ~/.IntelliJIdea14/config/codestyles/intelij-java-google-style.xml
+```
+
+
+## Eclipse configuration
+
+If you prefer Eclipse then you can use [this configuration file][formatter/java-wikia-style.xml]
