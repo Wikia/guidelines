@@ -11,7 +11,7 @@ With following addition:
 If you are InteliJ user you can use [this configuration file](formatter/intellij-java-google-style.xml) to make it automatically format code conforming to the guidelines.
 
 To make this work:
- - put [this][formatter/intellij-java-google-style.xml] file in your [InteliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
+ - put [this](formatter/intellij-java-google-style.xml) file in your [InteliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
  - launch InteliJ and go to Settings -> Editor -> Code Style -> Java. And from Scheme combobox choose: GoogleStyle
 
 ```bash
