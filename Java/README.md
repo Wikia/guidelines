@@ -8,7 +8,7 @@ With following addition:
 
 ## InteliJ configuration:
 
-If you are InteliJ user you can use [this configuration file][formatter/intellij-java-google-style.xml] to make it automatically format code conforming to the guidelines.
+If you are InteliJ user you can use [this configuration file](formatter/intellij-java-google-style.xml) to make it automatically format code conforming to the guidelines.
 
 To make this work:
  - put [this][formatter/intellij-java-google-style.xml] file in your [InteliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
@@ -22,4 +22,4 @@ To make this work:
 
 ## Eclipse configuration
 
-If you prefer Eclipse then you can use [this configuration file][formatter/java-wikia-style.xml]
+If you prefer Eclipse then you can use [this configuration file](formatter/java-wikia-style.xml)
