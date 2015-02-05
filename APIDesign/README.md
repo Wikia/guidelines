@@ -19,6 +19,7 @@
         - [Timestamps](#timestamps)
         - [Error Handling](#error-handling)
         - [Transclusion](#transclusion)
+    - [Request Tagging](#request-tagging)
     - [Additional Resources](#additional-resources)
         - [Articles](#articles)
         - [API Design Guides](#api-design-guides)
@@ -65,6 +66,10 @@ For example, instead of addressing a comment via the article
 `/articles/{article_name}/comments/{comment_id}` request the comment from the
 root using `/comments/{comment_id}`.
 
+Prefer synthetic IDs for individual resources over names. For example, if the 
+URI of a user resource is `/users/username`, you will make it much harder to 
+implement renaming of users in the future.
+
 *Note*: Additional work is being done to identify the Wikia content ontology--
 the concepts and nouns within the Wikia product domain. Additional information
 and pointers will be provided when they become available.
@@ -74,6 +79,9 @@ exception to this is the entry point for the API. For example, an API client
 should not rely on an image thumbnail format that they can manipulate to change
 the size of the thumbnail. This creates a tight coupling between the client, the
 URI format, and the server and breaks the client-server constraint of REST.
+
+As a corollary to the above, all resources must be reachable by traversing links
+from the root of the application.
 
 ### Representations and Media Types
 
@@ -112,6 +120,12 @@ format (e.g. HAL). The domain model should be sufficiently decoupled from the
 media type to allow for multiple or evolving representations and potentially
 versions.
 
+## Linking
+
+All resources should have a property containing the canonical "self" URI of 
+that individual resource. In HAL this will be included in the "_links" 
+property.
+
 ### Use Appropriate HTTP Status Codes
 
 The HTTP status codes provide the most basic set of API semantics. Use them as
@@ -121,8 +135,7 @@ RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) or the [Wikipedia
 page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
 
  * `200 OK`: represents a successful HTTP request. Do not use for an
-   error (see 4xx and 5xx) or an empty result set (use `404 Not
-	 Found`).
+   error (see 4xx and 5xx) or a missing resource (use `404 Not Found`).
  * `201 Created`: the resource was created synchronously (e.g. via `POST` or `PUT`).
  * `202 Accepted`: the request was accepted. Use this to identify `POST`, `PUT`, or
 	 `DELETE` requests that will be handled asynchronously.
@@ -130,7 +143,11 @@ page](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_Success).
  * `304 Not Modified`: used with conditional HTTP request to indicate that the
    client already has the request body.
  * `400 Bad Request`: there is a problem on the client side.
- * `404 Not Found`: the server did not find anything matching the request URI.
+ * `404 Not Found`: the server did not find anything matching the request URI. A
+    good rule of thumb is if the client is requesting a single entity and nothing
+    matches the request, us '404 Not Found'. If the client is requesting a collection
+    of entities and nothing matches the request, return a '200 OK' with an empty 
+    collection.
  * `500 Internal Server Error`: there is a problem on the server side.
 
 Related:
@@ -212,22 +229,53 @@ Use the [HAL Browser](https://github.com/mikekelly/hal-browser).
 
 ### Pagination
 
+All collections returned by the API should either be of a known finite maximum 
+length, or paged. Any unbounded collection is a denial of service waiting to 
+happen.
+
+All paged resources must maintain a maximum page size. Any request providing a
+limit greater than the maximum page size will be truncated to the configured
+maximum.
+
 Add pagination by using `next`, and `previous` [link
 relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
 to the representation of the collection. Here is an example [when using
 HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05#section-6).
 
-If you need to use query parameters for the URLs use `offset` and `limit` (in
-that order). Example `/search?q=Foo&offset=50&limit=25`.
+API implementations may wish to retrieve one more than the requested length 
+so they can determine whether a next link should be included.
+
+TODO: Do we need a way of communicating the maximum page size to clients?
+
+#### After/Limit Pagination
+
+After/Limit pagination works when ordering items according to some value that is
+unique to the item. By using 'after=[ordering property of last item in previous 
+page], pagination is preserved even if the item in question is deleted between 
+requests.
+
+If you need to use query parameters for the URLs use `after` and `limit` (in that 
+order). Example `/timeline?after=48399234&limit=25`.
+
+This method of pagination is only possible if the "after" value is guaranteed to be
+less than the first item on the next page. If no ordering property is available that 
+meets this requirement, fall back to Offset/Limit pagination.
+
+#### Offset/Limit Pagination
+
+Offset/Limit pagination works by providing the offset from the beginning of the
+collection being requested, and the maximum number of items to include. If you 
+need to use query parameters for the URLs use `offset` and `limit` (in that order). 
+Example `/search?q=Foo&offset=50&limit=25`.
+
+Offset/Limit pagination is unstable. If items are added or deleted from the 
+collection between requests, pagination will duplicate or skip resources. It is 
+especially unsuitable for "infinite scroll"-style UIs, or collections where new
+items are being added to the head of the list.
 
 ### Versioning
 
-Version with [the `Accept`
-header](https://github.com/interagent/http-api-design#version-with-accepts-header). For example:
-
-    Accept: application/hal+json; version=1
-
-Include the content type in addition to the version.
+See Versioning.md
 
 ### Timestamps
 
@@ -276,6 +324,16 @@ Embeds may be [full or
 partial](https://tools.ietf.org/html/draft-kelly-json-hal-06#section-4.1.2).
 Use query parameters to expand embedded resources e.g.
 `?embed=user,comments`.
+
+## Request Tagging
+
+If a REST request contains a Wikia-Request-Id: header, this header should be
+propagated to all other internal services called to fulfil the request. This
+allows us to reconcile all the components of a single logical request in any
+logging/auditing.
+
+Once a service exists for assigning request IDs, any REST request that does
+not contain such an ID should generate one by requesting it from that service.
 
 ## Additional Resources
 
