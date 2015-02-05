@@ -528,7 +528,7 @@ If you want to store the context of a function in a variable that can be passed 
 
 Example:
 ```javascript
-function example () {
+function example() {
 	var self = this;
 
 	$myObj.on('click', function () {
