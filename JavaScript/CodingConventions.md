@@ -45,7 +45,7 @@ Language rules have an impact on functionality. They were chosen based on perfor
 
 ### Early Returns
 
-If a function has multiple return points, make sure that the type of return value is consistant. It's best to add a JSDoc comment specifying the type of the return value. 
+If a function has multiple return points, make sure that the type of return value is consistant. It's best to add a JSDoc comment specifying the type of the return value.
 
 ```javascript
 // bad - sometimes returns undefined and sometimes returns string
@@ -92,14 +92,14 @@ Do not declare functions within blocks such as loops and conditionals. This will
 ```javascript
 // bad:
 if (someBool) {
-    function myFunc () {
+    function myFunc() {
         // code
     }
 }
 
 // also bad:
 while (condition) {
-    function myFunc () {
+    function myFunc() {
         // code
     }
 }
@@ -139,7 +139,7 @@ When using `switch` statements:
  - Use `break`, `return` or `throw` for each case other than `default`.
  - The `default` case should always be last.
 
-As with all our whitespace guidelines, switch statements follow JSLint. 
+As with all our whitespace guidelines, switch statements follow JSLint.
 
 ```javascript
 // bad
@@ -204,12 +204,12 @@ The one exception right now is AMD module dependencies.
 Examples:
 ```javascript
 // bad
-function bakeCupcakes (sugar, eggs, milk, icing, flour) {
+function bakeCupcakes(sugar, eggs, milk, icing, flour) {
     //...
 }
 
 // good
-function bakeCupcakes (ingredients) {
+function bakeCupcakes(ingredients) {
     // do something with ingredients.sugar, etc.
 }
 
@@ -228,7 +228,7 @@ Style rules help us write easy to read, well documented, and consistent code.
 
 ### White Space Guidelines
 
-Our whitespace guidelines are based on JSLint. There are also some rules listed below that are in addition JSLint. 
+Our whitespace guidelines are based on JSLint. There are also some rules listed below that are in addition JSLint.
 
 - Indent with tabs.
 - No whitespace at the end of line or on blank lines.
@@ -308,7 +308,7 @@ var map1 = {
 		key: 'val'
 	};
 ```
-When accessing object properties, dot notation is preferred over brackets. 
+When accessing object properties, dot notation is preferred over brackets.
 ```js
 // Bad
 myObj['someProp'];
@@ -336,10 +336,10 @@ someArray[1];
 
 #### Functions
 
-The function keyword or function name and calling parentheses should always be followed by one space. 
+The function keyword and calling parentheses should always be followed by one space. There should be no space between the name of a function and the left parenthesis of its parameter list. For anonymous functions there should be one space between the word function and the left parenthesis.
 
 ```js
-function foo (arg1, arg2) {
+function foo(arg1, arg2) {
 	...
 }
 
@@ -428,7 +428,7 @@ Comment early and often! For comments inside functions, use inline comments. For
  * @param {string} flavor The flavor of the cookie
  * @return {object} cookie The delicious cookie
  */
-function makeCookies (flavor) {
+function makeCookies(flavor) {
     // create the cookie
     var cookie = {
         type: flavor,
@@ -483,12 +483,12 @@ var foo, bar,
 var myVariable;
 
 // variable casing for constructors
-function MyConstructor () { ... }
+function MyConstructor() { ... }
 ```
 
 ##### Constants
 
-Constants do not exist in JavaScript so do not use all caps to denote constants. It's okay to treat variables as constants, just keep them in camelCase. 
+Constants do not exist in JavaScript so do not use all caps to denote constants. It's okay to treat variables as constants, just keep them in camelCase.
 
 ```javascript
 // bad
@@ -601,9 +601,9 @@ var a = function () { return 1; }();
 
 ### Nested Functions
 
-Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asynchronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com. 
+Reduce the number of nested functions by declaring functions early and referencing them later. This applies to asynchronous request callbacks as well as blocks of code that can otherwise be broken down into functional units. This keeps code easy to read and easier to unit test. For more good info on this subject, see http://callbackhell.com.
 
-For dealing with multiple asynchronous callbacks, use the promise pattern. We use jQuery's [Deferred Object](http://api.jquery.com/category/deferred-object/) for this. 
+For dealing with multiple asynchronous callbacks, use the promise pattern. We use jQuery's [Deferred Object](http://api.jquery.com/category/deferred-object/) for this.
 
 ```javascript
 // bad
@@ -611,7 +611,7 @@ $.nirvana.sendRequest({
 	// ...
 	callback: function () {
 		// ... do stuff
-		
+
 		if (foo) {
 			// ... do even more stuff
 			foo.forEach(function () {
@@ -629,7 +629,7 @@ function requestCallback() {
 }
 
 function handleFoo() {
-	// ... 
+	// ...
 	if (foo) {
 		foo.forEach(fooLoop);
 	}
@@ -656,10 +656,10 @@ JSHint detects errors, prevents potential problems and enforces some of our codi
 Run JSHint on the command line or through an editor plugin. More information can be found [here](http://jshint.com/install).
 
 ### [JSCS](https://www.npmjs.org/package/jscs)
-JSCS is a JavaScript code sniffer that will check for whitespace and style error. The config file, .jscs.json, is located in the root application directory. 
+JSCS is a JavaScript code sniffer that will check for whitespace and style error. The config file, .jscs.json, is located in the root application directory.
 
 ### [JS-Beautify](https://www.npmjs.org/package/js-beautify)
-JS-Beautify will fix whitespace and style errors in JavaScript files.  It can be run on the command line. More information [here](https://www.npmjs.org/package/js-beautify). 
+JS-Beautify will fix whitespace and style errors in JavaScript files.  It can be run on the command line. More information [here](https://www.npmjs.org/package/js-beautify).
 
 ### [EditorConfig](http://editorconfig.org/)
 
