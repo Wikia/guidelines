@@ -37,7 +37,7 @@ Public APIs should only expose classes or methods controlled by Wikia, or that a
 
 ## Standard Libraries/Tools
 
-* *Logging:* [SLF4J](http://www.slf4j.org) is the standard logging API. Unless another is required by a services's framework/server, the slf4j-log4j bridge should be used as the back-end.
+* *Logging:* [SLF4J](http://www.slf4j.org) is the standard logging API. java.util.logging should be avoided if possible. 
 * *Collections:* [Guava](https://github.com/google/guava) is the standard "collections enhancement" API, and should be used in preference to commons-collections.
 * *Unit Testing:* [Junit 4](http://junit.org) for testing, [Mockito](http://mockito.org) for mock objects.
 * *Building:* [Gradle](https://gradle.org)
