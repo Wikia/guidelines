@@ -543,10 +543,10 @@ function example() {
 #### Setting Context Using .bind()
 
 As an alternative to storing context using a local variable as shown above, you can also use the `.bind()` method on
-functions. This creates a new function that when called has its `this` keyword set to the provided value. jQuery
-provides similar functionality using `$.proxy()` which was widely used before `.bind()` became a standard. They differ in that
-`.bind()` creates a permanent connection, whereas `$.proxy()` can be broken. `.bind()` should cover most use cases and
-therefore should be favored. Please convert existing uses of `$.proxy()` to `.bind()` when possible.
+functions. This creates a new function that when called has its `this` keyword set to the provided value. jQuery provides
+similar functionality using `$.proxy()` which was widely used before `.bind()` became a standard. `.bind()` is native JS, and
+supported in all our supported browsers, so it is the preferred method over jQuery. Please convert existing
+uses of `$.proxy()` to `.bind()` when possible.
 
 Example:
 ```javascript
