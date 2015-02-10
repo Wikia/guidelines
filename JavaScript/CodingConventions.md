@@ -559,9 +559,9 @@ function example() {
 // or
 var exampleObject = {
 	init: function () {
-		$('button').on('click', this.callBack.bind(this))
+		$('button').on('click', this.callback.bind(this));
 	},
-	callBack: function () {
+	callback: function () {
 		// do some stuff
 	}
 };
