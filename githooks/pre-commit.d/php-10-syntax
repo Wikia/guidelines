@@ -1,0 +1,29 @@
+#!/bin/bash
+# A simple hook that runs php -l over the files 
+# ending in php staged in current commit.
+
+function extension_is {
+	# simple file extension check
+	echo "$1" | grep -qi "\.$2$" && true || false
+}
+
+function msg {
+	echo "${*}"
+}
+
+branch=`git branch | grep  '^*' | awk '{print $2}' | tail`
+
+for fn in `git diff --name-only --cached`; do
+	if [ -f "$fn" ]; then
+		if extension_is "$fn" 'php'; then
+			# run php files through php -l for basic syntax checks
+			if ( php -l "$fn" | grep -q '^No syntax errors detected' ) ; then
+				true
+			else
+				msg "php lint failed on $fn -- for more details type php -l '$fn'"
+				false
+				exit
+			fi
+		fi
+	fi
+done
