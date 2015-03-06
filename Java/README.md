@@ -57,6 +57,8 @@ To make this work:
 ```bash
 	# linux one-liner for installing config file
 	curl https://raw.githubusercontent.com/Wikia/guidelines/master/Java/formatter/intellij-java-google-style.xml -o ~/.IntelliJIdea14/config/codestyles/intelij-java-google-style.xml
+	# OS X one-liner. Replace IntelliJIdea14 with the version of IntelliJ you are using
+	curl https://raw.githubusercontent.com/Wikia/guidelines/master/Java/formatter/intellij-java-google-style.xml -o ~/Library/Preferences/IntelliJIdea14/codestyles/intellij-java-google-style.xml
 ```
 
 ### Eclipse configuration
