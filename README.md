@@ -8,7 +8,7 @@ For language specific guidelines see the language directory
 
 For process related guidelines see the [Process](Process) directory. The
 [Process](Process) directory currently contains [pull request
-guidelines](Process/Pull-Requests.md).
+guidelines](Process/PullRequests.md).
 
 
 ## Contributing
