@@ -27,6 +27,8 @@ If you want to represent a value that may or may not be present, make it explici
 
 Avoid using Optional.get() and Optional.isPresent(). Prefer map() and flatMap() for mutating optionals, and orElseGet() and orElseThrow() for flattening them.
 
+For an example of how this works, see the [Optional Examples](Optional_example.md)
+
 ## API Conventions
 
 In addition to other conventions, the following rules apply to APIs that are to be exposed to third party developers (i.e. through being open sourced).
