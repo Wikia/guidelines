@@ -136,12 +136,12 @@ var foo = fn();
 	}
 	```
 
-Format interfaces the same as regular JavaScript objects, i.e. one space after the colon and no spaces before. Place optional values after required ones. 
+Format interfaces the same as regular JavaScript objects, i.e. one space after the colon and no spaces before. Sort keys alphabetically.
 
 	```typescript
 	interface FooBar {
-		myVar: string;
 		myLongerVar: any;
+		myVar: string;
 		optionalVar?: string;
 	}
 	```
