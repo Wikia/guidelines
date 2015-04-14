@@ -119,20 +119,30 @@ var foo = fn();
 
 	// Also bad
 	function performOperation (): {
-		str: string,
-		num: number
+		str: string;
+		num: number;
 	} {
 		// Code which returns an object
 	}
 
 	// Good:
 	interface SomeType {
-		str: string,
-		num: number
+		str: string;
+		num: number;
 	}
 
 	function performOperation (): SomeType {
 		// Code which returns an object
+	}
+	```
+
+Format interfaces the same as regular JavaScript objects, i.e. one space after the colon and no spaces before. Place optional values after required ones. 
+
+	```typescript
+	interface FooBar {
+		myVar: string;
+		myLongerVar: any;
+		optionalVar?: string;
 	}
 	```
 
