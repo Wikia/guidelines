@@ -119,8 +119,8 @@ var foo = fn();
 
 	// Also bad
 	function performOperation (): {
-		var str: string,
-			num: number;
+		str: string;
+		num: number;
 	} {
 		// Code which returns an object
 	}
