@@ -27,6 +27,10 @@ If you want to represent a value that may or may not be present, make it explici
 
 Avoid using Optional.get() and Optional.isPresent(). Prefer map() and flatMap() for mutating optionals, and orElseGet() and orElseThrow() for flattening them.
 
+### It's not required to add comments to all public elements
+
+You do not have to provide javadocs for public elements like methods or interfaces where they wouldn't bring much value, however it is strongly advisable to document core elements which are likely to be used by others and any other places which would benefit from providing additional information.
+
 ## API Conventions
 
 In addition to other conventions, the following rules apply to APIs that are to be exposed to third party developers (i.e. through being open sourced).
