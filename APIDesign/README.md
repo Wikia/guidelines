@@ -199,6 +199,7 @@ All responses will include the following headers:
  * `Etag`: Use to specify the version of the resources as a UUID.
  * `Last-Modified`: Use to specify the date of the resource. See `If-Modified-Since`
 	 and `If-Unmodified-Since` above.
+ * `Surrogate-Key`: [a proprietary fastly feature](http://www.fastly.com/blog/surrogate-keys-part-1/) which allows the tagging of related objects which can later be purged as a group.
 
 Use standard headers first before adding query parameters. The
 standard headers are part of the HTTP protocol and have extensive documentation
