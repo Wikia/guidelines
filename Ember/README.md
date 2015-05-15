@@ -97,6 +97,3 @@ function () {
 // good
 Em.observer('foo.bar', function () {});
 ```
-
-## Logging
-Use `Ember.Logger` instead of `console.log` everywhere applicable.
