@@ -86,16 +86,16 @@ batman.set('realName', 'Bruce Wayne');
 ```
 
 ## Native prototype modifications
-Use Ember's additions to native prototypes, for instance:
+Avoid using native prototype extensions provided by Ember. Ember (and ECMAScript too!) are moving towards decorator syntax and we will support that as well.
 
 ```javascript
 // bad
-Em.observer('foo.bar', function () {});
-
-// good
 function () {
 	/* function body */
 }.observes('foo.bar');
+
+// good
+Em.observer('foo.bar', function () {});
 ```
 
 ## Logging
