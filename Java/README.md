@@ -19,7 +19,7 @@ In addition to the conventions described in the Google standards,
 
 Line wrapping is a valid way to overcome the column limit. But in some instances especially when created using automated Intellij formatting it can lead to some very strange constructs.
 
-Egzample of bad wrapping
+Example of bad wrapping
 ``` java
 EmptyMobileConfiguration
         mobileConfiguration =
