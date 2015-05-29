@@ -15,6 +15,24 @@ With following addition:
 
 In addition to the conventions described in the Google standards, 
 
+### Line wrapping
+
+Line wrapping is a valid way to overcome the column limit. But in some instances especially when created using automated Intellij formatting it can lead to some very strange constructs.
+
+Example of bad wrapping
+``` java
+EmptyMobileConfiguration
+        mobileConfiguration =
+        configService
+            .getConfiguration(ANDROID, WITCHER, "", "");
+```
+
+Above code is much more readeble when the wrapping is done at points that break the line of code into logically coherent groups e.g.
+``` java
+EmptyMobileConfiguration mobileConfiguration =
+        configService.getConfiguration(ANDROID, WITCHER, "", "");
+```
+
 ### Avoid checked exceptions
 
 Checked exceptions are an interesting experiment that didn't really work out.
