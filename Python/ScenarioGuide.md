@@ -40,6 +40,8 @@ logging setup so you can query and graph your logs in Kibana.
 ## Database / ORM
 
 If you want an [ORM] for a relational database, we've decided to use [SQLAlchemy].
+If you just want a plain MySQL library, use [PyMySQL] instead of the Oracle/MySQL connector 
+because of the following reasons: [WhyNotConnector] 
 
 ## Command-Line Tools
 
@@ -65,7 +67,9 @@ If you're building something that needs to run as a daemon that's not a web app,
 [wikia.common.configparser]: https://github.com/Wikia/python-commons/tree/master/wikia/common/configparser
 [wikia.common.logger]: https://github.com/Wikia/python-commons/tree/master/wikia/common/logger
 [SQLAlchemy]: http://www.sqlalchemy.org/
+[PyMySQL]: http://pymysql.org/
 [ORM]: http://en.wikipedia.org/wiki/Object-relational_mapping
+[WhyNotConnector]: https://wiki.openstack.org/wiki/PyMySQL_evaluation#MySQL-Connector-Python
 [Click]: http://click.pocoo.org/
 [Requests]: http://docs.python-requests.org/en/latest/
 [daemonocle]: https://pypi.python.org/pypi/daemonocle/
