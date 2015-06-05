@@ -28,6 +28,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
      * [Chained Method Calls](#chained-method-calls)
   * [Caching jQuery Objects](#caching-jquery-objects)
   * [Storing Context in a Local Variable](#storing-context-in-a-local-variable)
+  * [Setting Context using .bind()](#setting-context-using-bind-)
   * [Comments](#comments)
   * [Naming Conventions](#naming-conventions)
      * [Variables](#variables)
@@ -537,6 +538,33 @@ function example() {
 		self.doSomething();
 	});
 }
+```
+
+#### Setting Context Using .bind()
+
+As an alternative to storing context using a local variable as shown above, you can also use the `.bind()` method on
+functions. This creates a new function that when called has its `this` keyword set to the provided value. jQuery provides
+similar functionality using `$.proxy()` which was widely used before `.bind()` became a standard. `.bind()` is native JS, and
+supported in all our supported browsers, so it is the preferred method over jQuery. Please convert existing
+uses of `$.proxy()` to `.bind()` when possible.
+
+Example:
+```javascript
+function example() {
+	$myObj.on('click', function () {
+		// some code...
+		this.doSomething();
+	}.bind(this));
+};
+// or
+var exampleObject = {
+	init: function () {
+		$('button').on('click', this.callback.bind(this));
+	},
+	callback: function () {
+		// do some stuff
+	}
+};
 ```
 
 #### AMD Modules
