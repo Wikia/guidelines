@@ -44,7 +44,7 @@ injection.
 
 ### Immutability
 
-Immutable objects and programs that mutate object state are harder to reason
+Mutable objects and programs that mutate object state are harder to reason
 about, test, and debug. For domain or value objects (e.g. users) favor immutable objects over mutable
 ones. 
 
