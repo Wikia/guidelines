@@ -241,7 +241,7 @@ Our whitespace guidelines are based on JSLint. There are also some rules listed 
 - Any `:` after a property name in an object definition must not have preceding space, and should be followed by one space.
 - The `?` and `:` in a ternary conditional must have space on both sides.
 - No filler spaces in empty constructs (e.g., `{}`, `[]`, `fn()`)
-- New line at the end of each file.
+- New-line character at the end of each file.
 
 #### Bad Examples
 
