@@ -11,7 +11,7 @@ Wikia, and the criteria for adopting a new programming language.
 At Wikia we value choosing the right tool for the job, but we also recognise that
 every language we adopt comes with a cost. As such, we have chosen  a set of default 
 languages that cover most common areas of development, while providing a framework 
-for adopting new languages as necessary
+for adopting new languages as necessary.
 
 Any questions about this process should go to the lead architect.
 
@@ -60,16 +60,16 @@ successfully in Wikia.
 
 The following is an incomplete snapshot of non-default languages deployed in Wikia:
 
-Language    | Used in…                                          | Status
--------------------------------------------------------------------------------------
-Clojure     | vignette (thumbnailer), poky and casino (Huddler) | actively developed
-Javascript* | Parsoid, Mercury server-side components           | actively developed
-Typescript  | Mercury front-end components                      | under consideration
-Ruby        | Chef scripting, analytics UI                      | actively developed
-Go          | Helios (authn server)                             | actively developed
-Scala       | Phalanx                                           | maintenance only
-Ruby        | Analytics UI (Data Eng)                           | being phased out
-Perl        | Various legacy scripts                            | maintenance only
+| Language    | Used in…                                          | Status              |
+|-------------|---------------------------------------------------|---------------------|
+| Clojure     | vignette (thumbnailer), poky and casino (Huddler) | actively developed  |
+| Javascript* | Parsoid, Mercury server-side components           | actively developed  |
+| Typescript  | Mercury front-end components                      | under consideration |
+| Ruby        | Chef scripting, analytics UI                      | actively developed  |
+| Go          | Helios (authn server)                             | actively developed  |
+| Scala       | Phalanx                                           | maintenance only    |
+| Ruby        | Analytics UI (Data Eng)                           | being phased out    |
+| Perl        | Various legacy scripts                            | maintenance only    |
 
 
 (*) Default language being used outside its domain
