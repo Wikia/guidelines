@@ -6,16 +6,15 @@
   * [Why TypeScript?](#why-typescript)
   * [TS &#x2283; JS](#ts--js)
   * [Handbook](#handbook)
-  * [Formatter](#formatter)
 * [Tools](#tools)
   * [tsc](#tsc)
   * [IDEs/Text Editors](#idestext-editors)
   * [TSLint](#tslint)
   * [tsfmt](#tsfmt)
 * [Typing](#typing)
-  * [`any` Typing](#any-typing)
-  * [Interfaces](#interfaces)
   * [Basic Types](#basic-types)
+  * [Interfaces](#interfaces)
+  * [`any` Typing](#any-typing)
   * [Generic Types](#generic-types)
     * [Generic Functions](#generic-functions)
     * [Generic Classes](#generic-classes)
@@ -93,7 +92,7 @@ var foo: number = fn();
 // Good
 var str = 'hello world',
  num = 1;
- 
+
 // Also good
 function fn (): number;
 var foo = fn();
@@ -138,13 +137,13 @@ var foo = fn();
 
 Format interfaces the same as regular JavaScript objects, i.e. one space after the colon and no spaces before. Sort keys alphabetically.
 
-	```typescript
-	interface FooBar {
-		myLongerVar: any;
-		myVar: string;
-		optionalVar?: string;
-	}
-	```
+```typescript
+interface FooBar {
+	myLongerVar: any;
+	myVar: string;
+	optionalVar?: string;
+}
+```
 
 *Notable TypeScript feature*: redefinition of an interface will extend the original definition. See [TypeScript Handbook: Declaration Merging](http://www.typescriptlang.org/Handbook#declaration-merging).
 
@@ -227,9 +226,9 @@ What this means is that the following piece of TS code:
 
 ```typescript
 var obj = {
-	foo: null, 
+	foo: null,
 	bar () {
-		// parent scope	
+		// parent scope
 		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// The value of this correctly refers to parent scope
@@ -243,10 +242,10 @@ compiles to:
 
 ```javascript
 var obj = {
-	foo: null, 
+	foo: null,
 	bar: function () {
 		// parent scope
-		var _this = this;	
+		var _this = this;
 		var xhr = $.get('/example');
 		xhr.success((data) => {
 			// TypeScript aliases the correct reference of this to:
@@ -271,12 +270,12 @@ In both class definitions and object literal declarations, prefer the object met
 var literal = {
 	// Bad
 	foo: function () {
-	
+
 	},
-	
+
 	// Good
 	foo () {
-	
+
 	}
 }
 ```
@@ -314,7 +313,7 @@ var literal = {
 		}
 
 		static someStaticMethod () {
-		
+
 		}
 
 		/**
@@ -329,14 +328,14 @@ var literal = {
 		someOtherMethod: function () {
 			// Code
 		}
-		
+
 		// Also bad
 		function someOtherMethod () {
 			// Code
 		}
-		
+
 		private somePrivateMethod () {
-		
+
 		}
 	}
 	```
@@ -356,7 +355,7 @@ Wherever applicable, use the Object-Oriented Paradigm to your advantage. Typescr
   * Is for when either `A` contains the same properties as more than one class (i.e., multiple inheritance from `B`, `C`, and any other implemented classes) AND/OR
   * `A` should provide its own implementation for the methods in `B`, `C`, etc.
   * Can be used where `B`, `C`, etc. are `interface`s *or* `class`es
-  
+
 Note: The [TypeScript Handbook entry on Mixins](http://www.typescriptlang.org/Handbook#mixins) provides a neat way to inherit from multiple classes using `extends` *while preserving method implementations*.
 
 ## Modules
