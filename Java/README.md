@@ -70,7 +70,7 @@ Public APIs should only expose classes or methods controlled by Wikia, or that a
 
 If you are IntelliJ user you can use [this configuration file](formatter/intellij-java-google-style.xml) to make it automatically format code conforming to the guidelines.
 
-(If you're using IntelliJ 14.0 or older use [the older file](formatter/intellij-java-google-style-old.xml) instead.)
+(If you're using IntelliJ 14.0 or older use [the older file](formatter/intellij-java-google-style-pre-14.1.xml) instead.)
 
 To make this work:
  - put [this](formatter/intellij-java-google-style.xml) file in your [IntelliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
