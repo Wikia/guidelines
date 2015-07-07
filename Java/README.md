@@ -66,13 +66,15 @@ Public APIs should only expose classes or methods controlled by Wikia, or that a
 
 ## IDE Configurations
 
-### InteliJ configuration:
+### IntelliJ configuration:
 
-If you are InteliJ user you can use [this configuration file](formatter/intellij-java-google-style.xml) to make it automatically format code conforming to the guidelines.
+If you are IntelliJ user you can use [this configuration file](formatter/intellij-java-google-style.xml) to make it automatically format code conforming to the guidelines.
+
+(If you're using IntelliJ 14.0 or older use [the older file](formatter/intellij-java-google-style-pre-14.1.xml) instead.)
 
 To make this work:
- - put [this](formatter/intellij-java-google-style.xml) file in your [InteliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
- - launch InteliJ
+ - put [this](formatter/intellij-java-google-style.xml) file in your [IntelliJ config directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs).
+ - launch IntelliJ
  - for windows/linux go to Settings -> Editor -> Code Style -> Java 
  - for mac go to Preferences -> Editor -> Code Style -> Java
  - from Scheme combobox choose: GoogleStyle
