@@ -88,6 +88,7 @@ should be created:
 ```
 
 In production environments there should be one *and only one* entry per service.
+Aliases are ok (see the `auth` entry above).
 
 In a development environment this might look like the following:
 
