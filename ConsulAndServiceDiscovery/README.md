@@ -45,10 +45,12 @@ Tags are reserved for attributes that are specific to a set of registered
 instances of a service. Below are some examples of how tags might be used to
 distinguish between instances.
 
- * 'http-api' this instance of the service provides an HTTP API to access the
+ * `api` this instance of the service provides an HTTP API to access the
    service.
- * 'db' this instance provides persistence for the service.
- * 'task' this instance of the service provides task queue workers.
+ * `admin.api` [note that the tag includes the `.`] identifies an administrative
+   API that is not exposed to the public.
+ * `db` this instance provides persistence for the service.
+ * `task` this instance of the service provides task queue workers.
 
 Tags are *NOT* to be used to specify the environment or the datacenter. 
 
