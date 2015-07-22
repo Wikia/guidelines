@@ -106,3 +106,9 @@ can be relaxed.
 The API gateway gateway can then traverse this tree to create mappings between
 the service names and the physical `address:port` tuples that identify each
 instance.
+
+#### Internal-only Resources
+
+If a service needs to separate internal and external resources they can do so by
+running a server on a separate port and registering it explicitly with consul
+using the `admin.api` tag (as an example).
