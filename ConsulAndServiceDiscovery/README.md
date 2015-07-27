@@ -15,11 +15,12 @@ query for a discussion service node. When using the DNS interface one would
 query for `discussion.service.sjc.consul`. Below is an example:
 
 ```
-dig @localhost -p 8600 discussion.service.sjc.consul
+dig @localhost -p 8600 prod.discussion.service.sjc.consul
 ```
 
 The answer section of the above query will provide the IP addresses of instances
-that have registered themselves as `discussion` "services" and are healthy. 
+that have registered themselves as `discussion` "services", have the tag
+"prod", and are healthy.
 
 If you want to also query for the port that the service is listening one
 add `SRV` to the end of the above `dig` query.
@@ -30,29 +31,28 @@ A similar request for "healthy" instances of the discussion service could query
 the HTTP API using the following:
 
 ```
-curl 'http://consul.service.sjc.consul:8500/v1/health/service/discussion?passing'
+curl 'http://consul.service.sjc.consul:8500/v1/health/service/discussion?passing&tag=prod'
 ```
 
-The `passing` query parameter will limit the output to "healthy" services.
+The `passing` query parameter will limit the output to "healthy" services. The
+`tag` parameter can be used to filter by a tag.
 
 # Guidelines
 
-## DNS Schema
+## Configuration Schema
+
+In this section DNS is used for illustration purposes. However, the guidelines
+apply generally for all services configured in consul.
 
 ### `TAG`
 
 Tags are reserved for attributes that are specific to a set of registered
-instances of a service. Below are some examples of how tags might be used to
-distinguish between instances.
+instances of a service.
 
- * `api` this instance of the service provides an HTTP API to access the
-   service.
- * `admin.api` [note that the tag includes the `.`] identifies an administrative
-   API that is not exposed to the public.
- * `db` this instance provides persistence for the service.
- * `task` this instance of the service provides task queue workers.
-
-Tags are *NOT* to be used to specify the environment or the datacenter. 
+Services should expose at least one tag and clients of that service should
+*ALWAYS* use that tag when requesting the service. For example, to query the
+production discussion service you would use
+`prod.discussion.service.consul`.
 
 ### `SERVICE`
 
@@ -60,18 +60,23 @@ Service names should be descriptive and consistent with the deployed instances
 of the service. For example, if the service is called `user-preference` then the
 `SERVICE` portion of the address should be `user-preference`.
 
-### `DATACENTER` == Environment
+Service dependencies (e.g. a database cluster) should use the form
+`TAG.{type}-{service}` where `{type}` is a string that clearly defines the
+dependency provided by the service. For example the database cluster (shortened
+to `db`) used by the discussion service would be identified by
+`prod.db-discussion.service.consul.`
 
-The `DATACENTER` portion of the consul address is equivalent to the
-environment and should be of the form `<REGION>-<ENVIRONMENT>` (e.g. `sf-dev`
-where `sf` is the region and `dev` is the environment). If the environment is
-omitted `prod` is assumed.
+### `DATACENTER` and Environment
 
-Note also that the `DATACENTER` portion of an address can also be omitted. In
-which case the datacenter the local agent is bound to is assumed.
+The `DATACENTER` portion of the consul address referrers to the _physical_
+datacenter where the service resides. There may _not_ be a 1:1 relationship
+between `DATACENTER` and environment.
+
+Note also that the `DATACENTER` portion of an address can also be omitted.
+The datacenter defaults to the location where the local consul agent is bound.
 
 In practice the `DATACENTER` should normally be omitted to ensure that requests
-are contained within the same environment as the running service.
+are contained within the same datacenter where the running service.
 
 ### Service Registries
 
@@ -82,10 +87,10 @@ to create a registry of services to be included in the
 should be created:
 
 ```
-/DATACENTER/kv/registry/api-gateway
-  discussion => api.discussion
-  user-preference => api.user-preference
-  helios => api.helios
+/DATACENTER/kv/registry/prod/api-gateway
+  discussion => prod.discussion
+  user-preference => prod.user-preference
+  auth => prod.helios
   ...
 ```
 
@@ -95,8 +100,8 @@ Aliases are ok (see the `auth` entry above).
 In a development environment this might look like the following:
 
 ```
-/DATACENTER-dev/kv/registry/api-gateway
-  discussion => api.discussion
+/DATACENTER/kv/registry/dev/api-gateway
+  discussion => dev.discussion
   artur-helios => artur.helios          # a dev box registered for the service
 ```
 
@@ -105,10 +110,10 @@ can be relaxed.
 
 The API gateway gateway can then traverse this tree to create mappings between
 the service names and the physical `address:port` tuples that identify each
-instance.
+instance in the desired environment.
 
 #### Internal-only Resources
 
 If a service needs to separate internal and external resources they can do so by
 running a server on a separate port and registering it explicitly with consul
-using the `admin.api` tag (as an example).
+using the `admin.prod` tag (as an example).
