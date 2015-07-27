@@ -1,14 +1,14 @@
 # Introduction
 
-This document describes the consul usage and service discovery guidelines. This
-document is sure to evolve as we gain more experience with running consul in
-production. If you have any questions please use the Wikia #consul chat channel.
+This document describes the consul usage and service discovery guidelines. It
+should be considered a work in progress that will evolve as we gain more
+experience with running consul in production. If you have any questions please
+use the Wikia #consul chat channel.
 
 ## Introduction to Consul and Service Discovery
 
 For an introduction to consul please read the [documentation
-provided](https://www.consul.io/intro/) by the creators of consul. Read that
-first.
+provided](https://www.consul.io/intro/) by the creators of consul.
 
 Services can be "discovered" via DNS or the HTTP API. As an example, consider a
 query for a discussion service node. When using the DNS interface one would
