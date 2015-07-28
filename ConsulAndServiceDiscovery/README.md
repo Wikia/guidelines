@@ -116,4 +116,4 @@ instance in the desired environment.
 
 If a service needs to separate internal and external resources they can do so by
 running a server on a separate port and registering it explicitly with consul
-using the `admin.prod` tag (as an example).
+using the `private.prod` tag (as an example).
