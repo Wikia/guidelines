@@ -12,6 +12,7 @@
         - [Use Appropriate HTTP Status Codes](#use-appropriate-http-status-codes)
         - [Use HTTP Verbs to Manipulate Resources](#use-http-verbs-to-manipulate-resources)
         - [Use HTTP Headers for Additional Application Semantics](#use-http-headers-for-additional-application-semantics)
+        - [Use Strings for Opaque Identifiers](#use-strings-for-opaque-identifiers)
         - [Documentation](#documentation)
     - [Common Patterns](#common-patterns)
         - [Pagination](#pagination)
@@ -203,6 +204,26 @@ All responses will include the following headers:
 Use standard headers first before adding query parameters. The
 standard headers are part of the HTTP protocol and have extensive documentation
 and industry adoption. The same cannot be said for query parameters.
+
+### Use Strings for Opaque Identifiers
+
+If your API exposes the unique identifier of some entity (for example its database primary 
+key), you SHOULD represent that identifier as a String even if it is numeric inside your
+service.
+
+The reasons for this are:
+
+# Languages such as Javascript that have only floating-point representations for numbers may
+  only be able to approximate some values of numeric identifiers, silently changing their
+  value in the client.
+# Representing the identifier as a string allows you to change the representation of IDs inside
+  your service in the future, for example, migrating to a data store where IDs are alphanumeric
+# Representing the identifier as a string allows you to change the representation of IDs in your
+  API in the future, for example representing entities by their canonical URI
+
+As a corollary, users of an API MUST NOT make any assumptions about the structure of an ID value
+provided by a service. Just because it is a string of numbers today does not mean it will be a
+string of numbers next week.
 
 ### Documentation
 
