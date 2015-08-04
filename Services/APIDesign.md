@@ -213,12 +213,12 @@ service.
 
 The reasons for this are:
 
-# Languages such as Javascript that have only floating-point representations for numbers may
+* Languages such as Javascript that have only floating-point representations for numbers may
   only be able to approximate some values of numeric identifiers, silently changing their
   value in the client.
-# Representing the identifier as a string allows you to change the representation of IDs inside
+* Representing the identifier as a string allows you to change the representation of IDs inside
   your service in the future, for example, migrating to a data store where IDs are alphanumeric
-# Representing the identifier as a string allows you to change the representation of IDs in your
+* Representing the identifier as a string allows you to change the representation of IDs in your
   API in the future, for example representing entities by their canonical URI
 
 As a corollary, users of an API MUST NOT make any assumptions about the structure of an ID value
