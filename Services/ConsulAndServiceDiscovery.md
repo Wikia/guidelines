@@ -97,6 +97,8 @@ should be created:
 In production environments there should be one *and only one* entry per service.
 Aliases are ok (see the `auth` entry above).
 
+*Production environments should never reference development services.*
+
 In a development environment this might look like the following:
 
 ```
@@ -107,6 +109,8 @@ In a development environment this might look like the following:
 
 In environments other than production the restriction of one entry per service
 can be relaxed.
+
+*Development environments should never reference production services.*
 
 The API gateway gateway can then traverse this tree to create mappings between
 the service names and the physical `address:port` tuples that identify each
