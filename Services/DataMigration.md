@@ -27,7 +27,7 @@ Changes that affect the serialization of data stored in shared caches such as me
 
 Migration scripts are executables responsible for migrating the data from its old to new states. Ideally, a migration script should take the form of an executable that can be run by deploy tools, or scheduled as a task in Mesos.
 
-It is not recommended that services perform migrations on service startup using frameworks built-in schema update tools, as these can be unpredictable and unsafe when run in a multi-service environment, and can disrupt the operation of other services. However, teams may wish to:
+Services SHOULD NOT perform migrations on service startup using frameworks built-in schema update tools, as these can be unpredictable and unsafe when run in a multi-service environment, and can disrupt the operation of other services. However, teams may wish to:
 
 1. Package the automatic migration as a migration script through a custom build of the service, or a command line flag, so migrations can be more easily shared between dev and prod, or
 2. (For migrations that can be performed without downtime) Build the migration into the service as an only-internally-accessible API, and have the migration script trigger that API on just one running node of the service at the appropriate time.
