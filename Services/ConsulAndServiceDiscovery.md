@@ -54,6 +54,9 @@ Services should expose at least one tag and clients of that service should
 production discussion service you would use
 `prod.discussion.service.consul`.
 
+To specify the environment, services will use the `prod` tag for production
+and the `dev` tag for development.
+
 ### `SERVICE`
 
 Service names should be descriptive and consistent with the deployed instances
