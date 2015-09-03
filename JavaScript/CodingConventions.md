@@ -91,8 +91,16 @@ myFunc();
 
 Trailing commas in object literals are legal in ECMAScript 5, trailing commas in arrays are ignored.
 
-//good
+In object:
 ```js
+//ok
+var obj = {
+  first: 'Jane',
+  last: 'Doe',
+  age: 40  // no trailing comma
+};
+
+//better
 var obj = {
   first: 'Jane',
   last: 'Doe',
@@ -100,8 +108,9 @@ var obj = {
 };
 ```
 
-//good
+In array:
 ```js
+//good
 var arr = [
   'a',
   'b',
