@@ -11,6 +11,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
 * [Language Rules](#language-rules)
   * [Early Returns](#early-returns)
   * [Semicolons](#semicolons)
+  * [Trailing Colons](#trailing-colons)
   * [Function-declarations Within Blocks](#function-declarations-within-blocks)
   * [Try/Catch Blocks](#trycatch-blocks)
   * [Switch Statements](#switch-statements)
@@ -84,6 +85,29 @@ var x = y; myFunc();
 // good:
 var x = y;
 myFunc();
+```
+
+### Trailing Colons
+
+Trailing commas in object literals are legal in ECMAScript 5, trailing commas in arrays are ignored.
+
+//good
+```js
+var obj = {
+  first: 'Jane',
+  last: 'Doe',
+  age: 40,  // trailing comma
+};
+```
+
+//good
+```js
+var arr = [
+  'a',
+  'b',
+  'c',
+];
+arr.length === 3
 ```
 
 ### Function Declarations Within Blocks
