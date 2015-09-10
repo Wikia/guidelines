@@ -38,7 +38,7 @@ Each PR will:
      thumbnail under the original dir in the thumb path”.
   3. Contain a description (or link to a description, i.e. Jira ticket) written using complete sentences of the changes being
      made and any context necessary to understand them. Example:
-     https://github.com/Wikia/vignette/pull/15. 
+     https://github.com/Wikia/vignette/pull/15. Description field should not be empty. 
        1. [optional] An @ message to the stakeholders and reviewers of the PR.
           Example: “/cc @nmonterroso”.
        2. If the PR contains production SQL changes the @SQLReview tag should be
