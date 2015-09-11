@@ -65,9 +65,9 @@ if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == '
 }
 
 // Good - each check split onto its own line
-if ( F::App()->wg->User->isAllowed( 'edit' ) &&
-     F::App()->wg->Skin->getSkinName() == 'oasis' &&
-     empty( F::app()->wg->NoExternals )
+if ( F::App()->wg->User->isAllowed( 'edit' )
+     && F::App()->wg->Skin->getSkinName() == 'oasis'
+     && empty( F::app()->wg->NoExternals )
    ) {
     // do something
 }
@@ -86,10 +86,9 @@ if ( oasisUserCanEdit() ) {
 }
 
 function oasisUserCanEdit() {
-    return (
-        F::App()->wg->User->isAllowed( 'edit' ) &&
-        F::App()->wg->Skin->getSkinName() == 'oasis' &&
-        empty( F::app()->wg->NoExternals )
+    return ( F::App()->wg->User->isAllowed( 'edit' )
+        && F::App()->wg->Skin->getSkinName() == 'oasis'
+        && empty( F::app()->wg->NoExternals )
     );
 }
 
