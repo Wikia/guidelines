@@ -73,7 +73,7 @@ If you are IntelliJ user you can use [this configuration file](formatter/intelli
 (If you're using IntelliJ 14.0 or older use [the older file](formatter/intellij-java-google-style-pre-14.1.xml) instead.)
 
 To make this work:
- - put [this](https://raw.githubusercontent.com/Wikia/guidelines/master/Java/formatter/intellij-java-google-style.xml) file in your [IntelliJ config/codestyles directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs). (for Windows it's for example ``` c:\Users\user_name\.IdeaIC14\config\codestyles``` )
+ - put [this](https://raw.githubusercontent.com/Wikia/guidelines/master/Java/formatter/intellij-java-google-style.xml) file in your [IntelliJ config/codestyles directory](https://intellij-support.jetbrains.com/entries/23358108-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs). For Windows it's for example ``` c:\Users\user_name\.IdeaIC14\config\codestyles```. Please remember that by default your browser will download HTML inside XML file - you will need to manually copy&paste content of file.
  - launch IntelliJ
  - for windows/linux go to Settings -> Editor -> Code Style -> Java 
  - for mac go to Preferences -> Editor -> Code Style -> Java
