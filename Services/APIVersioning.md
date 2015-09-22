@@ -65,7 +65,7 @@ When a REST resource returns structured information, new elements may be added t
 For example, say a REST resource returns:
 
 ```json
-    {color: "red"}
+    {"color": "red"}
 ```
 
 Even if the only (currently) documented colours are "red", "green" and "blue", the client should anticipate the possibility of the value being _any_ legal JSON string, including "purple", "taupe" or "My Cousin Vinny".
@@ -122,8 +122,8 @@ Consider the example:
 
 ```json
     {
-        name: "George",
-        color: "red"
+        "name": "George",
+        "color": "red"
     }
 ```
 
