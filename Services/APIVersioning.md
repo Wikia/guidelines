@@ -21,7 +21,6 @@ We want to ensure the following:
 * Services can be updated independently, at any time
 * Multiple versions of the same service can run side-by-side (during upgrades, downgrades or during A/B testing)
 * API Clients are easy to develop and maintain
-* New services can evolve their API rapidly during development
 
 We want to avoid the following:
 
