@@ -68,7 +68,7 @@ For example, say a REST resource returns:
     {"color": "red"}
 ```
 
-Even if the only (currently) documented colours are "red", "green" and "blue", the client should anticipate the possibility of the value being _any_ legal JSON string, including "purple", "taupe" or "My Cousin Vinny".
+Even if the only (currently) documented colors are "red", "green" and "blue", the client should anticipate the possibility of the value being _any_ legal JSON string, including "purple", "taupe" or "My Cousin Vinny".
 
 ## External clients will more often than not be somebody's quick hack
 
