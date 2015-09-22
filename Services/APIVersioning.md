@@ -141,4 +141,4 @@ HATEOAS is the unwieldy acronym for "Hypertext As The Engine Of Application Stat
 
 Internal clients of HATEOAS APIs must not assume any knowledge of the service's API structure that is not derived from the API itself. If a service moves resources to new locations, it should be able to expect that clients will adapt once their cached resources expire.
 
-If the API is publicly availabe, services must not expect that third-party clients will follow HATEOAS principles.
+If the API is publicly available, services must not expect that third-party clients will follow HATEOAS principles.
