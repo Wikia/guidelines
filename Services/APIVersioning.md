@@ -1,6 +1,6 @@
 # TL;DR
 
-* REST API URIs are not versioned.
+* REST APIs are not explicitly versioned.
 * Clients are responsible for ensuring forwards compatibility with future versions of services.
 * Services are responsible for maintaining backwards compatibility of published APIs.
 * Follow Postel’s Law. Be conservative in what you send, and liberal in what you accept from others.
