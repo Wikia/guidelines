@@ -49,7 +49,7 @@ Many of the clients for our APIs will be developed outside our control. We defin
 While the whole spec is important, it is worth calling out specific common cases where we expect clients to conform: 
 
 * Clients should follow HTTP-level redirects when a resource has moved to a new location.
-* Clients should obey any caching directives returned with a resource
+* Clients should obey any caching directives returned with a resource (If the client does not cache at all, these directives can be ignored)
 * If a client actively engages in content or language negotiation, it should account for the possibility that a new representation of the resource will become available in the future that is a better match.
 
 ## Clients should use appropriate parsers for the content they receive.
@@ -88,7 +88,7 @@ While third-party developers shouldn’t write code that breaks when a conformin
 
 ## Clients should not make assumptions about an API's URI structure
 
-Clients should not engage in "URI guessing" by using manual URI generation to reach resources unless doing so is explicitly documented as how the API is intended to be used. Whereever possible, clients should discover resource by following links from within the API itself (see the section below on HATEOAS).
+Clients should only generate URIs by hand if the process of doing so is documented as part of the API. Where practical, clients should locate resources by following links provided within the API itself. Clients should not "guess" the URIs of resources by extrapolating patterns from other resources.
 
 # Responsibilities of API Developers
 
@@ -134,11 +134,3 @@ Reclassifying resources that used to be "red" as "reddish-brown" could be changi
 Changing the value of color to "#FF0000" would be changing the meaning of the color element, as clients that were previously looking for "red" would start misrepresenting resources that were red as not being red.
 
 Removing the color element entirely, even for resources that are red, would be changing its meaning. This is true even if the color element was optional in the response, as clients would assume such an entity was colorless.
-
-# A Note on HATEOAS
-
-HATEOAS is the unwieldy acronym for "Hypertext As The Engine Of Application State": a standard for writing dynamically discoverable REST API where every resource exposed by the API must be reachable by retrieving the API's root resource, then following a chain of hypertext links from there. It is _highly encouraged_ that REST APIs follow HATEOAS principles, because doing so allows for more resilient APIs and more manageable API migration, and frees clients from having to hard-code the URL structure of the service.
-
-Internal clients of HATEOAS APIs must not assume any knowledge of the service's API structure that is not derived from the API itself. If a service moves resources to new locations, it should be able to expect that clients will adapt once their cached resources expire.
-
-If the API is publicly available, services must not expect that third-party clients will follow HATEOAS principles.
