@@ -12,7 +12,6 @@
 * [Responsibilities of Third-Party Clients](#responsibilities-of-third-party-clients)
 * [Responsibilities of Wikia-Authored Clients](#responsibilities-of-wikia-authored-clients)
 * [Responsibilities of API Developers](#responsibiltiies-of-api-developers)
-* [A Note on HATEOAS](#a-note-on-hateoas)
 
 # Goals
 
