@@ -274,7 +274,7 @@ var literal = {
 	},
 
 	// Good
-	foo () {
+	foo() {
 
 	}
 }
