@@ -262,7 +262,7 @@ Style rules help us write easy to read, well documented, and consistent code.
 
 ### White Space Guidelines
 
-These guidelines also apply to JSON, where applicable. Our whitespace guidelines are based on JSLint. There are also some rules listed below that are in addition JSLint.
+Our whitespace guidelines are based on JSLint. There are also some rules listed below that are in addition JSLint. For JSON files, indent with spaces instead of tabs.
 
 - Indent with tabs.
 - No whitespace at the end of line or on blank lines.
