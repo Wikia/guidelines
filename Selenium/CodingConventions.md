@@ -18,7 +18,8 @@ This styleguide defines the Selenium coding conventions at Wikia. While it is ma
 * [General formatting](#general-formatting)
   * [order of code inside class](#order-of-code-inside-class)
   * [indentation](#indentation) 
-  * [length of line](#length-of-line) 
+  * [length of line](#length-of-line)
+  * [spaces](#spaces)
 
 ## Methods naming
 
@@ -204,3 +205,29 @@ Rule for indentation is that each indentation is 1 tab which contains 4 whitespa
 ### length of line
 Avoid lines longer than 120 characters. 
 If your code starts to get indented way to the right, consider breaking your code into more methods.
+
+### spaces
+
+There should be no space between the name of a function and the ( (left parenthesis) of its parameter list.
+There should be one space between the ) (right parenthesis) and the { (left curly brace) that begins the statement body.
+There should be one space before operator (+, -, *, /, %, ++, --) and one space after
+
+```java
+  function outer(c, d) {
+        var e = c * d;
+
+        function inner(a, b) {
+            return (e * a) + b;
+        }
+
+        return inner(0, 1);
+    }
+```
+A keyword followed by ( (left parenthesis) should be separated by a space.
+
+```java
+     while (true) {
+```
+Each ";" (semicolon) in the control part of a for statement should be followed with a space.
+Each "," (comma) should be followed with a space.
+
