@@ -18,6 +18,7 @@ This styleguide defines the JavaScript coding conventions at Wikia. While it is 
   * [Delete Operator](#delete-operator)
   * [Modifying Prototypes of Built-in Objects](#modifying-prototypes-of-built-in-objects)
   * [Maximum Parameters](#maximum-parameters)
+  * [Assignments in Conditional Statements](#no-assignments-in-conditional-statements)
 * [Style Rules](#style-rules)
   * [White Space Guidelines](#white-space-guidelines)
      * [Bad Examples](#bad-examples)
@@ -55,6 +56,7 @@ function () {
     if (someBool) {
         return;
     }
+
     return 'This is a string';
 }
 
@@ -66,6 +68,7 @@ function () {
     if (someBool) {
         return '';
     }
+
     return 'Both are strings!';
 }
 ```
@@ -91,23 +94,6 @@ myFunc();
 
 Trailing commas in object literals are legal in ECMAScript 5, trailing commas in arrays are ignored.
 
-In object:
-```js
-//ok
-var obj = {
-  first: 'Jane',
-  last: 'Doe',
-  age: 40  // no trailing comma
-};
-
-//better
-var obj = {
-  first: 'Jane',
-  last: 'Doe',
-  age: 40,  // trailing comma
-};
-```
-
 In array:
 ```js
 //good
@@ -116,22 +102,43 @@ var arr = [
   'b',
   'c',
 ];
+
 arr.length === 3
 ```
+
+In object:
+```js
+// bad
+var obj = {
+  first: 'Jane',
+  last: 'Doe',
+  age: 40  // no trailing comma
+};
+
+// good
+var obj = {
+  first: 'Jane',
+  last: 'Doe',
+  age: 40,  // trailing comma
+};
+```
+
+**Warning**: JSON data can't have trailing comma. See [http://stackoverflow.com/questions/201782/can-you-use-a-trailing-comma-in-a-json-object]
+
 
 ### Function Declarations Within Blocks
 
 Do not declare functions within blocks such as loops and conditionals. This will often lead to unintended consequences.
 
 ```javascript
-// bad:
+// bad
 if (someBool) {
     function myFunc() {
         // code
     }
 }
 
-// also bad:
+// also bad
 while (condition) {
     function myFunc() {
         // code
@@ -170,7 +177,7 @@ for (var i = 0; i < 10; i++) {
 The usage of `switch` statements is generally discouraged, but can be useful when there are a large number of cases - especially when multiple cases can be handled by the same block, or fall-through logic (the `default` case) can be leveraged.
 
 When using `switch` statements:
- - Use `break`, `return` or `throw` for each case other than `default`.
+ - Use `break`, `return` or `throw` for each case other than `default`
  - The `default` case should always be last.
 
 As with all our whitespace guidelines, switch statements follow JSLint.
@@ -255,6 +262,20 @@ define('bakecupcakes',
 })
 
 ```
+
+### Assignments in Conditional Statements
+In conditional statements, it is very easy to mistype a comparison operator (such as ==) as an assignment operator (such as =). For example:
+
+```js
+// bad
+// Check the user's job title
+if (user.jobTitle = "manager") {
+    // user.jobTitle is now incorrect
+}
+```
+
+It can be difficult to tell whether a specific assignment was intentional, therefore it's not allowed.
+
 
 ## Style Rules
 
@@ -458,9 +479,10 @@ Comment early and often! For comments inside functions, use inline comments. For
 
 ```javascript
 /**
- * @desc This function bakes cookies
- * @param {string} flavor The flavor of the cookie
- * @return {object} cookie The delicious cookie
+ * This function bakes cookies
+ *
+ * @param {String} flavor - The flavor of the cookie
+ * @returns {Object} The delicious cookie
  */
 function makeCookies(flavor) {
     // create the cookie
@@ -477,11 +499,37 @@ function makeCookies(flavor) {
 
 We use JSDoc style comments above function declarations and at the top of files because they make code clear and easy to read, and we'd like to be able to generate JavaScript documentation at some point.
 
+The description for parameters is optional; description for `@returns` statement is not optional. Also it's encouraged to have description and params separated by newline.
+
+**Warning**: Use of inline comments in not allowed:
+```javascript
+// bad
+var a = 1; // declaring a to 1
+
+function getRandomNumber(){
+    return 4; // chosen by fair dice roll.
+              // guaranteed to be random.
+}
+
+/* A block comment before code */ var b = 2;
+
+var c = 3; /* A block comment after code */
+```
+
+
+#### Single-line comments
+All single line comments should begin with space. Consider this:
+```javascript
+/////// this is  bad comment
+
+// this is a good comment
+```
+
+
 #### Required JSDoc Annotations (when applicable)
 
-* @desc
 * @param
-* @return
+* @returns
 
 #### Recommended JSDoc Annotations
 
@@ -530,6 +578,16 @@ var MY_CONST = 2;
 
 // good
 var myConst = 2;
+```
+
+Constants exists in ECMAScript6+, so you can use `const` for declaration. Still keep them camelCase:
+
+```javascript
+// bad
+const MY_CONST = 2;
+
+// good
+const myConst = 2;
 ```
 
 ##### Acronyms
@@ -648,16 +706,16 @@ All re-usable JavaScript should be written as AMD modules. See the [above sectio
 
 ### Immediately Invoked Function Expressions (IIFE)
 
-Wrap all immediately invoked function expressions with parentheses
+Wrap all immediately invoked function expressions with parentheses:
 
 ```javascript
 
 // good
-var a = (function () { return 1; })(),
-	b = (function () { return 2; }());
+var x = (function () { return 1;})();
 
 // bad
-var a = function () { return 1; }();
+var x = function () { return 1; }();
+var x = (function () { return 1;}());
 ```
 
 ### Nested Functions
