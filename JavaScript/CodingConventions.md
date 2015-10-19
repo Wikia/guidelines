@@ -520,7 +520,7 @@ var c = 3; /* A block comment after code */
 #### Single-line comments
 All single line comments should begin with space. Consider this:
 ```javascript
-/////// this is  bad comment
+//this is  bad comment
 
 // this is a good comment
 ```
@@ -711,11 +711,11 @@ Wrap all immediately invoked function expressions with parentheses:
 ```javascript
 
 // good
-var x = (function () { return 1;})();
+var x = (function () { return 1; })();
 
 // bad
 var x = function () { return 1; }();
-var x = (function () { return 1;}());
+var x = (function () { return 1; }());
 ```
 
 ### Nested Functions
