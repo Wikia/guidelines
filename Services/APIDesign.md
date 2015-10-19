@@ -243,12 +243,7 @@ that order). Example `/search?q=Foo&offset=50&limit=25`.
 
 ### Versioning
 
-Version with [the `Accept`
-header](https://github.com/interagent/http-api-design#version-with-accepts-header). For example:
-
-    Accept: application/hal+json; version=1
-
-Include the content type in addition to the version.
+See [APIVersioning.md].
 
 ### Timestamps
 
