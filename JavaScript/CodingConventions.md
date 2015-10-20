@@ -499,7 +499,8 @@ function makeCookies(flavor) {
 
 We use JSDoc style comments above function declarations and at the top of files because they make code clear and easy to read, and we'd like to be able to generate JavaScript documentation at some point.
 
-The description for parameters is optional; description for `@returns` statement is not optional. Also it's encouraged to have description and params separated by newline.
+The description for parameters and `@returns` is optional.
+Also it's encouraged to have description and params separated by newline.
 
 **Warning**: Use of inline comments in not allowed:
 ```javascript
