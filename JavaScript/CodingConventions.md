@@ -481,7 +481,7 @@ Comment early and often! For comments inside functions, use inline comments. For
 /**
  * This function bakes cookies
  *
- * @param {String} flavor - The flavor of the cookie
+ * @param {string} flavor - The flavor of the cookie
  * @returns {Object} The delicious cookie
  */
 function makeCookies(flavor) {
