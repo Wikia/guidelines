@@ -1,0 +1,14 @@
+{
+  "name": "JavaScript-Guidelines",
+  "version": "1.0.0",
+  "description": "Tools and guidelines for JavaScript at Wikia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liz Lee <liz@lizlux.net> (https://github.com/lizlux)",
+  "license": "ISC",
+  "devDependencies": {
+    "jscs-jsdoc": "^1.2.0"
+  }
+}
