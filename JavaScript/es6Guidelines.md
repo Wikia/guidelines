@@ -40,7 +40,8 @@ We listed some useful tips to help you decide which declaration to use.
 
 ### Default Exports
 
-**Always add export default**When you don't know which property you should export as default one think about the property which is the best representative of particular module or which one is going to be used externally most often.
+**Always add export default**
+When you don't know which property you should export as default a one think about the property which is the best representative of particular module or which one is going to be used externally most often.
 
 ### Classes VS Modules
 
