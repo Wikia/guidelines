@@ -38,6 +38,10 @@ We listed some useful tips to help you decide which declaration to use.
     
 3.  **Try to keep let/const/var scope as small possible**
 
+**When to use VARs**
+
+**Never**. No, seriously. There are almost no valid uses for `var` right now.
+
 ### Default Exports
 
 **Always add export default**
