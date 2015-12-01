@@ -1,7 +1,7 @@
 Table Of Contents
 ===
 * [General Guidelines](#general-guidelines)
-  - [`CONST` and `LET` over `VAR`](#const-and-let-over-var)
+  - [`const` and `let` over `var`](#const-and-let-over-var)
   - [Arrow functions gotchas](#arrow-functions-gotchas)
   - [Default Exports](#default-exports)
   - [Classes VS Modules](#classes-vs-modules)
@@ -16,7 +16,7 @@ Table Of Contents
 
 ## General Guidelines
 
-### `CONST` and `LET` over `VAR`
+### `const` and `let` over `var`
 
 Recommended article about var/let/const - [erric-elliot/javascript-es6-var-let-or-const](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.uw6acfhkw)
 
@@ -46,9 +46,11 @@ We listed some useful tips to help you decide which declaration to use.
     shape = 'circle';
     ```
 
-2.  **Always use one let/const/var declaration in block**  
+2.  **Always use one let/const/var declaration in block scope**  
     You should put lets and consts on top of the block.  
     Even though consts and lets are not hoisted like vars it's a good practice to put those declarations on top of the block to increase code readability.
+
+    Want to learn more about scoping? Read [this article](http://www.2ality.com/2015/02/es6-scoping.html)
 
 3.  **Try to keep let/const/var scope as small as possible**
 
@@ -86,13 +88,6 @@ We listed some useful tips to help you decide which declaration to use.
           return this.onCreate.apply(this, args);
         }
       });
-
-      if (!window.OO) {
-        this.loadPlayer();
-      } else {
-        this.createPlayer();
-      }
-    }
     ```
 
     Note the usage of `...args` instead of `arguments` keyword. **Why?**
@@ -108,7 +103,7 @@ Recommended read:
 
 **Always add export default**
 
-When you don't know which property you should export as default a one think about the property which is the best representative of particular module or which one is going to be used externally most often.
+If you don't know which property should be exported as the default one, decide which one is the best representative of particular module or which one is going to be used externally most often.
 
 ### Classes VS Modules
 
@@ -164,8 +159,9 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     Example:
 
     ```javascript
-    let bar = 'bar',
+    const bar = 'bar',
         foo = 'foo';
+
     return {
       foo,
       bar,
@@ -197,7 +193,12 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     ```
 
 *   **Use `()=>` when possible**
+
+    if you don't know if you should use arrow function read the section about [Arrow functions gotchas](#arrow-functions-gotchas). If you need to rely on something arrow function doesn't provide use regular function declaration
+
 *   **Only one `var/let/const` declaration inside block**
+
+    More information in [`const` and `let` over `var`](#const-and-let-over-var) section
 
 ### Links
 
