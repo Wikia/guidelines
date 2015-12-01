@@ -1,7 +1,7 @@
 
 ## General Guidelines
 
-### CONSTs and LETs over VARs
+### `CONST` and `LET` over `VAR`
 
 Recommended article about var/let/const - [erric-elliot/javascript-es6-var-let-or-const](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.uw6acfhkw)
 
@@ -39,7 +39,7 @@ We listed some useful tips to help you decide which declaration to use.
 
 4.  **When to use `var`?**
 
-    **Never**. No, seriously. There are almost no valid uses for `var` right now.
+    **Never**. No, seriously. There are almost no valid use cases for `var` right now.
 
 ### Arrow functions gotchas
 1.  **Lexical `this` Binding**
@@ -145,7 +145,9 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 ### Most important enabled rules
 
 *   Prefer object shorthand
+
     Example:
+
     ```javascript
     let bar = 'bar',
         foo = 'foo';
@@ -155,6 +157,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
       fizz: 'fizz'
     };
     ```
+
 *   Prefer dot notation in objects
 
     Example:
