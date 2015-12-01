@@ -1,3 +1,18 @@
+Table Of Contents
+===
+* [General Guidelines](#General Guidelines)
+  - [`CONST` and `LET` over `VAR`](#`CONST` and `LET` over `VAR`)
+  - [Arrow functions gotchas](Arrow functions gotchas)
+  - [Default Exports](Default Exports)
+  - [Classes VS Modules](#Classes VS Modules)
+  - [Imports first](#Imports first)
+* [ESLint](#ESLint)
+  - [How to read .eslint.rc](#How to read .eslint.rc)
+  - [Cascading and Hierarchy](#Cascading and Hierarchy)
+  - [Defined globals](#Defined globals)
+  - [Most important enabled rules](#Most important enabled rules)
+  - [Links](#Links)
+
 
 ## General Guidelines
 
