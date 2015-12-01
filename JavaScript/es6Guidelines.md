@@ -1,17 +1,17 @@
 Table Of Contents
 ===
-* [General Guidelines](#General Guidelines)
-  - [`CONST` and `LET` over `VAR`](#`CONST` and `LET` over `VAR`)
-  - [Arrow functions gotchas](Arrow functions gotchas)
-  - [Default Exports](Default Exports)
-  - [Classes VS Modules](#Classes VS Modules)
-  - [Imports first](#Imports first)
-* [ESLint](#ESLint)
-  - [How to read .eslint.rc](#How to read .eslint.rc)
-  - [Cascading and Hierarchy](#Cascading and Hierarchy)
-  - [Defined globals](#Defined globals)
-  - [Most important enabled rules](#Most important enabled rules)
-  - [Links](#Links)
+* [General Guidelines](#general-guidelines)
+  - [`CONST` and `LET` over `VAR`](#const-and-let-over-var)
+  - [Arrow functions gotchas](#arrow-functions-gotchas)
+  - [Default Exports](#default-exports)
+  - [Classes VS Modules](#classes-vs-modules)
+  - [Imports first](#imports-first)
+* [ESLint](#eslint)
+  - [How to read .eslint.rc](#how-to-read-eslintrc)
+  - [Cascading and Hierarchy](#cascading-and-hierarchy)
+  - [Defined globals](#defined-globals)
+  - [Most important enabled rules](#most-important-enabled-rules)
+  - [Links](#links)
 
 
 ## General Guidelines
@@ -159,7 +159,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 
 ### Most important enabled rules
 
-*   Prefer object shorthand
+*   **Prefer object shorthand**
 
     Example:
 
@@ -173,7 +173,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     };
     ```
 
-*   Prefer dot notation in objects
+*   **Prefer dot notation in objects**
 
     Example:
 
@@ -181,7 +181,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     point.x = 7;
     ```
 
-*   New line after variables declaration
+*   **New line after variables declaration**
 
     Example:
 
@@ -196,8 +196,8 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     }
     ```
 
-*   Use `()=>` when possible
-*   Only one `var/let/const` declaration inside block
+*   **Use `()=>` when possible**
+*   **Only one `var/let/const` declaration inside block**
 
 ### Links
 
