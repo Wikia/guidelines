@@ -157,7 +157,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 
 ### Most important enabled rules
 
-*   **Prefer object shorthand**
+1.   **Prefer object shorthand**
 
     How to do things right:
 
@@ -185,7 +185,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     };
     ```
 
-*   **Prefer dot notation in objects**
+2.   **Prefer dot notation in objects**
 
     How to do things right:
 
@@ -198,7 +198,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     point['x'] = 7;
     ```
 
-*   **New line after variables declaration**
+3.   **New line after variables declaration**
 
     How to do things right:
 
@@ -226,11 +226,11 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     }
     ```
 
-*   **Use `()=>` when possible**
+4.   **Use `()=>` when possible**
 
     if you don't know if you should use arrow function read the section about [Arrow functions gotchas](#arrow-functions-gotchas). If you need to rely on something arrow function doesn't provide use regular function declaration
 
-*   **Only one `var/let/const` declaration inside block**
+5.   **Only one `var/let/const` declaration inside block**
 
     More information in [`const` and `let` over `var`](#const-and-let-over-var) section
 
