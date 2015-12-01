@@ -142,6 +142,9 @@ What all those things mean?
     *   2 - turn the rule on as an error (exit code is 1 when triggered)
 *   `[2, "never"]` - rule is turned on as an error and plugin called `never` is on 
 
+List of all available rules with descriptions is available [here](http://eslint.org/docs/rules/).
+
+
 ### Cascading and Hierarchy
 
 The configuration cascade works by using the closest `.eslintrc` file to the file being linted as the highest priority, then any configuration files in the parent directory, and so on.
@@ -156,7 +159,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 
 *   **Prefer object shorthand**
 
-    Example:
+    How to do things right:
 
     ```javascript
     const bar = 'bar',
@@ -169,17 +172,48 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
     };
     ```
 
+    How **not** to do things:
+
+    ```javascript
+    const bar = 'bar',
+        foo = 'foo';
+
+    return {
+      foo: foo,
+      bar: bar,
+      fizz: 'fizz'
+    };
+    ```
+
 *   **Prefer dot notation in objects**
 
-    Example:
+    How to do things right:
 
     ```javascript
     point.x = 7;
     ```
 
+    How **not** to do things:
+    ```javascript
+    point['x'] = 7;
+    ```
+
 *   **New line after variables declaration**
 
-    Example:
+    How to do things right:
+
+    ```javascript
+    sum() {
+      const point = {
+        x: 5,
+        y: 7
+      };
+
+      //...rest of method's body
+    }
+    ```
+
+    How **not** to do things:
 
     ```javascript
     sum() {
