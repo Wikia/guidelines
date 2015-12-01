@@ -110,7 +110,7 @@ If you don't know which property should be exported as the default one, decide w
 **Favor Modules over Classes.**
 
 However, the question remains, when I should use class?  
-When it comes to answer to this question I'm too biased to answer that's why I recommend this two articles:
+To avoid bias instead of answering this question, we link few articles which should help you decide whether to use class or module.
 
 *   [i-would-never-argue-that-es6-classes-are-clearly-a-better-choice-than-composition-modules-or-prototypal-OO](https://medium.com/@rauschma/i-would-never-argue-that-es6-classes-are-clearly-a-better-choice-than-composition-modules-or-891e462da85b#.bfhfjc74j)
 *   [a-simple-challenge-to-classical-inheritance-fans](https://medium.com/javascript-scene/a-simple-challenge-to-classical-inheritance-fans-e78c2cf5eead#.vh341a5iq)[](https://medium.com/javascript-scene/a-simple-challenge-to-classical-inheritance-fans-e78c2cf5eead#.vh341a5iq)
