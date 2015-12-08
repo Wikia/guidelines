@@ -83,6 +83,8 @@ software craftsmanship through peer review.
 
 ## See Also
 
+  * [Github - How to write perfect PR](https://github.com/blog/1943-how-to-write-the-perfect-pull-request)
   * [Tim Pope’s git commit message suggestions](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
   * [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines)
   * [MediaWiki code review guidelines](https://www.mediawiki.org/wiki/Gerrit/Code_review)
+  * [Thoughtbot code review guidelines](https://github.com/thoughtbot/guides/tree/master/code-review)
