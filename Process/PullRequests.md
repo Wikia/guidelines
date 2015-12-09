@@ -43,6 +43,7 @@ Each PR will:
           Example: “/cc @nmonterroso”.
        2. If the PR contains production SQL changes the @SQLReview tag should be
           used to notify the SQL review team.
+       3. If the PR cointain multiple tasks it can be useful to provide them in form of [Task List](https://github.com/blog/1825-task-lists-in-all-markdown-documents). This can also help to track the progress inside the PR and encourage team members to join and help with uncompleted work.
   4. The source code diff. This is provided by Github automatically.
   5. Tests for behavioral changes made to the code. 
   6. Be reviewed and approved by someone other than the author.
@@ -82,6 +83,8 @@ software craftsmanship through peer review.
 
 ## See Also
 
+  * [Github - How to write perfect PR](https://github.com/blog/1943-how-to-write-the-perfect-pull-request)
   * [Tim Pope’s git commit message suggestions](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
   * [MediaWiki commit message guidelines](https://www.mediawiki.org/wiki/Gerrit/Commit_message_guidelines)
   * [MediaWiki code review guidelines](https://www.mediawiki.org/wiki/Gerrit/Code_review)
+  * [Thoughtbot code review guidelines](https://github.com/thoughtbot/guides/tree/master/code-review)
