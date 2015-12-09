@@ -43,7 +43,7 @@ Each PR will:
           Example: “/cc @nmonterroso”.
        2. If the PR contains production SQL changes the @SQLReview tag should be
           used to notify the SQL review team.
-       3. If the PR cointain multiple tasks it can be useful to provide them in form of [Task List](https://github.com/blog/1825-task-lists-in-all-markdown-documents)
+       3. If the PR cointain multiple tasks it can be useful to provide them in form of [Task List](https://github.com/blog/1825-task-lists-in-all-markdown-documents). This can also help out to track the progress inside the PR and encourage team members to join and help with uncompleted work.
   4. The source code diff. This is provided by Github automatically.
   5. Tests for behavioral changes made to the code. 
   6. Be reviewed and approved by someone other than the author.
