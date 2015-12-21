@@ -95,7 +95,7 @@ We listed some useful tips to help you decide which declaration to use.
 
 5.  **When to use?**
 
-    As a rule of thumb - keep it very readable, at best it's 3-5 lines:
+    As a rule of thumb - keep it very readable, at best it's few lines (around 1-5):
     ```javascript
     userId: Ember.computed(() => {
       const cookieUserId = parseInt(M.prop('userId'), 10);
