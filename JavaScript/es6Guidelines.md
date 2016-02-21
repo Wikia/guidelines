@@ -77,7 +77,6 @@ We listed some useful tips to help you decide which declaration to use.
     let sum = (x, y) => x + y;
     ```
 
-
 4.  **`arguments` gotcha**
 
     Check out following example: (code comes from [Ooyala Player](https://github.com/Wikia/mercury/blob/dev/front/scripts/mercury/modules/VideoPlayers/Ooyala.js))
@@ -93,6 +92,31 @@ We listed some useful tips to help you decide which declaration to use.
     Note the usage of `...args` instead of `arguments` keyword. **Why?**
 
     Well, we used `arguments` and it turned out that **arrow functions don't have lexical `arguments`**. So instead `arguments` from setupPlayer were used. What we really wanted was to use `arguments` passed to onCreate hook called by Ooyala, hence usage of [rest parameter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+
+5.  **When to use?**
+
+    As a rule of thumb - keep it very readable, at best it's few lines (around 1-5):
+    ```javascript
+    userId: Ember.computed(() => {
+      const cookieUserId = parseInt(M.prop('userId'), 10);
+      
+      return cookieUserId > 0 ? cookieUserId : null;
+    })
+    ```
+    
+    It's also fine when you're doing ONE call that's larger than those few lines:
+    ```javascript
+    window.fbAsyncInit = () => {
+      window.FB.init({
+        appId: window.pageParams.facebookAppId,
+        cookie: true,
+        version: FacebookSDK.version
+      });
+      
+      onLoad();
+    };
+    ```
+    If arrow function is too large, please create separate function.
 
 Recommended read:
 * http://blog.getify.com/arrow-this/
@@ -163,7 +187,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 
     ```javascript
     const bar = 'bar',
-        foo = 'foo';
+      foo = 'foo';
 
     return {
       foo,
@@ -176,7 +200,7 @@ The configuration cascade works by using the closest `.eslintrc` file to the fil
 
     ```javascript
     const bar = 'bar',
-        foo = 'foo';
+      foo = 'foo';
 
     return {
       foo: foo,
