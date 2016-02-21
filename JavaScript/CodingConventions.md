@@ -502,9 +502,10 @@ We use JSDoc style comments above function declarations and at the top of files 
 The description for parameters and `@returns` is optional.
 Also it's encouraged to have description and params separated by newline.
 
-**Warning**: Use of inline comments in not allowed:
+**Warning**: Use of inline comments in not allowed (with the exception of ESLint line declarations):
+
+Bad examples:
 ```javascript
-// bad
 var a = 1; // declaring a to 1
 
 function getRandomNumber(){
@@ -517,6 +518,19 @@ function getRandomNumber(){
 var c = 3; /* A block comment after code */
 ```
 
+Good examples:
+```javascript
+// this variable is really needed
+var really_needed = 42;
+```
+```javascript
+var thing = new Thing(); //eslint-disable-line no-use-before-define
+thing.sayHello();
+
+function Thing() {
+     this.sayHello = function() { console.log("hello"); };
+}
+```
 
 #### Single-line comments
 All single line comments should begin with space. Consider this:
@@ -529,13 +543,76 @@ All single line comments should begin with space. Consider this:
 
 #### Required JSDoc Annotations (when applicable)
 
-* @param
-* @returns
+#### @param
+We're using `@param` annotation to describe parameters - type and name is required, description is optional. Optional parameters have their name put in brackets with default value specified. Optional parameters are always at the end.
+```javascript
+/**
+ * @param {string} str
+ * @param {ArticleModel} model
+ * @param {Object} [optionalObject={}]
+ */
+```
+#### @returns
+This is always used to describe what method or function returns. Description is optional, but **returned type is not optional**. If function doesn't return anything use `void` as return type.
+
+Good examples:
+```javascript
+/**
+ * @returns {string}
+ */
+...
+/**
+* @returns {Object} initialized data
+*/
+...
+/**
+* @returns {void}
+*/
+```
+Bad examples:
+```javascript
+/**
+ * // no returns declaration
+ * @param {string} str
+ */
+...
+/**
+ * @returns {undefined}
+ */
+```
 
 #### Recommended JSDoc Annotations
 
-* @author (at the top of a file)
-* @see (for links to documentation)
+##### @author
+You should put this on top of the file.
+##### @see
+You should use this to denote links to documentation or some other materials that will give more context.
+##### @todo
+This should proceed any TODO or Work-In-Progress comment - in best case scenario with link to ticket that should fix that issue.
+##### @example
+Use this annotation to give examples of the code that can be used to quickly demonstrate usage of the function. You can always put more examples via `@see` annotation (see above).
+
+#### Other JSDoc conventions
+1. Function description is required only when it's not clear what function actually does.
+2. `@desc` / `@description` annotation is not used - we're always putting description on top of JSDoc.
+3. We're leaving one line free between function description and parameters.
+4. `@params` are followed immediately by `@returns` and are at the end of JSDoc.
+```javascript
+/**
+ * Really important function that calculates some stuff.
+ * Can be invoked only with color as first parameter - either
+ * by name or hex code in RRGGBB format.
+ * @example
+ *   Color.darken('blue');
+ *   Color.darken('334455', .4);
+ *
+ * @param {string} color
+ * @param {number} [magnitude=.5]
+ * @returns {string} darkened color
+ */
+function darken(color, magnitude = .5) {
+...
+```
 
 ### Naming conventions
 
