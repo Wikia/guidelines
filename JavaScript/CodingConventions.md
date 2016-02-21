@@ -592,6 +592,26 @@ This should proceed any TODO or Work-In-Progress comment - in best case scenario
 ##### @example
 Use this annotation to give examples of the code that can be used to quickly demonstrate usage of the function. You can always put more examples via `@see` annotation (see above).
 
+#### Describing custom types for JSDoc
+You can describe custom type for JSDoc in order to create better comments - more descriptive to all readers. It's also a great way of documenting custom data types - like an API response for example.
+To do that use `@typedef` annotation and use `@param` as with describing functions. If data type isn't an object and can be aliased to simple type, you can also do it with `@typedef`.
+And again, description is optional.
+**Note**: All custom types should be CamelCased.
+```javascript
+/**
+ * This is an alias for our type.
+ *
+ * @typedef {string} Color
+ */
+...
+/**
+ * @typedef {Object} PageApiResponse
+ * @param {string} status
+ * @param {string} [error]
+ * @param {Object} [response]
+ */
+```
+
 #### Other JSDoc conventions
 1. Function description is required only when it's not clear what function actually does.
 2. `@desc` / `@description` annotation is not used - we're always putting description on top of JSDoc.
