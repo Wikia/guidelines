@@ -521,7 +521,7 @@ var c = 3; /* A block comment after code */
 Good examples:
 ```javascript
 // this variable is really needed
-var really_needed = 42;
+var reallyNeeded = 42;
 ```
 ```javascript
 var thing = new Thing(); //eslint-disable-line no-use-before-define
@@ -605,10 +605,22 @@ And again, description is optional.
  */
 ...
 /**
+ * @typedef {Array<id: number, name: string>} NameHash
+ */
+...
+/**
  * @typedef {Object} PageApiResponse
  * @param {string} status
  * @param {string} [error]
  * @param {Object} [response]
+ */
+```
+
+To use previously declared TypeDef simply use it as a type:
+```javascript
+/**
+ * @param {NameHash} hash
+ * @returns {Color}
  */
 ```
 
