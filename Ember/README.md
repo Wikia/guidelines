@@ -45,8 +45,8 @@ Server side:
 	// bad
 	{
 		method: 'POST',
-		path: '/article-preview',
-		handler: articlePreview/
+		path: '/article-preview/',
+		handler: articlePreview
 	}
 ```
 Client side:
