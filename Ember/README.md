@@ -14,6 +14,83 @@
 ## Naming Conventions
 We follow the canonical naming conventions established by the Ember Core Team. The full Ember naming conventions documentation can be found [here](http://emberjs.com/guides/concepts/naming-conventions/).
 
+### Route naming conventions:
+On both the server-side and client-side of Mercury application, route handlers should be camelCased and route paths should be dasherized.
+No trailling slash on the end of the path.
+
+Server side:
+```javascript
+	// good
+	{
+		method: 'POST',
+		path: '/article-preview',
+		handler: articlePreview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/articlePreview',
+		handler: articlePreview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/articlePreview',
+		handler: article-preview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/article-preview',
+		handler: articlePreview/
+	}
+```
+Client side:
+```javascript
+	// good
+	this.route('articlePreview', {
+		path: '/article-preview'
+	});
+
+	// bad
+	this.route('article-preview', {
+		path: '/article-preview'
+	});
+```
+
+##### Wildcards in paths should be camelCased.
+```javascript
+Server side:
+	// good
+	{
+		method: 'GET',
+		path: `${localSettings.apiBase}/article/comments/{articleId}/{page?}`,
+		handler: getArticleCommentsHandler
+	},
+
+	// bad
+	{
+		method: 'GET',
+		path: `${localSettings.apiBase}/article/comments/{particle-id}/{page?}`,
+		handler: getArticleCommentsHandler
+	},
+```
+Client side:
+```javascript
+	//good
+	this.route('mainPageCategory', {
+		path: '/main/category/:categoryName'
+	});
+
+	//bad
+	this.route('mainPageCategory', {
+		path: '/main/category/:category-name'
+	});
+```
+
 ## Accessing Ember Namespace
 When accessing the `Ember` global object, always use its abbreviated alias: `Em`.
 
