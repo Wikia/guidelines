@@ -74,7 +74,7 @@ Server side:
 	// bad
 	{
 		method: 'GET',
-		path: `${localSettings.apiBase}/article/comments/{particle-id}/{page?}`,
+		path: `${localSettings.apiBase}/article/comments/{article-id}/{page?}`,
 		handler: getArticleCommentsHandler
 	},
 ```
