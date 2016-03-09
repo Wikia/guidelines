@@ -14,6 +14,108 @@
 ## Naming Conventions
 We follow the canonical naming conventions established by the Ember Core Team. The full Ember naming conventions documentation can be found [here](http://emberjs.com/guides/concepts/naming-conventions/).
 
+### Route naming conventions:
+Both route names and paths should be dasherized.
+Handler actions on server side should be camelCased (like normal functions).
+No trailling slash on the end of the path.
+
+Server side:
+```javascript
+	// good
+	{
+		method: 'POST',
+		path: '/article-preview',
+		handler: articlePreview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/articlePreview',
+		handler: articlePreview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/articlePreview',
+		handler: article-preview
+	}
+
+	// bad
+	{
+		method: 'POST',
+		path: '/article-preview/',
+		handler: articlePreview
+	}
+```
+Client side:
+```javascript
+	// good
+	this.route('infobox-builder', {
+		path: '/infobox-builder/:template_name'
+	});
+	
+	// bad
+	this.route('infobox-builder', {
+		path: '/infoboxBuilder/:template_name'
+	});
+	
+	// bad
+	this.route('infoboxBuilder', {
+		path: '/infoboxBuilder/:template_name'
+	});
+
+```
+##### When path is the same as route name (client-Ember-side only), there's no need to specify it:
+```javascript
+	// good
+	this.route('article-preview');
+
+	// bad
+	this.route('article-preview', {
+		path: '/article-preview'
+	});
+```
+##### Dynamic segments in paths should be underscored.
+```javascript
+Server side:
+	// good
+	{
+		method: 'GET',
+		path: `${localSettings.apiBase}/main/category/{category_name}`,
+		handler: mainPageCategoryHandler
+	},
+
+	// bad
+	{
+		method: 'GET',
+		path: `${localSettings.apiBase}/main/category/{categoryName}`,
+		handler: mainPageCategoryHandler
+	},
+```
+Client side:
+```javascript
+	// good
+	this.route('mainPageCategory', {
+		path: '/main/category/:category_name'
+	});
+
+	// bad
+	this.route('mainPageCategory', {
+		path: '/main/category/:category-name'
+	});
+	
+	// bad
+	this.route('mainPageCategory', {
+		path: '/main/category/:categoryName'
+	});
+```
+
+More info:
+* Ember routing: https://guides.emberjs.com/v2.3.0/routing/defining-your-routes/
+* Hapi routing: http://hapijs.com/tutorials/routing
+
 ## Accessing Ember Namespace
 When accessing the `Ember` global object, always use its abbreviated alias: `Em`.
 
