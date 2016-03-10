@@ -57,6 +57,13 @@ production discussion service you would use
 To specify the environment, services will use the `prod` tag for production
 and the `dev` tag for development.
 
+**`DATABASES`**
+
+Databases expose additional tags: `slave`, `master` as well as their combination 
+with environment, i.e. `slave-prod`, `master-prod`, `slave-dev`, `master-dev`.
+When addressing a DB as service, the combined tag should be used to ensure
+reads and writes are happening on proper instances.
+
 ### `SERVICE`
 
 Service names should be descriptive and consistent with the deployed instances
@@ -67,7 +74,10 @@ Service dependencies (e.g. a database cluster) should use the form
 `TAG.{type}-{service}` where `{type}` is a string that clearly defines the
 dependency provided by the service. For example the database cluster (shortened
 to `db`) used by the discussion service would be identified by
-`prod.db-discussion.service.consul.`
+`prod.db-discussion.service.consul` ( please keep in mind that master / slaves 
+in this case need to be identified by `master-prod.db-discussion.service.consul` 
+and `slave-prod.db-discussion.service.consul` respectively )
+
 
 ### `DATACENTER` and Environment
 
