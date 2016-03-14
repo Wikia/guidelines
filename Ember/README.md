@@ -14,6 +14,17 @@
 ## Naming Conventions
 We follow the canonical naming conventions established by the Ember Core Team. The full Ember naming conventions documentation can be found [here](http://emberjs.com/guides/concepts/naming-conventions/).
 
+### File naming convention:
+All file names should be dashed lowercased
+
+```bash
+//bad
+app/components/myComponent.js
+
+//good
+app/components/my-components.js
+```
+
 ### Route naming conventions:
 Both route names and paths should be dasherized.
 Handler actions on server side should be camelCased (like normal functions).
