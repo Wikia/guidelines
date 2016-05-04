@@ -20,14 +20,14 @@ Table Of Contents
 
 Recommended article about var/let/const - [erric-elliot/javascript-es6-var-let-or-const](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.uw6acfhkw)
 
-We recommend following rule: `const > let > var`.  
+We recommend following rule: `const > let > var`.
 We listed some useful tips to help you decide which declaration to use.
 
-1.  **Are you going to reassign the variable's value?**  
-    **no)** use const  
+1.  **Are you going to reassign the variable's value?**
+    **no)** use const
     **yes)** use let
 
-    _"No reassign" means - you are not going to change the reference._  
+    _"No reassign" means - you are not going to change the reference._
 
     **Something like that is correct:**
 
@@ -46,9 +46,18 @@ We listed some useful tips to help you decide which declaration to use.
     shape = 'circle';
     ```
 
-2.  **Always use one let/const/var declaration in block scope**  
-    You should put lets and consts on top of the block.  
-    Even though consts and lets are not hoisted like vars it's a good practice to put those declarations on top of the block to increase code readability.
+2.  **Always use let/const declarations whenever you need it**
+    Consts and lets are not hoisted like vars - and you can use it multiple times in any given function - just whenever you need them. Consider following example:
+
+    ```javascript
+    const foo = this.get('foo');
+
+    if (foo === 'fuu') {
+      const bar = this.get('bar');
+      ...
+    }
+    ...
+    ```
 
     Want to learn more about scoping? Read [this article](http://www.2ality.com/2015/02/es6-scoping.html)
 
@@ -99,11 +108,11 @@ We listed some useful tips to help you decide which declaration to use.
     ```javascript
     userId: Ember.computed(() => {
       const cookieUserId = parseInt(M.prop('userId'), 10);
-      
+
       return cookieUserId > 0 ? cookieUserId : null;
     })
     ```
-    
+
     It's also fine when you're doing ONE call that's larger than those few lines:
     ```javascript
     window.fbAsyncInit = () => {
@@ -112,7 +121,7 @@ We listed some useful tips to help you decide which declaration to use.
         cookie: true,
         version: FacebookSDK.version
       });
-      
+
       onLoad();
     };
     ```
@@ -133,7 +142,7 @@ If you don't know which property should be exported as the default one, decide w
 
 **Favor Modules over Classes.**
 
-However, the question remains, when I should use class?  
+However, the question remains, when I should use class?
 To avoid bias, instead of answering this question, we linked few articles which should help you decide whether to use class or module.
 
 *   [i-would-never-argue-that-es6-classes-are-clearly-a-better-choice-than-composition-modules-or-prototypal-OO](https://medium.com/@rauschma/i-would-never-argue-that-es6-classes-are-clearly-a-better-choice-than-composition-modules-or-891e462da85b#.bfhfjc74j)
@@ -141,9 +150,9 @@ To avoid bias, instead of answering this question, we linked few articles which 
 
 ### Imports first
 
-**Imports should be the first thing you put in your files.**  
+**Imports should be the first thing you put in your files.**
 
-_Note: ES6 imports are declarative and meant for static analysis. They cannot be dynamic._  
+_Note: ES6 imports are declarative and meant for static analysis. They cannot be dynamic._
 
 ## ESLint
 
@@ -159,12 +168,12 @@ Here is small piece of our .eslint.rc file:
 What all those things mean?
 
 *   the key is the name of the rule - `"no-process-exit"`
-*   the number after key means:  
+*   the number after key means:
 
     *   0 - turn the rule off
     *   1 - turn the rule on as a warning (doesn't affect exit code)
     *   2 - turn the rule on as an error (exit code is 1 when triggered)
-*   `[2, "never"]` - rule is turned on as an error and plugin called `never` is on 
+*   `[2, "never"]` - rule is turned on as an error and plugin called `never` is on
 
 List of all available rules with descriptions is available [here](http://eslint.org/docs/rules/).
 
