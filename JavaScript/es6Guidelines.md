@@ -47,17 +47,43 @@ We listed some useful tips to help you decide which declaration to use.
     ```
 
 2.  **Always use let/const declarations whenever you need it**
-    Consts and lets are not hoisted like vars - and you can use it multiple times in any given function - just whenever you need them. Consider following example:
+    Consts and lets are not hoisted like vars - Assign variables where you need them, but place them in a reasonable place
 
     ```javascript
-    const foo = this.get('foo');
+    // bad - unnecessary function call
+    function checkName(hasName) {
+      const name = getName();
 
-    if (foo === 'fuu') {
-      const bar = this.get('bar');
-      ...
+      if (hasName === 'test') {
+        return false;
+      }
+
+      if (name === 'test') {
+        this.setName('');
+        return false;
+      }
+
+      return name;
     }
-    ...
+
+    // good
+    function checkName(hasName) {
+      if (hasName === 'test') {
+        return false;
+      }
+
+      const name = getName();
+
+      if (name === 'test') {
+        this.setName('');
+        return false;
+      }
+
+      return name;
+    }
     ```
+
+    Also try to gather all `const`s and `let`s together.
 
     Want to learn more about scoping? Read [this article](http://www.2ality.com/2015/02/es6-scoping.html)
 
