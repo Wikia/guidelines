@@ -81,13 +81,13 @@ When accessing the `Ember` object, always use import and object destructuring.
 
 ```javascript
 // bad
-const FooView = Ember.View.extend();
+const FooComponent = Ember.Component.extend();
 
 // good
 import Ember from 'ember';
-const {View} = Ember;
+const {Component} = Ember;
 
-const FooView = View.extend();
+const FooComponent = Component.extend();
 ```
 
 ## Declaring Ember Objects
