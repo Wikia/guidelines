@@ -6,7 +6,7 @@ Our standard package prefix is com.wikia
 
 ## Syntax and Formatting
 
-Wikia follows [Google guidelines](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html)
+Wikia follows [Google guidelines](https://google.github.io/styleguide/javaguide.html)
 
 With following addition:
  - 100 column limit should be used by all projects, with exceptions noted in Google guidelines.
