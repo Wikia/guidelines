@@ -15,6 +15,12 @@ in the repository, and replace it with a symlink to the [`pre-commit`][pre-commi
 script in this directory. The install script MUST be run from the root of the
 git repository where you intend to install these hooks.
 
+### Resolve dependencies
+```sh
+cd /path/to/guidelines/JavaScript
+npm install
+```
+
 Updating
 --------
 
