@@ -243,7 +243,7 @@ that order). Example `/search?q=Foo&offset=50&limit=25`.
 
 ### Versioning
 
-See [APIVersioning](https://github.com/Wikia/guidelines/edit/master/Services/APIVersioning.md).
+See [APIVersioning](https://github.com/Wikia/guidelines/blob/master/Services/APIVersioning.md).
 
 ### Timestamps
 
