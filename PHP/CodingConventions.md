@@ -63,7 +63,7 @@ $foo = [
 	'foo' => 'bar',
 ];
 
-$baz = firstCondition( $foo ) && secondCondition() ?
+$baz = ( firstCondition( $foo ) && secondCondition() ) ?
 	doStuff() :
 	doOtherStuff();
 ```
