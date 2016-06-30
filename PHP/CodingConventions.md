@@ -10,6 +10,7 @@ with your changes and tag [@engineers](https://github.com/orgs/Wikia/teams/engin
 * [Additional Rules](#additional-rules)
   * [Function Length](#function-length)
   * [Line Length](#line-length)
+  * [Multi-line Statements](#multi-line-statements)
   * [Conditional Logic](#conditional-logic)
   * [Array Syntax](#array-syntax)
   * [Type-Checking and Assertions](#type-checking-and-assertions)
@@ -46,6 +47,26 @@ Lines should be limited to 120 characters.  This limit is chosen as a typical ID
 of this guideline is that a developer should not have to scroll horizontally to see the end of a line.
 
 If a single line becomes too long, newlines should be added at appropriate breakpoints.
+
+#### Multi-line Statements
+
+Lines should be broken into logical groups if it improves readability, such as splitting each expression of a ternary operator onto its own line even if both will fit on a single line. If a definition takes up more than one line, declare the variable first and assign its value later.
+```php
+// bad
+$baz = firstCondition( [
+	'foo' => 'bar',
+] ) && secondCondition() ? doStuff() :
+	doOtherStuff();
+
+// good
+$foo = [
+	'foo' => 'bar',
+];
+
+$baz = ( firstCondition( $foo ) && secondCondition() ) ?
+	doStuff() :
+	doOtherStuff();
+```
 
 ### Conditional Logic
 
