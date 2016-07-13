@@ -1,4 +1,6 @@
-# Wikia JavaScript Coding Conventions
+## *Notice*: This Coding Conventions are valid for ES5 and lower. For ES6 and higher see https://github.com/Wikia/javascript-style-guide
+
+# Wikia JavaScript ES5 Coding Conventions
 
 This styleguide defines the JavaScript coding conventions at Wikia. While it is managed by the Front End Coding Conventions Team, it is here to serve the entire JavaScript developer community at Wikia. Therefore, if you would like to propose a change, simply create a pull request and tag [@wikia-frontenders](https://github.com/wikia-frontenders).
 
