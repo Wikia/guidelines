@@ -76,6 +76,7 @@ one of the following remedies should be used:
 * each check should be split onto its own line
 * the single conditional should be split into separate conditionals of two or less checks
 * all checks replaced by a function call
+* the operator separating the two lines may be placed on either the following line or the preceding line. An operator placed on the following line is more visible and so is more often used when the author wants to draw attention to it.
 
 Example:
 
@@ -86,9 +87,9 @@ if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == '
 }
 
 // Good - each check split onto its own line
-if ( F::App()->wg->User->isAllowed( 'edit' ) &&
-     F::App()->wg->Skin->getSkinName() == 'oasis' &&
-     empty( F::app()->wg->NoExternals )
+if ( F::App()->wg->User->isAllowed( 'edit' )
+     && F::App()->wg->Skin->getSkinName() == 'oasis'
+     && empty( F::app()->wg->NoExternals )
    ) {
     // do something
 }
@@ -107,11 +108,9 @@ if ( oasisUserCanEdit() ) {
 }
 
 function oasisUserCanEdit() {
-    return (
-        F::App()->wg->User->isAllowed( 'edit' ) &&
-        F::App()->wg->Skin->getSkinName() == 'oasis' &&
-        empty( F::app()->wg->NoExternals )
-    );
+    return F::App()->wg->User->isAllowed( 'edit' )
+        && F::App()->wg->Skin->getSkinName() == 'oasis'
+        && empty( F::app()->wg->NoExternals );
 }
 
 ```
