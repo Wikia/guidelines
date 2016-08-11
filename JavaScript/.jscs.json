@@ -39,7 +39,7 @@
 	"requireCapitalizedConstructors": true,
 	"safeContextKeyword": "self",
 	"requireDotNotation": true,
-	"validateJSDoc": {
+	"jsDoc": {
 		"checkParamNames": true,
 		"checkRedundantParams": true,
 		"requireParamTypes": true
