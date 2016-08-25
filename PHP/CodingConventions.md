@@ -167,7 +167,7 @@ function doSomething( MyClass $a ) {
 
 ### MediaWiki PHP Style Helper
 
-MediaWiki provides a code formatting helper ([stylize.php](https://git.wikimedia.org/blob/mediawiki%2Ftools%2Fcode-utils.git/master/stylize.php))
+MediaWiki provides a code formatting helper ([stylize.php](https://phabricator.wikimedia.org/diffusion/MCUT/browse/master/stylize.php))
 which is provided via a sub-module in this repo under `mediawiki/tools/code-utils`. To use `stylize.php` on your code before you check in:
 
 ```sh
