@@ -72,7 +72,7 @@ $baz = ( firstCondition( $foo ) && secondCondition() ) ?
 
 Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
 one of the following remedies should be used:
- 
+
 * each check should be split onto its own line
 * the single conditional should be split into separate conditionals of two or less checks
 * all checks replaced by a function call
@@ -82,36 +82,36 @@ Example:
 ```php
 // Bad
 if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
-   // do something
+	// do something
 }
 
 // Good - each check split onto its own line
-if ( F::App()->wg->User->isAllowed( 'edit' ) &&
-     F::App()->wg->Skin->getSkinName() == 'oasis' &&
-     empty( F::app()->wg->NoExternals )
-   ) {
-    // do something
+if ( F::app()->wg->User->isAllowed( 'edit' ) &&
+	F::app()->wg->Skin->getSkinName() == 'oasis' &&
+	empty( F::app()->wg->NoExternals )
+) {
+	// do something
 }
 
 // Good - single conditional split into separate conditionals of two or less checks
-if ( !F::App()->wg->User->isAllowed( 'edit' ) ) {
-    return;
+if ( !F::app()->wg->User->isAllowed( 'edit' ) ) {
+	return;
 }
-if ( F::App()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
-    // do something
+if ( F::app()->wg->Skin->getSkinName() == 'oasis' && empty( F::app()->wg->NoExternals ) {
+	// do something
 }
 
 // Good - checks replaced by a function call
 if ( oasisUserCanEdit() ) {
-    // do something
+	// do something
 }
 
 function oasisUserCanEdit() {
-    return (
-        F::App()->wg->User->isAllowed( 'edit' ) &&
-        F::App()->wg->Skin->getSkinName() == 'oasis' &&
-        empty( F::app()->wg->NoExternals )
-    );
+	return (
+		F::App()->wg->User->isAllowed( 'edit' ) &&
+		F::App()->wg->Skin->getSkinName() == 'oasis' &&
+		empty( F::app()->wg->NoExternals )
+	);
 }
 
 ```
