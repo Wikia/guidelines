@@ -38,6 +38,7 @@ As a developer I want a clear and well documented guide dealing with coding conv
  * [UrlQuotes](#urlquotes)
  * [ZeroUnit](#urlquotes)
 * [Legacy Code](#legacy-code)
+* [Using @mixin vs @extend](#using-@mixin-vs-@extend)
 
 ## Whitespace and Structure
 
@@ -442,8 +443,8 @@ to add it to the
 
 ## SelectorDepth
 
-Don't write selectors with a depth of applicability greater than 4. 
-Note that best practice is actually to limit selector depth to 3, but given the current state of our code base, 4 is a good start. We plan to move down to 3 at a later date. 
+Don't write selectors with a depth of applicability greater than 4.
+Note that best practice is actually to limit selector depth to 3, but given the current state of our code base, 4 is a good start. We plan to move down to 3 at a later date.
 
 **Bad: selectors with depths of 5**
 ```scss
@@ -676,4 +677,102 @@ Zero is zero regardless of units.
 
 Some notes on legacy code:
 * We used to have a concept of "major and minor elements". This was good for encouraging modular widgets and css scoping, however we believe that we can still acheive these goals with the more consistant naming conventions described above.
-* Always leave a file better than you found it. Please run scss-lint on every scss file you touch. 
+* Always leave a file better than you found it. Please run scss-lint on every scss file you touch.
+
+## Using @mixin vs @extend
+
+Both allow to define styles that can be re-used throughout the stylesheet but with few differences in the output.
+
+### Pros and cons
+
+`@mixin`
+ * duplicates **declarations**
+ ```scss
+@mixin center($max-width) {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.foo {
+    @include center(800px);
+}
+
+.bar {
+    @include center(600px);
+}
+
+// compiled CSS
+
+.foo {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.bar {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+ ```
+ * can accept parameters (when it doesn't we can omit the parentheses)
+ ```scss
+ @mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+ }
+ 
+ .container {
+   @include clearfix;
+ }
+ ```
+ * works with `@media` queries
+ * doesn't follow the DRY principle
+
+`@extend`
+ * duplicates, combines and rearranges **selectors**
+ ```scss
+    %placeholder {
+        border-left: thick solid #000;
+        clear: both;
+        margin-top: 20px;
+    }
+    
+    .foo {
+        @extend %placeholder;
+    }
+    
+    .bar {
+        @extend %placeholder;
+        padding: 30px;
+    }
+ 
+    // output CSS
+    
+    .foo, .bar {
+        border-left: thick solid #000;
+        clear: both;
+        margin-top: 20px;
+    }
+    
+    .bar {
+        padding: 30px;
+    }
+  ```
+ * extending can be [optional](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#the__flag) 
+ * extending pseudo classes or nested selectors can result in very long compiled code
+ * `@extend` works best when used with placeholders but in most cases it can be replaced by manually extending selectors
+ * wherever we use `@extend` we can also use `@mixin` (doesn't work the other way)
+ 
+### Conclusion
+
+`@extend`s may seem to produce shorter and faster rendered code but this benefit is diminished when CSS is gzipped. [[source]](https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/)
+
+Extending is invisible. Extending doesn’t necessarily help file weight, contrary to the saying.
+Extending doesn’t work across media queries. Extending is not flexible. Mixins have absolutely no drawback. [[source]](https://www.sitepoint.com/avoid-sass-extend/)
+
+**It is suggested to use `@mixin` in favor of `@extend` to avoid creating unnecessary complexity.**
