@@ -66,9 +66,16 @@ $foo = [
 $baz = ( firstCondition( $foo ) && secondCondition() ) ?
 	doStuff() :
 	doOtherStuff();
+
+// Good - each argument on its own line
+$foo = myFunc( 
+	self::SOME_LONG_CONSTANT,
+	$myArgument,
+	self::ANOTHER_LONG_CONSTANT
+);
 ```
 
-### Conditional Logic
+#### Conditional Logic
 
 Conditional tests should not do more than two checks on a single line.  If a conditional requires more than two checks,
 one of the following remedies should be used:
@@ -86,7 +93,8 @@ if ( F::App()->wg->User->can( 'edit' ) && F::App()->wg->Skin->getSkinName() == '
 }
 
 // Good - each check split onto its own line
-if ( F::app()->wg->User->isAllowed( 'edit' ) &&
+if ( 
+	F::app()->wg->User->isAllowed( 'edit' ) &&
 	F::app()->wg->Skin->getSkinName() == 'oasis' &&
 	empty( F::app()->wg->NoExternals )
 ) {
