@@ -13,5 +13,3 @@ else
   # update ticket only if ticket number was extracted from branch name
   [ -n $TICKET ] && echo "$TICKET" >> $1
 fi
-
-
