@@ -10,8 +10,8 @@ cd path/to/git/repository
 /path/to/guidelines/githooks/install.sh
 ```
 
-The installation script will remove any existing `pre-commit` hook currently
-in the repository, and replace it with a symlink to the [`pre-commit`][pre-commit]
+The installation script will remove any existing `pre-commit` and `commit-msg` hooks currently
+in the repository, and replace it with a symlink to the [`pre-commit`][pre-commit] and [`commit-msg`][commit-msg]
 script in this directory. The install script MUST be run from the root of the
 git repository where you intend to install these hooks.
 
@@ -23,7 +23,7 @@ cd /path/to/guidelines
 git pull
 ```
 
-Since the `pre-commit` script is a symlink to this repository, all common
+Since the `pre-commit` and `commit-msg` scripts are symlinks to this repository, all common
 githooks in the [`githooks/pre-commit.d/`][pre-commit.d] directory will be run.
 Updating the repository is enough to update all of the githooks across all
 repositories using these githooks
@@ -48,6 +48,11 @@ guidelines repository root, and `$REVISION`, which is the git revision
 being diffed against. Examples of filtering the list of files and invoking
 a specific command once per file or over the entire list of filtered files
 in one call can be found in the [`guidelines/githooks/pre-commit.d`][pre-commit.d] directory.
+
+commit-msg hook
+---------------
+This hook ads a feature branch name to every commit. This way JIRA can connect each commit to a ticket.
+Just make sure your branch name starts with something like 'JIRA-1234'
 
 Contributing
 ------------

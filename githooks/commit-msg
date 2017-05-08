@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Check what is a default branch for this repository
+DEFAULT="$(git branch -r --points-at refs/remotes/origin/HEAD | grep '\->' | cut -d' ' -f5 | cut -d/ -f2)"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+# extract ticket number (e.g JIRA-123 -> JIRA-123, JIRA-123-my-branch -> JIRA-123)
+TICKET="$(echo $BRANCH | sed 's/\([A-Z]\{2,5\}\-[0-9]\{1,10\}\)\?\(.*\)/\1/')"
+
+# change commit msg only on feature branches
+if [ "$BRANCH" = "$DEFAULT" ]; then
+  exit 0
+else
+  # update ticket only if ticket number wa
+  [ -n $TICKET ] && echo "$TICKET" >> $1
+fi
+
+
