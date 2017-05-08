@@ -10,7 +10,7 @@ TICKET="$(echo $BRANCH | sed 's/\([A-Z]\{2,5\}\-[0-9]\{1,10\}\)\?\(.*\)/\1/')"
 if [ "$BRANCH" = "$DEFAULT" ]; then
   exit 0
 else
-  # update ticket only if ticket number wa
+  # update ticket only if ticket number was extracted from branch name
   [ -n $TICKET ] && echo "$TICKET" >> $1
 fi
 
