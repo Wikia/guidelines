@@ -10,6 +10,7 @@ Wikia follows [Google guidelines](https://google.github.io/styleguide/javaguide.
 
 With following addition:
  - 100 column limit should be used by all projects, with exceptions noted in Google guidelines.
+ - wildcard import statements should be preferred if you are importing more than three classes from the same package.
 
 ## Coding Conventions
 
