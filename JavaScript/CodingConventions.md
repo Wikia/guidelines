@@ -1,4 +1,4 @@
-## *Notice*: This Coding Conventions are valid for ES5 and lower. For ES6 and higher see https://github.com/Wikia/javascript-style-guide
+## *Notice*: This Coding Conventions are valid for ES5 and lower. For ES6 and higher see [README](./README.md).
 
 # Wikia JavaScript ES5 Coding Conventions
 
