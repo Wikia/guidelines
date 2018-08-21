@@ -1,7 +1,7 @@
 #Javascript Coding Conventions
 
 ##ES6
-We're using a fork of the AirBnB ES6 guidelines, located here: https://github.com/Wikia/javascript-style-guide
+We're using the AirBnB JS guidelines, located here: [https://github.com/airbnb/javascript](https://github.com/airbnb/javascript).
 
 ##ES5
 For ES5 coding conventions see [CodingConventions.md](./CodingConventions.md)
