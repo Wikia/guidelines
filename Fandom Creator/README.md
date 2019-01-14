@@ -1,5 +1,11 @@
 # Fandom Creator Coding Conventions
 
+These coding conventions refer to the [Fandom Creator](https://github.com/Wikia/fandom-creator) repo, owned by the [CaKE](https://wikia-inc.atlassian.net/wiki/spaces/CAKE/overview) team.
+
+* [Fandom Creator Coding Conventions](#fandom-creator-coding-conventions)
+  * [Binding this](#binding-this)
+  * [Static Data Within a Class](#static-data-within-a-class)
+
 ## Binding this
 
 See: [Proposal: JavaScript Binding](https://wikia-inc.atlassian.net/wiki/spaces/CAKE/pages/312344881/Proposal+JavaScript+Binding)
