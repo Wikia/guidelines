@@ -1,3 +1,5 @@
+# JavaScript Guidelines
+
 These coding conventions are for JavaScript inside the Fandom Creator Repo.
 
 ## Table of Contents
