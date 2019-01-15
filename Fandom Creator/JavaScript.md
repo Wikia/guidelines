@@ -2,9 +2,10 @@
 
 These coding conventions are for JavaScript inside the Fandom Creator Repo.
 
-## Table of Contents
-* [Binding this](#binding-this)
-* [Static Data Within a Class](#static-data-within-a-class)
+| Guidleine | Requirement Level |
+| --- | ----------- |
+| [Binding this](#binding-this) | MUST |
+| [Static Data Within a Class](#static-data-within-a-class) | SHOULD |
 
 ## Binding this
 
