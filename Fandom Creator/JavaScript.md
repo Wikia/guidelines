@@ -47,3 +47,23 @@ export default class Toggle extends React.Component {
   }
 }
 ```
+
+## Imports
+
+JS imports should be listed alphabetically, grouped by their source, and separated by a blank line. Source order is: 
+* Imports from `node_modules`
+* Local imports
+* CSS imports
+
+**Example:**
+```
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import { LOGIN_STATES } from 'Constants';
+import { simpleConnect } from 'reducers/reduxHelpers';
+
+import './BaseCard.scss';
+```
+
+Note that alphebatizing is based on the import directory, then file name.
