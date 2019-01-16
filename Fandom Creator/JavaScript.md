@@ -6,6 +6,8 @@ These coding conventions are for JavaScript inside the Fandom Creator Repo.
 | --- | ----------- |
 | [Binding this](#binding-this) | MUST |
 | [Static Data Within a Class](#static-data-within-a-class) | SHOULD |
+| [Instance fields in a class](#instance-fields-in-a-class) | MUST |
+| [Imports](#imports)| SHOULD |
 
 ## Binding this
 
@@ -31,6 +33,28 @@ class Toggle extends React.Component {
       <button onClick={this.handleClick}> {this.renderHelper()} </button>
     );
   }
+}
+```
+
+## Instance fields in a class
+Similar to the public class instance methods, instance fields do not need to be set in the constructor. All instance fields should be initialized in the root of the class. Fields should _always_ be declared as "instance fields" over setting them in the constructor (even when a constructor is required for other reasons). 
+
+```JS
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { stateField: true };
+    this.anotherInstanceField = 'bob';
+  }
+}
+```
+
+would be: 
+
+```JS
+class Toggle extends React.Component {
+  state = { stateField: true };
+  anotherInstanceField = 'bob';
 }
 ```
 
