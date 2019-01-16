@@ -6,6 +6,7 @@ These coding conventions are for JavaScript inside the Fandom Creator Repo.
 | --- | ----------- |
 | [Binding this](#binding-this) | MUST |
 | [Static Data Within a Class](#static-data-within-a-class) | SHOULD |
+| [Prop Types](#prop-types) | SHOULD |
 
 ## Binding this
 
