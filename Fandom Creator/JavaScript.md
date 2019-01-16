@@ -39,6 +39,8 @@ class Toggle extends React.Component {
 ## Instance fields in a class
 Similar to the public class instance methods, instance fields do not need to be set in the constructor. All instance fields should be initialized in the root of the class. Fields should _always_ be declared as "instance fields" over setting them in the constructor (even when a constructor is required for other reasons). 
 
+Babel ultimately transpiles them _nearly_ the same code (https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) Which is a current stage 3 proposal to add to javascript (https://github.com/tc39/proposal-class-fields)  
+
 ```JS
 class Toggle extends React.Component {
   constructor(props) {
