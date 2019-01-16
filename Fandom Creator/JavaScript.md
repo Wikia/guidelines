@@ -70,3 +70,19 @@ import './BaseCard.scss';
 ```
 
 Note that alphebatizing is based on the import directory, then file name.
+
+## Prop Types
+
+PropTypes **SHOULD** be listed at the bottom of every file - where props are made available - before the class export. Regardless of whether it is a React class component or a functional component. Default props **SHOULD** be listed afterwards if required. These **SHOULD** also be listed in alphabetical order.
+
+```
+Nav.propTypes = {
+    height: PropTypes.number,
+};
+
+Nav.defaultProps = {
+    height: 35,
+};
+
+export default Nav;
+```
