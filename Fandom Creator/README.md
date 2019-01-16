@@ -4,3 +4,8 @@ These coding conventions refer to the [Fandom Creator](https://github.com/Wikia/
 
 * [Javascript](JavaScript.md)
 * [SCSS](SCSS.md)
+
+## Contributing
+
+If you'd like to update the guidelines, please submit a PR and tag @wikia/cake. Also mention it in the #cake-team-tech slack channel. 
+
