@@ -74,7 +74,7 @@ Note that alphebatizing is based on the import directory, then file name.
 
 ## React Components
 
-[Proposal](https://github.com/Wikia/guidelines/pull/1360)
+[Proposal](https://github.com/Wikia/guidelines/pull/136)
 
 Our goal when building react components should be to make them small, composable, and reusable. 
 
