@@ -77,6 +77,6 @@ Note that alphebatizing is based on the import directory, then file name.
 Our goal when building react components should be to make them small, composable, and reusable. 
 
 * **SHOULD** [Use Composition over Inheritance](https://reactjs.org/docs/composition-vs-inheritance.html)
-** **SHOULD** Use [hocs](https://reactjs.org/docs/higher-order-components.html) and [render props](https://reactjs.org/docs/render-props.html) to create small reusable components. 
+  * **SHOULD** Use [hocs](https://reactjs.org/docs/higher-order-components.html) and [render props](https://reactjs.org/docs/render-props.html) to create small reusable components. 
 * **SHOULD** avoid refs [React Docs](https://reactjs.org/docs/refs-and-the-dom.html#dont-overuse-refs)
 * **MUST** Use [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) when possible
