@@ -47,6 +47,7 @@ Similar to the public class instance methods, instance fields do not need to be 
 Babel ultimately transpiles them _nearly_ the same code (https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) Which is a current stage 3 proposal to add to javascript (https://github.com/tc39/proposal-class-fields)  
 
 ```JS
+// bad
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
