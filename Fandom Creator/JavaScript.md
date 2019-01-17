@@ -2,20 +2,11 @@
 
 These coding conventions are for JavaScript inside the Fandom Creator Repo.
 
-| Guidleine | Requirement Level |
-| --- | ----------- |
-| [Binding this](#binding-this) | MUST |
-| [Static Data Within a Class](#static-data-within-a-class) | SHOULD |
-| [Instance fields in a class](#instance-fields-in-a-class) | MUST |
-| [Imports](#imports)| SHOULD |
-
 ## Binding this
-
-**Requirement Level:** MUST
 
 See: [Proposal: JavaScript Binding](https://wikia-inc.atlassian.net/wiki/spaces/CAKE/pages/312344881/Proposal+JavaScript+Binding)
 
-Class functions will use the standard ES6 syntax. The public class fields / class arrow method syntax may be used only when binding is necessary.
+Class functions will use the standard ES6 syntax. The public class fields / class arrow method syntax **MUST** be used when binding is necessary.
 
 ```JS
 class Toggle extends React.Component {
@@ -40,9 +31,7 @@ class Toggle extends React.Component {
 
 ## Instance fields in a class
 
-**Requirement Level:** MUST
-
-Similar to the public class instance methods, instance fields do not need to be set in the constructor. All instance fields must be initialized in the root of the class. Fields must be declared as "instance fields" over setting them in the constructor (even when a constructor is required for other reasons). 
+Similar to the public class instance methods, instance fields do not need to be set in the constructor. All instance fields **MUST** be initialized in the root of the class. Fields **MUST** be declared as "instance fields" over setting them in the constructor (even when a constructor is required for other reasons). 
 
 Babel ultimately transpiles them _nearly_ the same code (https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) Which is a current stage 3 proposal to add to javascript (https://github.com/tc39/proposal-class-fields)  
 
@@ -57,8 +46,6 @@ class Toggle extends React.Component {
 }
 ```
 
-would be: 
-
 ```JS
 // good
 class Toggle extends React.Component {
@@ -69,9 +56,7 @@ class Toggle extends React.Component {
 
 ## Static Data Within a Class
 
-**Requirement Level:** SHOULD
-
-Static data within a JS class should live within a const(s) at the top of the file. If needed outside of this class add an export or consider moving it to it's own file.
+Static data within a JS class **SHOULD** live within a const(s) at the top of the file. If needed outside of this class add an export or consider moving it to it's own file.
 
 ```JS
 // add a const object at the top of the file with an optional export if needed
@@ -88,9 +73,7 @@ export default class Toggle extends React.Component {
 
 ## Imports
 
-**Requirement Level:** SHOULD
-
-JS imports should be listed alphabetically, grouped by their source, and separated by a blank line. Source order is: 
+JS imports **SHOULD** be listed alphabetically, grouped by their source, and separated by a blank line. Source order is: 
 * Imports from `node_modules`
 * Local imports
 * CSS imports
