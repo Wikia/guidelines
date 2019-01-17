@@ -31,7 +31,7 @@ class Toggle extends React.Component {
 
 ## Instance fields in a class
 
-PR: https://github.com/Wikia/guidelines/pull/134
+[Proposal](https://github.com/Wikia/guidelines/pull/134)
 
 Similar to the public class instance methods, instance fields do not need to be set in the constructor. All instance fields **MUST** be initialized in the root of the class. Fields **MUST** be declared as "instance fields" over setting them in the constructor (even when a constructor is required for other reasons). 
 
