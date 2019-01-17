@@ -12,6 +12,7 @@ If you'd like to update the guidelines, please submit a PR and tag @wikia/cake. 
 Pull requests should contain a description of the new guideline and a date by which all feedback should be given. Pull requests can be merged on that date as long as: 
 * At least one person has approved the PR or added an "LGTM" (looks good to me) comment
 * All requests for change have been addressed and/or all parties have agreed to disagree.
+* If there are differences in opinion, the majority rules. 
 
 ## Updating legacy code to reflect new guidelines
 
