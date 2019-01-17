@@ -60,6 +60,7 @@ class Toggle extends React.Component {
 would be: 
 
 ```JS
+// good
 class Toggle extends React.Component {
   state = { stateField: true };
   anotherInstanceField = 'bob';
