@@ -9,10 +9,16 @@ These coding conventions refer to the [Fandom Creator](https://github.com/Wikia/
 
 If you'd like to update the guidelines, please submit a PR and tag @wikia/cake. Also mention it in the #cake-team-tech slack channel. 
 
+### Criteria for merging a pull request
+
 Pull requests should contain a description of the new guideline and a date by which all feedback should be given. Pull requests can be merged on that date as long as: 
 * At least one person has approved the PR or added an "LGTM" (looks good to me) comment
 * All requests for change have been addressed and/or all parties have agreed to disagree.
 * If there are differences in opinion, the majority rules. 
+
+### Requirement levels
+
+Please note the requirement level for each guideline, i.e. MUST, SHOULD, or MAY. For definitions of each term, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). 
 
 ## Updating legacy code to reflect new guidelines
 
