@@ -63,11 +63,11 @@ The following is an incomplete snapshot of non-default languages deployed in Wik
 | Language    | Used in…                                          | Status              |
 |-------------|---------------------------------------------------|---------------------|
 | Clojure     | vignette (thumbnailer), poky and casino (Huddler) | sunset              |
-| Javascript* | Parsoid, Mercury server-side components           | actively developed  |
+| Javascript* | Discussions FE, Announcements FE, F&P             | actively developed  |
 | Typescript  | Ad Engine, Silver Surfer.                         | actively developed  |
 | Ruby        | Chef scripting, analytics UI                      | actively developed  |
 | Go          | Helios (auth  server)                             | baing phased out    |
-| Scala       | Phalanx                                           | sunset.             |
+| Scala       | Phalanx                                           | sunset              |
 | Ruby        | Analytics UI (Data Eng)                           | being phased out    |
 | Perl        | Various legacy scripts                            | maintenance only    |
 
