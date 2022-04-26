@@ -2,7 +2,7 @@
 
 All code should be developed for, and compiled with Java 17.
 
-Our standard package prefix is com.wikia
+Our standard package prefix is com.fandom
 
 ## Syntax and Formatting
 
