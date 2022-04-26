@@ -1,6 +1,6 @@
 # Fandom's Java Coding Guidelines
 
-All code should be developed for, and compiled with Java 11.
+All code should be developed for, and compiled with Java 17.
 
 Our standard package prefix is com.wikia
 
