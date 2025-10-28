@@ -1,2 +1,2 @@
 ## Links
-* http://wikia-inc.atlassian.net/browse/<ticket>
+* https://fandom.atlassian.net/browse/
